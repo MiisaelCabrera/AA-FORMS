@@ -1,0 +1,155 @@
+header {
+    background-color: #115089;
+    padding: 30px 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}	
+
+header img {
+    height: 100px;
+}
+
+h2{
+    font-weight: 600 ;
+    margin: 10px 0px;
+    font-size: 20px;
+    color: black;
+    line-height: 1.25;
+}
+
+.cuestionario{
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+.nav-link{
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    padding: 1px 3px;
+    font-size: 14px; 
+    line-height: 20px;
+    color: rgb(75 85 99);
+    font-weight: 500;
+    transition-timing-function: ease-in-out;
+    transition: all;
+    transition-duration: 150;
+
+}
+
+.nav-link:focus{
+    outline: none;
+}
+
+.nav-link:hover{
+    color: rgb(55 65 81);
+    border-bottom: 2px solid rgb(209 213 219);;
+}
+
+.active{
+    border-bottom: 2px solid #115089;
+    color: rgb(17 24 39);
+}
+
+.active:hover{
+    color: rgb(17 24 39);
+    border-bottom: 2px solid #115089;
+}
+
+
+.question-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.question-block label{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+
+.question-block input{
+    margin: 5px 0px 10px 0px;
+    padding: 10px;
+    border: 1px solid #115089;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.question-block select{
+    margin: 5px 0px 10px 0px;
+    padding: 10px;
+    border: 1px solid #115089;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.question-block input:disabled{
+    background-color: #f2f2f2;
+}
+
+.question-block input[type="file"]{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0px;
+    cursor: pointer;
+    border:none;
+}
+
+.question-block input[type="file"]::-webkit-file-upload-button {
+    background-color: transparent;
+    color: #115089;
+    color: #115089;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.question-block input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #115089;
+    color: white;
+}
+
+ input:focus{
+    outline: none;
+}
+
+
+
+ button.submit{
+    background-color: #115089;
+    color: white;
+    margin: 20px 0px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+button.submit:hover{
+    background-color: #0d3b66;
+}
+
+td{
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+th{
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0px 20px 0px;
+}
