@@ -6,7 +6,8 @@
 
 
     <!-- Formulario -->
-    <form {{-- action="{{ route('infraestructura.store') }}" --}} method="post" class="cuestionario" enctype="multipart/form-data">
+    <form action="{{ route('enviroment.store') }}" method="POST" class="cuestionario" id='cuestionario'
+        enctype="multipart/form-data">
         @csrf
 
         <!-- Preguntas del cuestionario-->
@@ -25,6 +26,9 @@
             ])
         @endforeach
 
+        <input type="number" style="display: none" value="{{ $totalArea }}" id="total_area">
+        <input type="number" style="display: none" value="{{ $totalGround }}" id="total_ground">
+
         <button type="submit" class="submit">Enviar</button>
     </form>
 @endsection
@@ -37,71 +41,97 @@
 <script>
     $(document).ready(function() {
 
-        $('#area_total').on('change', () => {
-            console.log('change');
-            calculatePercentageOpenSpaces();
-            calculatePercentageForestVegetation();
-            calculatePercentagePlantedVegetation();
-            calculatePercentageWaterAbsorption();
-            calculatePercentageBuildingMaintenance();
-        });
 
-        $('#area_ground_floor').on('change', () => {
-            calculatePercentageOpenSpaces();
-        });
 
-        $('#area_forest_vegetation').on('change', () => {
-            calculatePercentageForestVegetation();
+        $('#number_academic_staff__a').on('change', () => {
+            calculatePoblationIndex();
         });
-
-        $('#area_planted_vegetation').on('change', () => {
-            calculatePercentagePlantedVegetation();
+        $('#number_administrative_staff__a').on('change', () => {
+            calculatePoblationIndex();
         });
-
-        $('#area_water_absorption').on('change', () => {
-            calculatePercentageWaterAbsorption();
+        $('#number_students__a').on('change', () => {
+            calculatePoblationIndex();
         });
-
-        $('#area_building_maintenance').on('change', () => {
-            calculatePercentageBuildingMaintenance();
+        $('#budget_sustainability__a').on('change', () => {
+            calculatePoblationIndex();
         });
 
 
-        function calculatePercentageOpenSpaces() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_ground_floor = parseFloat($("#area_ground_floor").val());
-            const percentage_open_spaces = ((area_total - area_ground_floor) / area_total) * 100;
-            $("#percentage_open_spaces").val(percentage_open_spaces);
+        $('#total_budget__a').on('change', () => {
+            sustainBudget();
+        });
+        $('#total_budget__b').on('change', () => {
+            sustainBudget();
+        });
+        $('#total_budget__c').on('change', () => {
+            sustainBudget();
+        });
+        $('#budget_sustainability__a').on('change', () => {
+            sustainBudget();
+        });
+        $('#budget_sustainability__b').on('change', () => {
+            sustainBudget();
+        });
+        $('#budget_sustainability__c').on('change', () => {
+            sustainBudget();
+        });
+
+
+        function sustainBudget() {
+
+            const promedio = (promedio2() / promedio1());;
+            $("#percentage_budget_sustainability").val(promedio);
         }
 
-        function calculatePercentageForestVegetation() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_forest_vegetation = parseFloat($("#area_forest_vegetation").val());
-            const percentage_forest_vegetation = (area_forest_vegetation / area_total) * 100;
-            $("#percentage_forest_vegetation").val(percentage_forest_vegetation);
+
+        function promedio1() {
+            const y2021 = parseFloat($("#total_budget__a").val());
+            const y2022 = parseFloat($("#total_budget__b").val());
+            const y2023 = parseFloat($("#total_budget__c").val());
+
+            var promedio = (y2021 + y2022 + y2023) / 3;
+            return promedio;
         }
 
-        function calculatePercentagePlantedVegetation() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_planted_vegetation = parseFloat($("#area_planted_vegetation").val());
-            const percentage_planted_vegetation = (area_planted_vegetation / area_total) * 100;
-            $("#percentage_planted_vegetation").val(percentage_planted_vegetation);
+        function promedio2() {
+            const y2021 = parseFloat($("#budget_sustainability__a").val());
+            const y2022 = parseFloat($("#budget_sustainability__b").val());
+            const y2023 = parseFloat($("#budget_sustainability__c").val());
+
+            var promedio = (y2021 + y2022 + y2023) / 3;
+            return promedio;
         }
 
-        function calculatePercentageWaterAbsorption() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_water_absorption = parseFloat($("#area_water_absorption").val());
-            const percentage_water_absorption = (area_water_absorption / area_total) * 100;
-            $("#percentage_water_absorption").val(percentage_water_absorption);
+
+
+        function calculatePoblationIndex() {
+            const total_alumnos = parseFloat($("#number_students__a").val());
+            const total_academicos = parseFloat($("#number_academic_staff__a").val());
+            const total_administrativos = parseFloat($("#number_administrative_staff__a").val());
+            const total_ground = parseFloat($("#total_ground").val());
+            const total_area = parseFloat($("#total_area").val());
+            const value = ((total_area - total_ground) / (total_academicos + total_administrativos +
+                total_alumnos)) * 100;
+            $("#population_index_open_spaces").val(value);
         }
 
-        function calculatePercentageBuildingMaintenance() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_building_maintenance = parseFloat($("#area_building_maintenance").val());
-            const percentage_building_maintenance = (area_building_maintenance / area_total) * 100;
-            $("#percentage_building_maintenance").val(percentage_building_maintenance);
-        }
 
+        $("#cuestionario").submit(function(e) {
+            $('input').prop('disabled', false);
+            var formData = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: formData,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(response) {
+
+                },
+            });
+
+        });
 
     })
 </script>

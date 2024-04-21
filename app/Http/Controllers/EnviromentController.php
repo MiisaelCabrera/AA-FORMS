@@ -17,6 +17,22 @@ class EnviromentController extends Controller
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'enviroment')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
+        $area = Answer::where('entity_id', auth()->user()->entity_id)
+            ->where('question_id', 2)
+            ->get();
+
+        $ground = Answer::where('entity_id', auth()->user()->entity_id)
+            ->where('question_id', 4)
+            ->get();
+
+        $totalArea = 0;
+        $totalGround = 0;
+        if ($area->count() != 0) {
+            $totalArea = $area[0]->answer;
+        }
+        if ($ground->count() != 0) {
+            $totalGround = $ground[0]->answer;
+        }
 
         $multiinputs = [];
 
@@ -31,7 +47,9 @@ class EnviromentController extends Controller
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)
             ->with('questions', $questions)
-            ->with('multiinputs', $multiinputs);
+            ->with('multiinputs', $multiinputs)
+            ->with('totalArea', $totalArea)
+            ->with('totalGround', $totalGround);
     }
 
     function store(Request $request)
@@ -40,8 +58,7 @@ class EnviromentController extends Controller
         $inputs = $request->except('_token');
 
 
-
-        $currentCategory = Category::where('controller', 'infraestructure')->first();
+        $currentCategory = Category::where('controller', 'enviroment')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get()->toArray();
         $entity = Entity::find(auth()->user()->entity_id);
 
@@ -68,7 +85,7 @@ class EnviromentController extends Controller
                 $answer->save();
             } else {
                 $name = str_replace('_evidence', "", $key);
-                $found_key = array_search($name, array_column($questions, 'name')) - 1;
+                $found_key = array_search($name, array_column($questions, 'name'));
                 $questionNumber = $questions[$found_key]['number'];
                 $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
                 $file = $request->file($key);

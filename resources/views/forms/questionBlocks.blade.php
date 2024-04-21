@@ -77,9 +77,9 @@
                         @if ($matrix[$i][$j]->type == 'heading')
                             <th>{{ $matrix[$i][$j]->text }}</th>
                         @elseif ($matrix[$i][$j]->type == 'radio')
-                            <td><input type="radio" name="{{ $matrix[$i][1]->name }}"
-                                    id="{{ $matrix[$i][1]->name . $j }}" value="{{ $matrix[1][$j]->name }}"
-                                    {{ $question->required ? 'required' : '' }} />
+                            <td><input type="radio" name="{{ $question->name . '__' . $matrix[$i][1]->name }}"
+                                    id="{{ $question->name . '__' . $matrix[$i][1]->name }}"
+                                    value="{{ $matrix[1][$j]->name }}" {{ $question->required ? 'required' : '' }} />
                             </td>
                         @endif
                     @endfor
@@ -113,8 +113,9 @@
                         @if ($matrix[$i][$j]->type == 'heading')
                             <th>{{ $matrix[$i][$j]->text }}</th>
                         @elseif ($matrix[$i][$j]->type == 'integer')
-                            <td style="padding: 0%"><input type="number" name="{{ $matrix[$i][1]->name }}"
-                                    id="{{ $matrix[$i][1]->name . '_' . $j }}"
+                            <td style="padding: 0%"><input type="number"
+                                    name="{{ $question->name . '__' . $matrix[$i][1]->name }}"
+                                    id="{{ $question->name . '__' . $matrix[$i][1]->name . '_' . $j - 1 }}"
                                     style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;"
                                     {{ $question->required ? 'required' : '' }}
                                     {{ stripos($matrix[$i][1]->name, 'sumatory') === false ? '' : 'disabled' }} />
@@ -154,7 +155,7 @@
                             <td style="padding: 0%"><input type="checkbox" name="{{ $question->name . '_' . $i }}"
                                     id="{{ $question->name . '_' . $i }}"
                                     style="width: 80%; text-align: center; height: 100%; margin: 0; outline:none; border: 0;"
-                                    value="{{ $matrix[$i][1]->name }}" {{ $question->required ? 'required' : '' }} />
+                                    value="{{ $matrix[$i][1]->name }}" />
                             </td>
                         @endif
                     @endfor

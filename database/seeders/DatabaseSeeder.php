@@ -1274,7 +1274,6 @@ class DatabaseSeeder extends Seeder
                 'number' => 13,
                 'category_id' => 2,
                 'type' => 'textarea',
-                'required' => true,
                 'needsEvidence' => true,
             ]);
         }
@@ -1301,7 +1300,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'fridge',
+                        'name' => 'a',
                         'text' => 'Refirgerador',
                         'question_id' => 29,
                         'x' => 1,
@@ -1309,7 +1308,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'microwave',
+                        'name' => 'b',
                         'text' => 'Horno de microondas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1317,7 +1316,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_oven',
+                        'name' => 'c',
                         'text' => 'Horno eléctrico',
                         'question_id' => 29,
                         'x' => 1,
@@ -1325,7 +1324,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'blender',
+                        'name' => 'd',
                         'text' => 'Licuadora',
                         'question_id' => 29,
                         'x' => 1,
@@ -1333,7 +1332,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_heater',
+                        'name' => 'e',
                         'text' => 'Calentador de agua',
                         'question_id' => 29,
                         'x' => 1,
@@ -1341,7 +1340,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'gas_stove',
+                        'name' => 'f',
                         'text' => 'Estufa de gas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1349,7 +1348,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric-stove',
+                        'name' => 'g',
                         'text' => 'Estufa eléctrica',
                         'question_id' => 29,
                         'x' => 1,
@@ -1357,7 +1356,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'grill',
+                        'name' => 'h',
                         'text' => 'Parrillas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1365,7 +1364,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'washer',
+                        'name' => 'i',
                         'text' => 'Lavadoras',
                         'question_id' => 29,
                         'x' => 1,
@@ -1373,7 +1372,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'gas_dryer',
+                        'name' => 'j',
                         'text' => 'Secadora de gas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1381,7 +1380,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_dryer',
+                        'name' => 'k',
                         'text' => 'Secadora eléctrica',
                         'question_id' => 29,
                         'x' => 1,
@@ -1389,7 +1388,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'iron',
+                        'name' => 'l',
                         'text' => 'plancha',
                         'question_id' => 29,
                         'x' => 1,
@@ -1397,7 +1396,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'dishwasher',
+                        'name' => 'm',
                         'text' => 'Lavavajiilas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1405,7 +1404,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'tv',
+                        'name' => 'n',
                         'text' => 'television',
                         'question_id' => 29,
                         'x' => 1,
@@ -1413,7 +1412,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'monitor',
+                        'name' => 'o',
                         'text' => 'Monitores y/o pantallas',
                         'question_id' => 29,
                         'x' => 1,
@@ -1421,7 +1420,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'desktop_computers',
+                        'name' => 'p',
                         'text' => 'Computadoras de escritorio',
                         'question_id' => 29,
                         'x' => 1,
@@ -1429,7 +1428,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'laptop',
+                        'name' => 'q',
                         'text' => 'Laptops',
                         'question_id' => 29,
                         'x' => 1,
@@ -1437,7 +1436,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'fan',
+                        'name' => 'r',
                         'text' => 'Ventiladores',
                         'question_id' => 29,
                         'x' => 1,
@@ -1445,7 +1444,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'air_conditioner',
+                        'name' => 's',
                         'text' => 'Aire acondicionado',
                         'question_id' => 29,
                         'x' => 1,
@@ -1453,7 +1452,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'heater',
+                        'name' => 't',
                         'text' => 'Calefacción',
                         'question_id' => 29,
                         'x' => 1,
@@ -1461,7 +1460,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'projector_acetate',
+                        'name' => 'u',
                         'text' => 'Proyectores de acetato',
                         'question_id' => 29,
                         'x' => 1,
@@ -1469,7 +1468,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'projector',
+                        'name' => 'v',
                         'text' => 'Proyectores',
                         'question_id' => 29,
                         'x' => 1,
@@ -1477,7 +1476,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'copier',
+                        'name' => 'w',
                         'text' => 'Copiadoras',
                         'question_id' => 29,
                         'x' => 1,
@@ -1485,7 +1484,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'telephone',
+                        'name' => 'x',
                         'text' => 'Teléfono',
                         'question_id' => 29,
                         'x' => 1,
@@ -1493,7 +1492,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'radio',
+                        'name' => 'y',
                         'text' => 'Radios',
                         'question_id' => 29,
                         'x' => 1,
@@ -1501,7 +1500,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'coffee_maker',
+                        'name' => 'z',
                         'text' => 'Cafeteras',
                         'question_id' => 29,
                         'x' => 1,
@@ -1509,7 +1508,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'laminar_flow_cabinet',
+                        'name' => 'A',
                         'text' => 'Campana de flujo laminar',
                         'question_id' => 29,
                         'x' => 1,
@@ -1517,7 +1516,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'communication_sites',
+                        'name' => 'B',
                         'text' => 'Sites de comunicaciones',
                         'question_id' => 29,
                         'x' => 1,
@@ -1525,7 +1524,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'lab_equipment_110v',
+                        'name' => 'C',
                         'text' => 'Equipos de laboratorio de 110v',
                         'question_id' => 29,
                         'x' => 1,
@@ -1533,7 +1532,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'lab_equipment_200v',
+                        'name' => 'D',
                         'text' => 'Equipos de laboratorio de 200v',
                         'question_id' => 29,
                         'x' => 1,
@@ -1542,7 +1541,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sound_equipment',
+                        'name' => 'E',
                         'text' => 'Equipos de sonifo',
                         'question_id' => 29,
                         'x' => 1,
@@ -1551,7 +1550,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'tablet',
+                        'name' => 'F',
                         'text' => 'Tablets',
                         'question_id' => 29,
                         'x' => 1,
@@ -1560,7 +1559,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'cellphone',
+                        'name' => 'G',
                         'text' => 'Celulares',
                         'question_id' => 29,
                         'x' => 1,
@@ -1569,7 +1568,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'illumination',
+                        'name' => 'H',
                         'text' => 'Iluminación (bombillas, lámparas, etc.)',
                         'question_id' => 29,
                         'x' => 1,
@@ -1577,7 +1576,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_generators',
+                        'name' => 'I',
                         'text' => 'Generadores eléctricos',
                         'question_id' => 29,
                         'x' => 1,
@@ -1585,7 +1584,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'others',
+                        'name' => 'J',
                         'text' => 'Otros',
                         'question_id' => 29,
                         'x' => 1,
@@ -1593,7 +1592,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_31',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 29,
                         'x' => 1,
@@ -1633,7 +1632,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'fridge',
+                        'name' => 'a',
                         'text' => 'Refirgerador',
                         'question_id' => 30,
                         'x' => 1,
@@ -1641,7 +1640,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'microwave_1',
+                        'name' => 'b',
                         'text' => 'Horno de microondas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1649,7 +1648,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_oven_1',
+                        'name' => 'c',
                         'text' => 'Horno eléctrico',
                         'question_id' => 30,
                         'x' => 1,
@@ -1657,7 +1656,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'blender_1',
+                        'name' => 'd',
                         'text' => 'Licuadora',
                         'question_id' => 30,
                         'x' => 1,
@@ -1665,7 +1664,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_heater_1',
+                        'name' => 'e',
                         'text' => 'Calentador de agua',
                         'question_id' => 30,
                         'x' => 1,
@@ -1673,7 +1672,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'gas_stove_1',
+                        'name' => 'f',
                         'text' => 'Estufa de gas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1681,7 +1680,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric-stove_1',
+                        'name' => 'g',
                         'text' => 'Estufa eléctrica',
                         'question_id' => 30,
                         'x' => 1,
@@ -1689,7 +1688,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'grill_1',
+                        'name' => 'h',
                         'text' => 'Parrillas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1697,7 +1696,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'washer_1',
+                        'name' => 'i',
                         'text' => 'Lavadoras',
                         'question_id' => 30,
                         'x' => 1,
@@ -1705,7 +1704,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'gas_dryer_1',
+                        'name' => 'j',
                         'text' => 'Secadora de gas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1713,7 +1712,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_dryer_1',
+                        'name' => 'k',
                         'text' => 'Secadora eléctrica',
                         'question_id' => 30,
                         'x' => 1,
@@ -1721,7 +1720,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'iron_1',
+                        'name' => 'l',
                         'text' => 'plancha',
                         'question_id' => 30,
                         'x' => 1,
@@ -1729,7 +1728,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'dishwasher_1',
+                        'name' => 'm',
                         'text' => 'Lavavajiilas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1737,7 +1736,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'tv_1',
+                        'name' => 'n',
                         'text' => 'television',
                         'question_id' => 30,
                         'x' => 1,
@@ -1745,7 +1744,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'monitor_1',
+                        'name' => 'o',
                         'text' => 'Monitores y/o pantallas',
                         'question_id' => 30,
                         'x' => 1,
@@ -1753,7 +1752,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'desktop_computers_1',
+                        'name' => 'p',
                         'text' => 'Computadoras de escritorio',
                         'question_id' => 30,
                         'x' => 1,
@@ -1761,7 +1760,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'laptop_1',
+                        'name' => 'q',
                         'text' => 'Laptops',
                         'question_id' => 30,
                         'x' => 1,
@@ -1769,7 +1768,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'fan_1',
+                        'name' => 'r',
                         'text' => 'Ventiladores',
                         'question_id' => 30,
                         'x' => 1,
@@ -1777,7 +1776,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'air_conditioner_1',
+                        'name' => 's',
                         'text' => 'Aire acondicionado',
                         'question_id' => 30,
                         'x' => 1,
@@ -1785,7 +1784,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'heater_1',
+                        'name' => 't',
                         'text' => 'Calefacción',
                         'question_id' => 30,
                         'x' => 1,
@@ -1793,7 +1792,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'projector_acetate_1',
+                        'name' => 'u',
                         'text' => 'Proyectores de acetato',
                         'question_id' => 30,
                         'x' => 1,
@@ -1801,7 +1800,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'projector_1',
+                        'name' => 'v',
                         'text' => 'Proyectores',
                         'question_id' => 30,
                         'x' => 1,
@@ -1809,7 +1808,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'copier_1',
+                        'name' => 'w',
                         'text' => 'Copiadoras',
                         'question_id' => 30,
                         'x' => 1,
@@ -1817,7 +1816,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'telephone_1',
+                        'name' => 'x',
                         'text' => 'Teléfono',
                         'question_id' => 30,
                         'x' => 1,
@@ -1825,7 +1824,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'radio_1',
+                        'name' => 'y',
                         'text' => 'Radios',
                         'question_id' => 30,
                         'x' => 1,
@@ -1833,7 +1832,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'coffee_maker_1',
+                        'name' => 'z',
                         'text' => 'Cafeteras',
                         'question_id' => 30,
                         'x' => 1,
@@ -1841,7 +1840,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'laminar_flow_cabinet_1',
+                        'name' => 'A',
                         'text' => 'Campana de flujo laminar',
                         'question_id' => 30,
                         'x' => 1,
@@ -1849,7 +1848,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'communication_sites_1',
+                        'name' => 'B',
                         'text' => 'Sites de comunicaciones',
                         'question_id' => 30,
                         'x' => 1,
@@ -1857,7 +1856,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'lab_equipment_110v_1',
+                        'name' => 'C',
                         'text' => 'Equipos de laboratorio de 110v',
                         'question_id' => 30,
                         'x' => 1,
@@ -1865,7 +1864,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'lab_equipment_200v_1',
+                        'name' => 'D',
                         'text' => 'Equipos de laboratorio de 200v',
                         'question_id' => 30,
                         'x' => 1,
@@ -1874,7 +1873,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sound_equipment_1',
+                        'name' => 'E',
                         'text' => 'Equipos de sonifo',
                         'question_id' => 30,
                         'x' => 1,
@@ -1883,7 +1882,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'tablet_1',
+                        'name' => 'F',
                         'text' => 'Tablets',
                         'question_id' => 30,
                         'x' => 1,
@@ -1892,7 +1891,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'cellphone_1',
+                        'name' => 'G',
                         'text' => 'Celulares',
                         'question_id' => 30,
                         'x' => 1,
@@ -1901,7 +1900,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'illumination_1',
+                        'name' => 'H',
                         'text' => 'Iluminación (bombillas, lámparas, etc.)',
                         'question_id' => 30,
                         'x' => 1,
@@ -1909,7 +1908,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electric_generators_1',
+                        'name' => 'I',
                         'text' => 'Generadores eléctricos',
                         'question_id' => 30,
                         'x' => 1,
@@ -1917,7 +1916,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'others_1',
+                        'name' => 'J',
                         'text' => 'Otros',
                         'question_id' => 30,
                         'x' => 1,
@@ -1925,7 +1924,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_32',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 30,
                         'x' => 1,
@@ -1990,7 +1989,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'solar',
+                        'name' => 'a',
                         'text' => 'Solar',
                         'question_id' => 34,
                         'x' => 1,
@@ -1998,7 +1997,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'eolic',
+                        'name' => 'b',
                         'text' => 'Eólica',
                         'question_id' => 34,
                         'x' => 1,
@@ -2006,7 +2005,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biomass',
+                        'name' => 'c',
                         'text' => 'Biomasa',
                         'question_id' => 34,
                         'x' => 1,
@@ -2014,7 +2013,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biogas',
+                        'name' => 'd',
                         'text' => 'Biogas',
                         'question_id' => 34,
                         'x' => 1,
@@ -2022,7 +2021,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'hydroelectric',
+                        'name' => 'e',
                         'text' => 'Hidroeléctrica',
                         'question_id' => 34,
                         'x' => 1,
@@ -2030,7 +2029,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'geothermal',
+                        'name' => 'f',
                         'text' => 'Geotérmica',
                         'question_id' => 34,
                         'x' => 1,
@@ -2038,7 +2037,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biofuels',
+                        'name' => 'g',
                         'text' => 'Biocomustibles',
                         'question_id' => 34,
                         'x' => 1,
@@ -2046,7 +2045,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_36',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 34,
                         'x' => 1,
@@ -2085,7 +2084,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'solar_1',
+                        'name' => 'a',
                         'text' => 'Solar',
                         'question_id' => 35,
                         'x' => 1,
@@ -2093,7 +2092,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'eolic_1',
+                        'name' => 'b',
                         'text' => 'Eólica',
                         'question_id' => 35,
                         'x' => 1,
@@ -2101,7 +2100,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biomass_1',
+                        'name' => 'c',
                         'text' => 'Biomasa',
                         'question_id' => 35,
                         'x' => 1,
@@ -2109,7 +2108,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biogas_1',
+                        'name' => 'd',
                         'text' => 'Biogas',
                         'question_id' => 35,
                         'x' => 1,
@@ -2117,7 +2116,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'hydroelectric_1',
+                        'name' => 'e',
                         'text' => 'Hidroeléctrica',
                         'question_id' => 35,
                         'x' => 1,
@@ -2125,7 +2124,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'geothermal_1',
+                        'name' => 'f',
                         'text' => 'Geotérmica',
                         'question_id' => 35,
                         'x' => 1,
@@ -2133,7 +2132,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'biofuels_1',
+                        'name' => 'g',
                         'text' => 'Biocomustibles',
                         'question_id' => 35,
                         'x' => 1,
@@ -2141,7 +2140,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_37',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 35,
                         'x' => 1,
@@ -2180,7 +2179,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'natural_ventilation',
+                        'name' => 'a',
                         'text' => 'Ventilación natural',
                         'question_id' => 36,
                         'x' => 1,
@@ -2188,7 +2187,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'total_natural_illumination',
+                        'name' => 'b',
                         'text' => 'Iluinación natural total',
                         'question_id' => 36,
                         'x' => 1,
@@ -2196,7 +2195,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'energy_manager',
+                        'name' => 'c',
                         'text' => 'Administrador de energía del edificio',
                         'question_id' => 36,
                         'x' => 1,
@@ -2204,7 +2203,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_38',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 36,
                         'x' => 1,
@@ -2333,7 +2332,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'risk',
+                        'name' => 'a',
                         'text' => 'Riesgo',
                         'question_id' => 38,
                         'x' => 1,
@@ -2341,7 +2340,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'impacts',
+                        'name' => 'b',
                         'text' => 'Impactos',
                         'question_id' => 38,
                         'x' => 1,
@@ -2349,7 +2348,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'mitigation',
+                        'name' => 'c',
                         'text' => 'Mitigación',
                         'question_id' => 38,
                         'x' => 1,
@@ -2357,7 +2356,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'adaptation',
+                        'name' => 'd',
                         'text' => 'Adaptación',
                         'question_id' => 38,
                         'x' => 1,
@@ -2365,7 +2364,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reduction',
+                        'name' => 'e',
                         'text' => 'Reducción de impactos',
                         'question_id' => 38,
                         'x' => 1,
@@ -2373,7 +2372,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'early_warning',
+                        'name' => 'f',
                         'text' => 'Alerta temprana del cambio climático',
                         'question_id' => 38,
                         'x' => 1,
@@ -2445,7 +2444,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => ' smart_health',
+                        'name' => ' a',
                         'text' => 'Sistema inteligente de salud y confort interior',
                         'question_id' => 39,
                         'x' => 1,
@@ -2453,7 +2452,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'energy_focus',
+                        'name' => 'b',
                         'text' => 'Nuevo enfoque energético',
                         'question_id' => 39,
                         'x' => 1,
@@ -2461,7 +2460,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'solutions',
+                        'name' => 'c',
                         'text' => 'Nuevas soluciones a los problemas de mitigación del cambio climático',
                         'question_id' => 39,
                         'x' => 1,
@@ -2469,7 +2468,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'other_311',
+                        'name' => 'd',
                         'text' => 'Otros',
                         'question_id' => 39,
                         'x' => 1,
@@ -2477,7 +2476,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_311',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 39,
                         'x' => 1,
@@ -2524,7 +2523,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => ' central_heating',
+                        'name' => ' a',
                         'text' => 'Calefacción central',
                         'question_id' => 41,
                         'x' => 1,
@@ -2532,7 +2531,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'kitchen',
+                        'name' => 'b',
                         'text' => 'Cocina',
                         'question_id' => 41,
                         'x' => 1,
@@ -2540,7 +2539,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'labotatories',
+                        'name' => 'c',
                         'text' => 'Laboratorios (quemadores, hornos, calentadores)',
                         'question_id' => 41,
                         'x' => 1,
@@ -2548,7 +2547,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_heaters',
+                        'name' => 'd',
                         'text' => 'Calentadores de agua',
                         'question_id' => 41,
                         'x' => 1,
@@ -2556,7 +2555,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'other_313',
+                        'name' => 'e',
                         'text' => 'Otros',
                         'question_id' => 41,
                         'x' => 1,
@@ -2565,7 +2564,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sumatory_311',
+                        'name' => 'sumatory',
                         'text' => 'Sumatoria',
                         'question_id' => 41,
                         'x' => 1,
@@ -2589,7 +2588,6 @@ class DatabaseSeeder extends Seeder
                 'number' => 14,
                 'category_id' => 3,
                 'type' => 'textarea',
-                'required' => true,
                 'needsEvidence' => true,
             ]);
 
