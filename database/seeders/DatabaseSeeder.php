@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Entorno',
                 'controller' => 'enviroment',
                 'number' => 2,
-                'description' => 'La información sobre el entorç`p de la entidad proporcionará información básica sobre la consideración de la universidad sobre un entorno verde. Este indicador también muestra si alguna entidad merece ser llamada Entidad Verde. El objetivo es animar la universidad a conservar y proporcionar más espacios verdes y salvaguardar el medio ambiente, así como el desarrollo de energías sostenibles.'
+                'description' => 'La información sobre el entorno de la entidad proporcionará información básica sobre la consideración de la universidad sobre un entorno verde. Este indicador también muestra si alguna entidad merece ser llamada Entidad Verde. El objetivo es animar la universidad a conservar y proporcionar más espacios verdes y salvaguardar el medio ambiente, así como el desarrollo de energías sostenibles.'
             ]);
             Category::factory()->create([
                 'name' => 'Energía y cambio climático',
@@ -598,7 +598,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
             Question::factory()->create([
-                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato excel (.xls) y etiquetelo con la clave 2.6.',
+                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato excel (.xls) y etiquételo con la clave 2.6.',
                 'name' => 'total_budget',
                 'number' => 6,
                 'category_id' => 2,
@@ -747,7 +747,7 @@ class DatabaseSeeder extends Seeder
 
 
             Question::factory()->create([
-                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.9.',
+                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato word (.doc) y etiquétalo con la clave 2.9.',
                 'name' => 'facilities_state',
                 'number' => 9,
                 'category_id' => 2,
@@ -1301,7 +1301,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'a',
-                        'text' => 'Refirgerador',
+                        'text' => 'Refrigerador',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 2,
@@ -1389,7 +1389,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'l',
-                        'text' => 'plancha',
+                        'text' => 'Plancha',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 13,
@@ -1397,7 +1397,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'm',
-                        'text' => 'Lavavajiilas',
+                        'text' => 'Lavavajillas',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 14,
@@ -1405,7 +1405,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'n',
-                        'text' => 'television',
+                        'text' => 'Television',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 15,
@@ -1633,7 +1633,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'a',
-                        'text' => 'Refirgerador',
+                        'text' => 'Refrigerador',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 2,
@@ -1721,7 +1721,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'l',
-                        'text' => 'plancha',
+                        'text' => 'Plancha',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 13,
@@ -1729,7 +1729,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'm',
-                        'text' => 'Lavavajiilas',
+                        'text' => 'Lavavajillas',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 14,
@@ -1737,7 +1737,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'n',
-                        'text' => 'television',
+                        'text' => 'Television',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 15,
@@ -1874,7 +1874,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'E',
-                        'text' => 'Equipos de sonifo',
+                        'text' => 'Equipos de sonido',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 32,
@@ -2700,7 +2700,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'regulated_substances_adquisition',
-                        'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores que cuenten con sus permisos',
+                        'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con proveedores que cuenten con sus permisos',
                         'question_id' => 44,
                         'x' => 1,
                         'y' => 9,
@@ -2708,7 +2708,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'regulated_substances_adquisition_2',
-                        'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores ambientalmente responsables',
+                        'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con proveedores ambientalmente responsables',
                         'question_id' => 44,
                         'x' => 1,
                         'y' => 10,
@@ -2780,7 +2780,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'good_practices_adquisition',
-                        'text' => 'Difusión y fomento de buenas prácticas de consumo',
+                        'text' => 'Evitar el almacenamiento individual de materiales de oficina',
                         'question_id' => 44,
                         'x' => 1,
                         'y' => 19,
@@ -2920,7 +2920,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'rme_alcaline-battery',
-                        'text' => 'Residuos de manejo especial (RME): baterías alcalineas',
+                        'text' => 'Residuos de manejo especial (RME): baterías alcalinas',
                         'question_id' => 48,
                         'x' => 1,
                         'y' => 8,
@@ -2976,7 +2976,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'rme_halogen_lamps',
-                        'text' => 'Residuos de manejo especial (RME): lamparas de halógeno',
+                        'text' => 'Residuos de manejo especial (RME): lámparas de halógeno',
                         'question_id' => 48,
                         'x' => 1,
                         'y' => 15,
@@ -3211,7 +3211,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'reuse_notebooks',
-                        'text' => 'Elaboración de libretas con hojas de reuso o recicladas',
+                        'text' => 'Elaboración de libretas con hojas de reúso o recicladas',
                         'question_id' => 49,
                         'x' => 1,
                         'y' => 23,
@@ -3219,7 +3219,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'sustainable_suppliers_directory',
-                        'text' => 'Existecia de directorio de proveedores de insumos sostenibles',
+                        'text' => 'Existencia de directorio de proveedores de insumos sostenibles',
                         'question_id' => 49,
                         'x' => 1,
                         'y' => 24,
@@ -3573,7 +3573,7 @@ class DatabaseSeeder extends Seeder
                         'type' => 'heading',
                         'name' => '',
                         'text' => 'Incluye sedimentación y coagulación-floculación
-                        (Adicion de sustancias quimicas para fomentar la precipitación de los contaminantes)',
+                        (Adición de sustancias químicas para fomentar la precipitación de los contaminantes)',
                         'question_id' => 64,
                         'x' => 2,
                         'y' => 3,
@@ -3581,9 +3581,9 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => '',
-                        'text' => 'Sistemas de crecimiento adjuntos o sistemas de crecimiento suspendidos (Tratamiento biologicos aerobios y anaerobios)',
+                        'text' => 'Sistemas de crecimiento adjuntos o sistemas de crecimiento suspendidos (Tratamiento biológicos aerobios y anaerobios)',
                         'question_id' => 64,
-                        'x' => 2,
+                        'x' => 2ó
                         'y' => 4,
                     ]);
                     Multiinput::factory()->create([
