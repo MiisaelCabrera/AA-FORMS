@@ -14,6 +14,8 @@ class InfraestructureController extends Controller
 {
     public function index()
     {
+        if (!auth()->hasUser())
+            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'infraestructure')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -57,7 +59,7 @@ class InfraestructureController extends Controller
 
 
                 $answer = new Answer();
-                $answer->answer = $key;
+                $answer->answer = $value;
                 $answer->entity_id = auth()->user()->entity_id;
                 $answer->question_id = $questionId;
 

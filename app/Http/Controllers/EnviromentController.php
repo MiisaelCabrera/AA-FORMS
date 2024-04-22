@@ -14,6 +14,8 @@ class EnviromentController extends Controller
 {
     public function index()
     {
+        if (!auth()->hasUser())
+            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'enviroment')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -78,7 +80,7 @@ class EnviromentController extends Controller
 
 
                 $answer = new Answer();
-                $answer->answer = $key;
+                $answer->answer = $value;
                 $answer->entity_id = auth()->user()->entity_id;
                 $answer->question_id = $questionId;
 

@@ -14,6 +14,8 @@ class Energy_climate_changeController extends Controller
 {
     public function index()
     {
+        if (!auth()->hasUser())
+            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'energy_climate_change')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -68,11 +70,10 @@ class Energy_climate_changeController extends Controller
 
 
                 $answer = new Answer();
-                $answer->answer = $key;
+                $answer->answer = $value;
                 $answer->entity_id = auth()->user()->entity_id;
                 $answer->question_id = $questionId;
 
-                array_push($array, $value);
                 $answer->save();
             } else {
                 $name = str_replace('_evidence', "", $key);
@@ -90,7 +91,6 @@ class Energy_climate_changeController extends Controller
             }
 
         }
-        dd($array, $questions);
 
     }
 }

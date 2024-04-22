@@ -10,6 +10,8 @@ class HistoryController extends Controller
 {
     public function index()
     {
+        if (!auth()->hasUser())
+            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'history')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();

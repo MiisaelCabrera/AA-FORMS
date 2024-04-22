@@ -168,6 +168,6 @@
     @if ($question->needsEvidence)
         {{-- Input para evidencias necesarias --}}
         <input type="file" name="{{ $question->name . '_evidence' }}" id="{{ $question->name }}" accept=".doc"
-            {{ $question->required ? 'required' : '' }}>
+            {{-- {{ $question->required ? 'required' : '' }} --}}>
     @endif
 </div>

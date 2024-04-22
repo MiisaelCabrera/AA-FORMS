@@ -2641,7 +2641,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sustainable_purchases',
+                        'name' => 'a',
                         'text' => 'Adquisición de materiales para oficina de bajo impacto ambiental con base en el cuadro básico de necesidades ',
                         'question_id' => 44,
                         'x' => 1,
@@ -2649,7 +2649,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'furniture_adquisition',
+                        'name' => 'b',
                         'text' => 'Adquisición de bienes muebles y suministros fabricados con madera que contengan certificados expedidos por la Secretaría de Medio Ambiente y Recursos Naturales (SEMARNAT)',
                         'question_id' => 44,
                         'x' => 1,
@@ -2666,7 +2666,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_materials_adquisition',
+                        'name' => 'c',
                         'text' => 'Adquisición de productos elaborados o empacados con materiales reciclados',
                         'question_id' => 44,
                         'x' => 1,
@@ -2675,7 +2675,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_paper_adquisition',
+                        'name' => 'd',
                         'text' => 'Adquisición de papel duplicador tamaño oficio y/o carta cuya composición sea 100% reciclado',
                         'question_id' => 44,
                         'x' => 1,
@@ -2683,7 +2683,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'cleaning_supplies_adquisition',
+                        'name' => 'e',
                         'text' => 'Adquisición de insumos químicos destinados a limpieza que cumplan con los criterios de menor impacto ambiental para disminuir riesgos a la salud de la comunidad UASLP por manejo y exposición',
                         'question_id' => 44,
                         'x' => 1,
@@ -2691,7 +2691,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'aerosol_replacement_adquisition',
+                        'name' => 'f',
                         'text' => 'Adquisición de productos que sustituyan aquellos que comunmente se apliquen en aerosol',
                         'question_id' => 44,
                         'x' => 1,
@@ -2699,7 +2699,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'regulated_substances_adquisition',
+                        'name' => 'g',
                         'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores que cuenten con sus permisos',
                         'question_id' => 44,
                         'x' => 1,
@@ -2707,7 +2707,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'regulated_substances_adquisition_2',
+                        'name' => 'h',
                         'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores ambientalmente responsables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2715,7 +2715,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'efficient_consumption_adquisition',
+                        'name' => 'i',
                         'text' => 'Incentivar al consumo eficiente de los insumos de laboratorio, docencia y administración  ',
                         'question_id' => 44,
                         'x' => 1,
@@ -2723,7 +2723,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'single_use_plastic_adquisition',
+                        'name' => 'j',
                         'text' => 'Incentivar a la disminución de plásticos de un solo uso',
                         'question_id' => 44,
                         'x' => 1,
@@ -2731,7 +2731,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'disposable_products_adquisition',
+                        'name' => 'k',
                         'text' => 'Incentivar el rechazo de productos desechables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2739,7 +2739,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reusable_products_adquisition',
+                        'name' => 'l',
                         'text' => 'Incentivar el uso de productos reutilizables y/o retornables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2747,7 +2747,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'containers_adquisition',
+                        'name' => 'm',
                         'text' => 'Incentivar al uso de termos, tuppers, tazas, etc',
                         'question_id' => 44,
                         'x' => 1,
@@ -2755,7 +2755,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'office_materials_adquisition',
+                        'name' => 'n',
                         'text' => 'Incentivar al reuso y máximo aprovechamiento de insumos de oficina (uso eficiente de materiales)',
                         'question_id' => 44,
                         'x' => 1,
@@ -2763,7 +2763,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'office_materials_adquisition_2',
+                        'name' => 'o',
                         'text' => 'Incentivar el uso responsable, durable, eficiente, eficaz y exhaustivo del material de oficina',
                         'question_id' => 44,
                         'x' => 1,
@@ -2771,7 +2771,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'good_practices_adquisition',
+                        'name' => 'p',
                         'text' => 'Difusión y fomento de buenas prácticas de consumo',
                         'question_id' => 44,
                         'x' => 1,
@@ -2779,7 +2779,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'good_practices_adquisition',
+                        'name' => 'q',
                         'text' => 'Difusión y fomento de buenas prácticas de consumo',
                         'question_id' => 44,
                         'x' => 1,
@@ -2871,7 +2871,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'compostable_fraction',
+                        'name' => 'a',
                         'text' => 'Fracción orgánica composteable de los Residuos Sólidos Urbanos Universitarios (cáscaras de frutas, semillas, restos de café, etc.)',
                         'question_id' => 48,
                         'x' => 1,
@@ -2879,7 +2879,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reciclable_fraction',
+                        'name' => 'b',
                         'text' => 'Fracción inorgánica reciclable de los Residuos Sólidos Urbanos Universitarios (PET, PP, HPDE, cartón, aluminio, hojalata, papel, etc.)',
                         'question_id' => 48,
                         'x' => 1,
@@ -2887,7 +2887,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'no_reciclable_fraction',
+                        'name' => 'c',
                         'text' => 'Fracción inorgánica no reciclable de los Residuos Sólidos Urbanos Universitarios (basura: Cárnicos, papeles contaminados por orgánicos, chicles, pañales, restos de barrido, desechables, etc.)',
                         'question_id' => 48,
                         'x' => 1,
@@ -2895,7 +2895,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reusable-paper',
+                        'name' => 'd',
                         'text' => 'Papel para reúso',
                         'question_id' => 48,
                         'x' => 1,
@@ -2903,7 +2903,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'plypropylene_cover',
+                        'name' => 'e',
                         'text' => 'Tapitas de polipropileno',
                         'question_id' => 48,
                         'x' => 1,
@@ -2911,7 +2911,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_kitchen_oil',
+                        'name' => 'f',
                         'text' => 'Residuos de manejo especial (RME): aceite de cocina',
                         'question_id' => 48,
                         'x' => 1,
@@ -2919,7 +2919,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_alcaline-battery',
+                        'name' => 'g-battery',
                         'text' => 'Residuos de manejo especial (RME): baterías alcalineas',
                         'question_id' => 48,
                         'x' => 1,
@@ -2927,7 +2927,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_textil',
+                        'name' => 'h',
                         'text' => 'Residuos de manejo especial (RME): textiles',
                         'question_id' => 48,
                         'x' => 1,
@@ -2935,7 +2935,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_electronic',
+                        'name' => 'i',
                         'text' => 'Residuos de manejo especial (RME): electrónicos',
                         'question_id' => 48,
                         'x' => 1,
@@ -2943,7 +2943,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_scrap',
+                        'name' => 'j',
                         'text' => 'Residuos de manejo especial (RME): chatarra',
                         'question_id' => 48,
                         'x' => 1,
@@ -2951,7 +2951,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_dangerous_residues',
+                        'name' => 'k',
                         'text' => 'Residuos de manejo especial (RME): residuos peligrosos',
                         'question_id' => 48,
                         'x' => 1,
@@ -2959,7 +2959,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_contaminated_solids',
+                        'name' => 'l',
                         'text' => 'Residuos de manejo especial (RME): solidos contaminados',
                         'question_id' => 48,
                         'x' => 1,
@@ -2967,7 +2967,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_toner',
+                        'name' => 'm',
                         'text' => 'Residuos de manejo especial (RME): tóner',
                         'question_id' => 48,
                         'x' => 1,
@@ -2975,7 +2975,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rme_halogen_lamps',
+                        'name' => 'n',
                         'text' => 'Residuos de manejo especial (RME): lamparas de halógeno',
                         'question_id' => 48,
                         'x' => 1,
@@ -3040,7 +3040,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'energy_responsible_use',
+                        'name' => 'a',
                         'text' => 'Uso responsable de la energía',
                         'question_id' => 49,
                         'x' => 1,
@@ -3049,7 +3049,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_responsible_use',
+                        'name' => 'b',
                         'text' => 'Uso responsable del agua',
                         'question_id' => 49,
                         'x' => 1,
@@ -3058,7 +3058,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'plastics_responsible_use',
+                        'name' => 'c',
                         'text' => 'Uso responsable de los plásticos',
                         'question_id' => 49,
                         'x' => 1,
@@ -3066,7 +3066,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'double_face_impresion',
+                        'name' => 'd',
                         'text' => 'Uso responsable del papel (impresión doble cara)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3074,7 +3074,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'necessary_impresion',
+                        'name' => 'e',
                         'text' => 'Uso responsable del papel (imprimir cuando sea necesario)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3082,7 +3082,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'necessary_impresion',
+                        'name' => 'f',
                         'text' => 'Uso responsable del papel (preferencia por correspondencia electrónica)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3090,7 +3090,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'use_of_crockery',
+                        'name' => 'g',
                         'text' => 'Uso de loza (brindis, coffe breaks, etc.)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3098,7 +3098,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'circular_economy',
+                        'name' => 'h',
                         'text' => 'Economía circular (Trueques e intercambios)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3106,7 +3106,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'circular_economy_2',
+                        'name' => 'i',
                         'text' => 'Economía circular (Reúso y reciclaje)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3114,7 +3114,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sustainable_events',
+                        'name' => 'j',
                         'text' => 'Eventos sostenibles cero residuos',
                         'question_id' => 49,
                         'x' => 1,
@@ -3122,7 +3122,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition',
+                        'name' => 'k',
                         'text' => 'Compra de insumos verdes (productos libres de fosfato)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3130,7 +3130,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_2',
+                        'name' => 'l',
                         'text' => 'Compra de insumos verdes (productos biodegradables)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3138,7 +3138,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_3',
+                        'name' => 'm',
                         'text' => 'Compra de insumos verdes (productos libre de cloro)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3146,7 +3146,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_4',
+                        'name' => 'n',
                         'text' => 'Compra de insumos verdes (productos sin tensoactivos)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3154,7 +3154,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_5',
+                        'name' => 'o',
                         'text' => 'Compra de insumos verdes (sin ácidos)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3162,7 +3162,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_6',
+                        'name' => 'p',
                         'text' => 'Compra de insumos verdes (sin clorofluorocarbonos)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3170,7 +3170,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_insumes_adquisition_7',
+                        'name' => 'q',
                         'text' => 'Compra de insumos verdes (sin fragancias)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3178,7 +3178,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'insumes_adquisition',
+                        'name' => 'r',
                         'text' => 'Compra de insumos con hojas de seguridad y fichas técnicas actualizadas (NOM-18-STPS)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3186,7 +3186,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'insumes_adquisition_2',
+                        'name' => 's',
                         'text' => 'Compras de insumos en contenedores retornables',
                         'question_id' => 49,
                         'x' => 1,
@@ -3194,7 +3194,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'provider_zero_emissions',
+                        'name' => 't',
                         'text' => 'Compras a proveedores cero emisiones',
                         'question_id' => 49,
                         'x' => 1,
@@ -3202,7 +3202,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reuse_folders',
+                        'name' => 'u',
                         'text' => 'Reaprovechamiento de carpetas de archivo, folders y sobres',
                         'question_id' => 49,
                         'x' => 1,
@@ -3210,7 +3210,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'reuse_notebooks',
+                        'name' => 'v',
                         'text' => 'Elaboración de libretas con hojas de reuso o recicladas',
                         'question_id' => 49,
                         'x' => 1,
@@ -3218,7 +3218,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'sustainable_suppliers_directory',
+                        'name' => 'w',
                         'text' => 'Existecia de directorio de proveedores de insumos sostenibles',
                         'question_id' => 49,
                         'x' => 1,
@@ -3226,7 +3226,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'efficient_materials_manuals',
+                        'name' => 'x',
                         'text' => 'Existencia de manuales de uso eficiente de materiales',
                         'question_id' => 49,
                         'x' => 1,
@@ -3234,7 +3234,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'inventory_existence',
+                        'name' => 'y',
                         'text' => 'Existencia de un inventario de insumos ',
                         'question_id' => 49,
                         'x' => 1,
@@ -3242,7 +3242,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'annual_plan_existence',
+                        'name' => 'z',
                         'text' => 'Existencia de un plan anual para compras inteligentes (no excesivas, de pánico o innecesarias)',
                         'question_id' => 49,
                         'x' => 1,
@@ -3320,7 +3320,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'student_3r',
+                        'name' => 'q',
                         'text' => 'Las 3 R para estudiantes',
                         'question_id' => 51,
                         'x' => 1,
@@ -3328,7 +3328,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'academic_3r',
+                        'name' => 'b',
                         'text' => 'Las 3 R para personal académico',
                         'question_id' => 51,
                         'x' => 1,
@@ -3336,7 +3336,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'administrative_3r',
+                        'name' => 'c',
                         'text' => 'Las 3 R para personal administrativo',
                         'question_id' => 51,
                         'x' => 1,
@@ -3519,7 +3519,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'preliminary_treatment',
+                        'name' => 'a',
                         'text' => 'Tratamiento preliminar',
                         'question_id' => 64,
                         'x' => 1,
@@ -3527,7 +3527,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'primary_treatment',
+                        'name' => 'b',
                         'text' => 'Tratamiento Primario',
                         'question_id' => 64,
                         'x' => 1,
@@ -3535,7 +3535,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'secondary_treatment',
+                        'name' => 'c',
                         'text' => 'Tratamiento Secundario',
                         'question_id' => 64,
                         'x' => 1,
@@ -3543,7 +3543,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'tertiary_treatment',
+                        'name' => 'd',
                         'text' => 'Tratamiento Terciario',
                         'question_id' => 64,
                         'x' => 1,
@@ -3667,7 +3667,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_use',
+                        'name' => 'a',
                         'text' => 'Cuidado de cuerpos de agua superficiales (ríos, lagos, estanques)',
                         'question_id' => 66,
                         'x' => 1,
@@ -3675,7 +3675,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'rainwater_collection',
+                        'name' => 'b',
                         'text' => 'Recolección de lluvia',
                         'question_id' => 66,
                         'x' => 1,
@@ -3683,7 +3683,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_tanks',
+                        'name' => 'c',
                         'text' => 'Implementación de tanques de agua',
                         'question_id' => 66,
                         'x' => 1,
@@ -3691,7 +3691,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_treatment',
+                        'name' => 'd',
                         'text' => 'Pozos de recarga',
                         'question_id' => 66,
                         'x' => 1,
@@ -3699,7 +3699,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_boards',
+                        'name' => 'e',
                         'text' => 'Bordos de agua/ embalses',
                         'question_id' => 66,
                         'x' => 1,
@@ -3707,7 +3707,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'artificial_wetlands',
+                        'name' => 'f',
                         'text' => 'Humedales artificiales',
                         'question_id' => 66,
                         'x' => 1,
@@ -3715,7 +3715,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'other',
+                        'name' => 'g',
                         'text' => 'Otro',
                         'question_id' => 66,
                         'x' => 1,
@@ -3780,7 +3780,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_water_use',
+                        'name' => 'a',
                         'text' => 'Uso de agua reciclada para descarga de inodoros',
                         'question_id' => 67,
                         'x' => 1,
@@ -3788,7 +3788,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_water_use_2',
+                        'name' => 'b',
                         'text' => 'Uso de agua reciclada para lavar automóviles',
                         'question_id' => 67,
                         'x' => 1,
@@ -3796,7 +3796,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_water_use_3',
+                        'name' => 'c',
                         'text' => 'Uso de agua reciclada para regar áreas verdes',
                         'question_id' => 67,
                         'x' => 1,
@@ -3804,7 +3804,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'recycled_water_use_4',
+                        'name' => 'd',
                         'text' => 'Uso de agua reciclada para regar macetas',
                         'question_id' => 67,
                         'x' => 1,
@@ -3868,7 +3868,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'hand_washing_taps',
+                        'name' => 'a',
                         'text' => 'Grifos para lavado manos convencionales (válvula con torniquete)',
                         'question_id' => 68,
                         'x' => 1,
@@ -3876,7 +3876,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'bucket_filling_keys',
+                        'name' => 'b',
                         'text' => 'Llaves para llenado de cubetas',
                         'question_id' => 68,
                         'x' => 1,
@@ -3884,7 +3884,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'conventional_toilets',
+                        'name' => 'c',
                         'text' => 'Sanitarios convencionales',
                         'question_id' => 68,
                         'x' => 1,
@@ -3892,7 +3892,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'green_irrigation_systems',
+                        'name' => 'd',
                         'text' => 'Sistemas de riego para áreas verdes',
                         'question_id' => 68,
                         'x' => 1,
@@ -3900,7 +3900,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'well_extraction_pumps',
+                        'name' => 'e',
                         'text' => 'Bombas de extracción de pozo',
                         'question_id' => 68,
                         'x' => 1,
@@ -3908,7 +3908,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'showers',
+                        'name' => 'f',
                         'text' => 'Regaderas',
                         'question_id' => 68,
                         'x' => 1,
@@ -3916,7 +3916,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'eye_washers',
+                        'name' => 'g',
                         'text' => 'Lavaojos',
                         'question_id' => 68,
                         'x' => 1,
@@ -3924,7 +3924,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'other',
+                        'name' => 'h',
                         'text' => 'Otro',
                         'question_id' => 68,
                         'x' => 1,
@@ -3963,7 +3963,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'hand_washing_automatic_taps',
+                        'name' => 'a',
                         'text' => 'Grifos para lavado manos automatizados',
                         'question_id' => 69,
                         'x' => 1,
@@ -3971,7 +3971,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'hand_washing_dosage_taps',
+                        'name' => 'b',
                         'text' => 'Grifos para lavado manos dosificadores',
                         'question_id' => 69,
                         'x' => 1,
@@ -3979,7 +3979,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'bucket_filling_keys_no_leaks',
+                        'name' => 'c',
                         'text' => 'Llaves para llenado de cubetas sin goteras',
                         'question_id' => 69,
                         'x' => 1,
@@ -3987,7 +3987,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'efficient_toilets',
+                        'name' => 'd',
                         'text' => 'Sanitarios con desfogue eficiente',
                         'question_id' => 69,
                         'x' => 1,
@@ -3995,7 +3995,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'toilets_less_than_6L',
+                        'name' => 'e',
                         'text' => 'Sanitarios con tanques de descarga menores de 6 L',
                         'question_id' => 69,
                         'x' => 1,
@@ -4003,7 +4003,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'toilets_with_bottles',
+                        'name' => 'f',
                         'text' => 'Implementación de botellas dentro de los tanques sanitarios para ahorro de agua por descarga',
                         'question_id' => 69,
                         'x' => 1,
@@ -4011,7 +4011,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'toilets_with_devices',
+                        'name' => 'g',
                         'text' => 'Implementación de dispositivos destinados al ahorro de agua por descarga de inodoros',
                         'question_id' => 69,
                         'x' => 1,
@@ -4019,7 +4019,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'phone_number_for_leaks',
+                        'name' => 'h',
                         'text' => 'Número telefónico para reporte de fugas a la vista',
                         'question_id' => 69,
                         'x' => 1,
@@ -4027,7 +4027,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'efficient_irrigation_systems',
+                        'name' => 'i',
                         'text' => 'Horarios para riego de jardines por la mañana o por la noche',
                         'question_id' => 69,
                         'x' => 1,
@@ -4035,7 +4035,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'automated_irrigation_systems',
+                        'name' => 'j',
                         'text' => 'Sistema automatizado de riego',
                         'question_id' => 69,
                         'x' => 1,
@@ -4043,7 +4043,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_care_campaigns',
+                        'name' => 'k',
                         'text' => 'Campañas de concientización sobre el cuidado del agua',
                         'question_id' => 69,
                         'x' => 1,
@@ -4051,7 +4051,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'water_care_workshops',
+                        'name' => 'l',
                         'text' => 'Foros, pláticas y talleres sobre el cuidado del agua',
                         'question_id' => 69,
                         'x' => 1,
@@ -4059,7 +4059,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'other',
+                        'name' => 'm',
                         'text' => 'Otro',
                         'question_id' => 69,
                         'x' => 1,
@@ -4107,7 +4107,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'potable_water_inside',
+                        'name' => 'a',
                         'text' => 'Agua potabilizada dentro de la UASLP',
                         'question_id' => 71,
                         'x' => 1,
@@ -4115,7 +4115,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'potable_water_outside',
+                        'name' => 'b',
                         'text' => 'Agua potabilizada fuera de la UASLP',
                         'question_id' => 71,
                         'x' => 1,
@@ -4123,7 +4123,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'treated_water_inside',
+                        'name' => 'c',
                         'text' => 'Agua tratada dentro de la UASLP',
                         'question_id' => 71,
                         'x' => 1,
@@ -4131,7 +4131,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'treated_water_outside',
+                        'name' => 'd',
                         'text' => 'Agua tratada fuera de la UASLP',
                         'question_id' => 71,
                         'x' => 1,
@@ -4139,7 +4139,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'collector_water',
+                        'name' => 'e',
                         'text' => 'Agua de colector pluvial',
                         'question_id' => 71,
                         'x' => 1,
@@ -4147,7 +4147,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'subterranean_water',
+                        'name' => 'f',
                         'text' => 'Agua subterránea',
                         'question_id' => 71,
                         'x' => 1,
@@ -4155,7 +4155,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'superficial_water',
+                        'name' => 'g',
                         'text' => 'Agua superficial',
                         'question_id' => 71,
                         'x' => 1,
@@ -4193,7 +4193,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'mechanism_to_check_water_quality',
+                        'name' => 'a',
                         'text' => 'Mecanismo para comprobar periódicamente la calidad del agua
                         (sensores, medidores)',
                         'question_id' => 72,
@@ -4202,7 +4202,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'monitoring_parameters',
+                        'name' => 'b',
                         'text' => 'Monitoreo de parámetros físicos, químicos o biológicos',
                         'question_id' => 72,
                         'x' => 1,
@@ -4210,7 +4210,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'treatment_protocols',
+                        'name' => 'c',
                         'text' => 'Implementación de protocolos de tratamiento de residuos líquidos para disminuir y/o eliminar descargas contaminadas.',
                         'question_id' => 72,
                         'x' => 1,
@@ -4273,7 +4273,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'january_february',
+                        'name' => 'a',
                         'text' => 'Enero-Febrero',
                         'question_id' => 73,
                         'x' => 1,
@@ -4281,7 +4281,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'march_april',
+                        'name' => 'b',
                         'text' => 'Marzo-Abril',
                         'question_id' => 73,
                         'x' => 1,
@@ -4289,7 +4289,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'may_june',
+                        'name' => 'c',
                         'text' => 'Mayo-Junio',
                         'question_id' => 73,
                         'x' => 1,
@@ -4297,7 +4297,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'july_august',
+                        'name' => 'd',
                         'text' => 'Julio-Agosto',
                         'question_id' => 73,
                         'x' => 1,
@@ -4305,7 +4305,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'september_october',
+                        'name' => 'e',
                         'text' => 'Septiembre-Octubre',
                         'question_id' => 73,
                         'x' => 1,
@@ -4313,7 +4313,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'november_december',
+                        'name' => 'f',
                         'text' => 'Noviembre-Diciembre',
                         'question_id' => 73,
                         'x' => 1,

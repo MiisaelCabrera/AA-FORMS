@@ -36,6 +36,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
 <script>
@@ -117,6 +119,7 @@
 
 
         $("#cuestionario").submit(function(e) {
+            e.preventDefault();
             $('input').prop('disabled', false);
             var formData = $(this).serialize();
             $.ajax({
@@ -124,10 +127,23 @@
                 url: $(this).attr("action"),
                 data: formData,
                 success: function(response) {
-                    window.location.reload();
+                    swal.fire({
+                        title: '¡Guardado!',
+                        text: 'Se ha guardado la información',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then(() => {
+                        window.location.href =
+                            "{{ route('enviroment.index') }}";
+                    });
                 },
                 error: function(response) {
-
+                    swal.fire({
+                        title: '¡Error!',
+                        text: 'Ha ocurrido un error',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
                 },
             });
 
