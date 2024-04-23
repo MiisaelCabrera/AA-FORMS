@@ -3,7 +3,7 @@
         <h2>
             {{ __('Criterio ' . $currentCategory->number . ': ' . $currentCategory->name) }}
         </h2>
-        <p>{{ $currentCategory->description }}</p>
+        <p style="white-space: pre-line">{{ $currentCategory->description }}</p>
 
     </div>
 </div>

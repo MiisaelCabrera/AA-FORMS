@@ -292,12 +292,14 @@
             $('[id^="innovative_programs__"]').prop('disabled', true);
             $('[id^="total_gas_installations__"]').prop('disabled', true);
 
-
-            var formData = $(this).serialize();
+            var formData = new FormData(this);
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),
                 data: formData,
+
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     swal.fire({
                         title: '¡Guardado!',

@@ -6,7 +6,8 @@
 
 
     <!-- Formulario -->
-    <form {{-- action="{{ route('infraestructura.store') }}" --}} method="post" class="cuestionario" enctype="multipart/form-data">
+    <form action="{{ route('water.store') }}" method="POST" class="cuestionario" id='cuestionario'
+        enctype="multipart/form-data">
         @csrf
 
         <!-- Preguntas del cuestionario-->
@@ -24,6 +25,11 @@
                 'question' => $question,
             ])
         @endforeach
+        <input type="number" id="efficient_water_program" name="efficient_water_program" style="display: none">
+        <input type="number" id="efficient_water_program_2" name="efficient_water_program_2" style="display:none">
+        <input type="number" id="water_supplier_a" name="water_supplier__b" style="display:none">
+        <input type="number" id="water_supplier_b" name="water_supplier__b" style="display:none">
+        <input type="number" id="water_consumption" name="water_consumption" style="display: none">
 
         <button type="submit" class="submit">Enviar</button>
     </form>
@@ -33,75 +39,166 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
     $(document).ready(function() {
 
-        $('#area_total').on('change', () => {
-            console.log('change');
-            calculatePercentageOpenSpaces();
-            calculatePercentageForestVegetation();
-            calculatePercentagePlantedVegetation();
-            calculatePercentageWaterAbsorption();
-            calculatePercentageBuildingMaintenance();
+        $('[id^="efficient_water_program__"]').on('change', () => {
+            efficient_water_program();
+            percentage_efficient_water_program();
         });
 
-        $('#area_ground_floor').on('change', () => {
-            calculatePercentageOpenSpaces();
-        });
+        function efficient_water_program() {
+            var elementos = $(
+                '[id^="efficient_water_program__"]');
 
-        $('#area_forest_vegetation').on('change', () => {
-            calculatePercentageForestVegetation();
-        });
+            var suma = 0;
 
-        $('#area_planted_vegetation').on('change', () => {
-            calculatePercentagePlantedVegetation();
-        });
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
 
-        $('#area_water_absorption').on('change', () => {
-            calculatePercentageWaterAbsorption();
-        });
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
 
-        $('#area_building_maintenance').on('change', () => {
-            calculatePercentageBuildingMaintenance();
-        });
-
-
-        function calculatePercentageOpenSpaces() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_ground_floor = parseFloat($("#area_ground_floor").val());
-            const percentage_open_spaces = ((area_total - area_ground_floor) / area_total) * 100;
-            $("#percentage_open_spaces").val(percentage_open_spaces);
+            $('#efficient_water_program').val(suma);
         }
 
-        function calculatePercentageForestVegetation() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_forest_vegetation = parseFloat($("#area_forest_vegetation").val());
-            const percentage_forest_vegetation = (area_forest_vegetation / area_total) * 100;
-            $("#percentage_forest_vegetation").val(percentage_forest_vegetation);
+        $('[id^="efficient_water_program_2__"]').on('change', () => {
+            efficient_water_program_2();
+            percentage_efficient_water_program();
+        });
+
+        function efficient_water_program_2() {
+            var elementos = $(
+                '[id^="efficient_water_program_2__"]');
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+
+            $('#efficient_water_program_2').val(suma);
         }
 
-        function calculatePercentagePlantedVegetation() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_planted_vegetation = parseFloat($("#area_planted_vegetation").val());
-            const percentage_planted_vegetation = (area_planted_vegetation / area_total) * 100;
-            $("#percentage_planted_vegetation").val(percentage_planted_vegetation);
+        function percentage_efficient_water_program() {
+            var a63 = parseFloat($('#efficient_water_program').val());
+            var a64 = parseFloat($('#efficient_water_program_2').val());
+            var porcentaje = a64 * 100 / a63;
+            $('#percentage_efficient_water_program').val(porcentaje);
+
         }
 
-        function calculatePercentageWaterAbsorption() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_water_absorption = parseFloat($("#area_water_absorption").val());
-            const percentage_water_absorption = (area_water_absorption / area_total) * 100;
-            $("#percentage_water_absorption").val(percentage_water_absorption);
+        $('[id^="water_consumption__"]').on('change', () => {
+            water_consumption();
+        });
+
+        function water_consumption() {
+            var elementos = $(
+                '[id^="water_consumption__"]');
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+
+            $('#water_consumption').val(suma);
         }
 
-        function calculatePercentageBuildingMaintenance() {
-            const area_total = parseFloat($("#area_total").val());
-            const area_building_maintenance = parseFloat($("#area_building_maintenance").val());
-            const percentage_building_maintenance = (area_building_maintenance / area_total) * 100;
-            $("#percentage_building_maintenance").val(percentage_building_maintenance);
+
+
+        $('[id^="water_supplier__"][id$="_1"]').on('change', () => {
+            water_supplier_1();
+        });
+
+        function water_supplier_1() {
+            var elementos = $(
+                '[id^="water_supplier__"][id$="_1"]'
+            );
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+
+            $('#water_supplier_a').val(suma);
         }
 
+        $('[id^="water_supplier__"][id$="_2"]').on('change', () => {
+            total_sustainable_buildings_2();
+        });
+
+        function total_sustainable_buildings_2() {
+            var elementos = $(
+                '[id^="water_supplier__"][id$="_2"]'
+            );
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+
+            $('#water_supplier_b').val(suma);
+        }
+
+
+
+
+        $("#cuestionario").submit(function(e) {
+            e.preventDefault();
+            $('input').prop('disabled', false);
+
+            $('[id^="efficient_water_program__"]').prop('disabled', true);
+            $('[id^="efficient_water_program_2__"]').prop('disabled', true);
+            $('[id^="water_consumption__"]').prop('disabled', true);
+            $('[id^="water_supplier__"]').prop('disabled', true);
+
+
+            var formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: formData,
+
+                processData: false,
+                contentType: false,
+                success: function(response) {
+
+                },
+                error: function(response) {
+                    swal.fire({
+                        title: '¡Error!',
+                        text: 'Ha ocurrido un error',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                },
+            });
+
+        });
 
     })
 </script>

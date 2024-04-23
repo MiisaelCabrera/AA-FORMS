@@ -9,13 +9,12 @@ use App\Models\Multiinput;
 use App\Models\Answer;
 use App\Models\File;
 use App\Models\Entity;
+use App\Models\Modification;
 
 class Energy_climate_changeController extends Controller
 {
     public function index()
     {
-        if (!auth()->hasUser())
-            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'energy_climate_change')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -91,6 +90,9 @@ class Energy_climate_changeController extends Controller
             }
 
         }
-
+        $modification = new Modification();
+        $modification->user_id = auth()->user()->id;
+        $modification->message = 'Ha modificado la sección de Energía y Cambio Climático';
+        $modification->save();
     }
 }

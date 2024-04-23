@@ -65,6 +65,13 @@ return new class extends Migration {
             $table->string('path');
             $table->timestamps();
         });
+        Schema::create('modifications', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('message');
+            $table->timestamps();
+        });
 
     }
 

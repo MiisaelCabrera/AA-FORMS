@@ -8,7 +8,7 @@ use App\Models\Modification;
 use App\Models\User;
 use App\Models\Entity;
 
-class HistoryController extends Controller
+class BinnacleController extends Controller
 {
     public function index()
     {
@@ -22,8 +22,8 @@ class HistoryController extends Controller
             $entities = Entity::all();
         }
         $categories = Category::select('name', 'controller')->get();
-        $currentCategory = Category::where('controller', 'history')->first();
-        return view('forms/historial')
+        $currentCategory = Category::where('controller', 'binnacle')->first();
+        return view('forms/bitacora')
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)
             ->with('modifications', $modifications)

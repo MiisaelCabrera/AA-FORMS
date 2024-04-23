@@ -1,32 +1,58 @@
 <div class="question-block">
 
     {{-- Texto de la pregunta --}}
-    <label for="">{{ $currentCategory->number . '.' . $question->number . ' ' . $question->question }}</label>
+    @if ($currentCategory->number == 2 && $question->number != 12)
+        <label
+            for="">{{ $currentCategory->number . '.' . $question->number . ' ' . $question->question }}</label>
+    @endif
 
+    @php
+        $currentAnswer = $answer->first();
+    @endphp
 
     @if ($question->type == 'text')
         {{-- Input de tipo texto --}}
-        <input type="text" name="{{ $question->name }}" id="{{ $question->name }}"
-            {{ $question->required ? 'required' : '' }} {{ $question->autoAnswer ? 'disabled ' : '' }}>
+        <input type="text" name="{{ $question->name }}" id="{{ $question->name }} "
+            {{ $question->required ? 'required' : '' }} {{ $question->autoAnswer ? 'disabled ' : '' }}
+            value="{{ $currentAnswer && $currentAnswer->question_id === $question->id ? $currentAnswer->answer : '' }}"
+            {{ $currentAnswer ? 'disabled' : '' }}>
     @elseif ($question->type == 'number')
+        @php
+            $currentAnswer = $answer->first();
+        @endphp
         {{-- Input de tipo numero --}}
         <input type="number" step="0.1" name="{{ $question->name }}" id="{{ $question->name }}"
-            {{ $question->required ? 'required' : '' }} {{ $question->autoAnswer ? 'disabled' : '' }}>
+            {{ $question->required ? 'required' : '' }} {{ $question->autoAnswer ? 'disabled' : '' }}
+            value="{{ $currentAnswer && $currentAnswer->question_id === $question->id ? $currentAnswer->answer : '' }}"
+            {{ $currentAnswer ? 'disabled' : '' }}>
     @elseif ($question->type == 'textarea')
         {{-- Input de tipo area de texto --}}
+
+        @php
+            $currentAnswer = $answer->first();
+        @endphp
         <textarea name="{{ $question->name }}" id="{{ $question->name }}" rows="5" cols="50"
-            {{ $question->required ? 'required' : '' }}></textarea>
+            {{ $question->required ? 'required' : '' }}>{{ $currentAnswer && $currentAnswer->question_id === $question->id ? $currentAnswer->answer : '' }}</textarea>
     @elseif ($question->type == 'select')
+        @php
+            $currentAnswer = $answer->first();
+        @endphp
         {{-- Select --}}
         <select name="{{ $question->name }}" id="{{ $question->name }}" {{ $question->required ? 'required' : '' }}>
             @foreach ($questionInputs as $option)
-                <option value="{{ $option->name }}">{{ $option->text }}</option>
+                <option value="{{ $option->name }}"
+                    {{ $currentAnswer && $currentAnswer->question_id === $question->id && $currentAnswer->answer == $option->name ? 'selected' : '' }}>
+                    {{ $option->text }}</option>
             @endforeach
         </select>
     @elseif ($question->type == 'multinumber')
         {{-- Multiples enteros --}}
         @php
             $matrix = [];
+            $answerMatrix = [];
+            foreach ($answer as $key => $value) {
+                array_push($answerMatrix, $value->answer);
+            }
         @endphp
 
         @foreach ($questionInputs as $item)
@@ -42,15 +68,61 @@
                 @elseif ($matrix[$i][$j]->type == 'integer')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
-                        {{ $question->required ? 'required' : '' }}>
+                        {{ $question->required ? 'required' : '' }}
+                        value='{{ count($answerMatrix) > 0 ? $answerMatrix[$i - 1] : '' }}'
+                        {{ count($answerMatrix) > 0 ? 'disabled' : '' }}>
                 @elseif ($matrix[$i][$j]->type == 'number')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}" step="0.01"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
-                        {{ $question->required ? 'required' : '' }}>
+                        {{ $question->required ? 'required' : '' }}
+                        value='{{ count($answerMatrix) > 0 ? $answerMatrix[$i - 1] : '' }}'
+                        {{ count($answerMatrix) > 0 ? 'disabled' : '' }}>
                 @endif
             @endfor
         @endfor
     @elseif ($question->type == 'multiradio')
+        {{-- Multiples radio --}}
+        @php
+            $matrix = [];
+            $answerMatrix = [];
+            foreach ($answer as $key => $value) {
+                array_push($answerMatrix, $value->answer);
+            }
+        @endphp
+
+        @foreach ($questionInputs as $item)
+            @php
+                $matrix[$item->y][$item->x] = $item;
+            @endphp
+        @endforeach
+        @for ($i = 2; $i <= count($matrix); $i++)
+            @for ($j = count($matrix[$i]) + 1; $j <= count($matrix[1]); $j++)
+                @php
+                    $matrix[$i][$j] = (object) ['type' => 'radio'];
+                @endphp
+            @endfor
+        @endfor
+
+
+        <table>
+            @for ($i = 1; $i <= count($matrix); $i++)
+                <tr>
+                    @for ($j = 1; $j <= count($matrix[$i]); $j++)
+                        @if ($matrix[$i][$j]->type == 'heading')
+                            <th>{{ $matrix[$i][$j]->text }}</th>
+                        @elseif ($matrix[$i][$j]->type == 'radio')
+                            <td><input type="radio" name="{{ $question->name . '__' . $matrix[$i][1]->name }}"
+                                    id="{{ $question->name . '__' . $matrix[$i][1]->name }}"
+                                    value="{{ $matrix[1][$j]->name }}" {{ $question->required ? 'required' : '' }}
+                                    {{ count($answerMatrix) > 0 && $answerMatrix[$i - 2] === $matrix[1][$j]->name ? 'checked' : '' }}
+                                    {{ count($answerMatrix) > 0 ? 'disabled' : '' }} />
+                            </td>
+                        @endif
+                    @endfor
+                </tr>
+            @endfor
+        </table>
+    @elseif ($question->type == 'verticalradio')
         {{-- Multiples radio --}}
         @php
             $matrix = [];
@@ -77,9 +149,8 @@
                         @if ($matrix[$i][$j]->type == 'heading')
                             <th>{{ $matrix[$i][$j]->text }}</th>
                         @elseif ($matrix[$i][$j]->type == 'radio')
-                            <td><input type="radio" name="{{ $question->name . '__' . $matrix[$i][1]->name }}"
-                                    id="{{ $question->name . '__' . $matrix[$i][1]->name }}"
-                                    value="{{ $matrix[1][$j]->name }}" {{ $question->required ? 'required' : '' }} />
+                            <td><input type="radio" name="{{ $question->name }}" id="{{ $question->name }}"
+                                    value="{{ $matrix[$i][1]->name }}" {{ $question->required ? 'required' : '' }} />
                             </td>
                         @endif
                     @endfor
@@ -167,7 +238,26 @@
     @endif
     @if ($question->needsEvidence)
         {{-- Input para evidencias necesarias --}}
-        <input type="file" name="{{ $question->name . '_evidence' }}" id="{{ $question->name }}" accept=".doc"
-            {{-- {{ $question->required ? 'required' : '' }} --}}>
+        <input type="file" name="{{ $question->name . '_evidence' }}" id="{{ $question->name . '_evidence' }}"
+            accept=".doc" {{ $question->required ? 'required' : '' }}>
     @endif
 </div>
+
+@if (auth()->user()->role == 'admin')
+    <script>
+        $(document).ready(function() {
+            $('select').prop('disabled', true);
+            $('.submit').addClass('disabled');
+            $('textarea').prop('disabled', true);
+        });
+    </script>
+@endif
+@if ($answer->count() > 0)
+    <script>
+        $(document).ready(function() {
+            $('select').prop('disabled', true);
+            $('textarea').prop('disabled', true);
+            $('.submit').addClass('disabled');
+        });
+    </script>
+@endif

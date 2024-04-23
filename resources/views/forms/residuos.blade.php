@@ -88,11 +88,14 @@
 
             e.preventDefault();
             $('input').prop('disabled', false);
-            var formData = $(this).serialize();
+            var formData = new FormData(this);
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),
                 data: formData,
+
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     swal.fire({
                         title: '¡Guardado!',

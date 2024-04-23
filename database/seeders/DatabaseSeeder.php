@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => '123',
-            'role' => 'admin',
+            'role' => 'superadmin',
             'entity_id' => 1,
         ]);
         //Categorias 
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Entorno',
                 'controller' => 'enviroment',
                 'number' => 2,
-                'description' => 'La información sobre el entorç`p de la entidad proporcionará información básica sobre la consideración de la universidad sobre un entorno verde. Este indicador también muestra si alguna entidad merece ser llamada Entidad Verde. El objetivo es animar la universidad a conservar y proporcionar más espacios verdes y salvaguardar el medio ambiente, así como el desarrollo de energías sostenibles.'
+                'description' => 'La información sobre el entorno de la entidad proporcionará información básica sobre la consideración de la universidad sobre un entorno verde. Este indicador también muestra si alguna entidad merece ser llamada Entidad Verde. El objetivo es animar la universidad a conservar y proporcionar más espacios verdes y salvaguardar el medio ambiente, así como el desarrollo de energías sostenibles.'
             ]);
             Category::factory()->create([
                 'name' => 'Energía y cambio climático',
@@ -69,7 +69,14 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Transporte',
                 'controller' => 'transport',
                 'number' => 7,
-                'description' => 'La emisión de gases de efecto invernadero (GEI) no solo depende del uso de la energía eléctrica, sino también de los sistemas de transporte. La implementación de programas y políticas de transporte muestran la voluntad de implementar un ambiente más saludable. Estas se enfocan en la limitación de los vehículos motorizados en el campus, fomentar el uso de vehículos compartido y/o vehículos cero emisiones (bicicletas, patinetas, scooters, patines, coches eléctricos, motocicletas eléctricas). Además, reconocer los esfuerzos realizados en fomentar el uso del transporte público (apoyos para la movilidad estudiantil, paraderos seguros, flexibilidad en el préstamo de instalaciones para la recarga de tarjetas para cuotas preferenciales en el transporte público), el cual es respetuoso con el medio ambiente permitiendo una disminución en la huella de carbono.'
+                'description' => 'La emisión de gases de efecto invernadero (GEI) no solo depende del uso de la energía eléctrica, sino también de los sistemas de transporte. La implementación de programas y políticas de transporte muestran la voluntad de implementar un ambiente más saludable. Estas se enfocan en la limitación de los vehículos motorizados en el campus, fomentar el uso de vehículos compartido y/o vehículos cero emisiones (bicicletas, patinetas, scooters, patines, coches eléctricos, motocicletas eléctricas). Además, reconocer los esfuerzos realizados en fomentar el uso del transporte público (apoyos para la movilidad estudiantil, paraderos seguros, flexibilidad en el préstamo de instalaciones para la recarga de tarjetas para cuotas preferenciales en el transporte público), el cual es respetuoso con el medio ambiente permitiendo una disminución en la huella de carbono.
+                Para responder algunas de las preguntas de esta sección, tome en cuenta que:
+                a)	Si su entidad se encuentra en un campus con estacionamiento común en el cual no se distingue la procedencia de los vehículos, debe considerar todo el estacionamiento como referencia,
+                b)	Si su entidad se encuentra en un campus con estacionamiento común, pero están relativamente bien definidas las zonas de estacionamiento, considere el área más concurrida por el personal y alumnos de su entidad. 
+                c)	Si su entidad se encuentra en Zona PeriUniversitaria Poniente, considere la división del campus tal como lo plantea el Programa de Separación y Reciclaje de Materiales (PROSEREM).
+                 
+                Para más preguntas y dudas, consulte el material de apoyo o llame a la extensión 7210.
+                '
             ]);
             Category::factory()->create([
                 'name' => 'Educación e investigación',
@@ -79,9 +86,14 @@ class DatabaseSeeder extends Seeder
                               La educación y la investigación se hacen cotidianamente en nuestras aulas, pero las entidades preocupadas por incorporar o fortalecer la perspectiva ambiental y de sostenibilidad en sus planes y programas de estudios merecen reconocer este esfuerzo. Por ello, a través de los indicadores de este criterio se busca tener la recopilación de información sobre los programas educativos sobre temas de ambiente y sostenibilidad y la producción de materiales en torno a la sostenibilidad.'
             ]);
             Category::factory()->create([
+                'name' => 'Bitácora',
+                'controller' => 'binnacle',
+                'number' => 9,
+            ]);
+            Category::factory()->create([
                 'name' => 'Historial',
                 'controller' => 'history',
-                'number' => 9,
+                'number' => 10,
             ]);
         }
         //Fomrulario de Infraestructura
@@ -333,7 +345,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => '¿Cuál es el número total de estudiantes en línea? Estos son aquellos que estén registrados exclusivamente para llevar clases en línea. Reporte también su género.',
                 'name' => 'number_students_online',
@@ -417,8 +428,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
-
             Question::factory()->create([
                 'question' => '¿Cuál es el número total de personal académico de su entidad que asiste de manera presencial? (Incluyendo profesores de tiempo completo, asignatura, medio tiempo, hora clase y técnicos académicos). Reporte también su género.',
                 'name' => 'number_academic_staff',
@@ -502,7 +511,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => '¿Cuál es el número total de personal administrativo de su entidad que asiste de manera presencial? (Incluyendo mantenimiento, intendencia, servicios de salud, deportes). Reporte también su género.',
                 'name' => 'number_administrative_staff',
@@ -586,7 +594,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => 'Calcule el índice de población en espacios abiertos de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2, 1.4, 2.1, 2.3 y 2.4',
                 'name' => 'population_index_open_spaces',
@@ -596,9 +603,8 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
                 'autoAnswer' => true
             ]);
-
             Question::factory()->create([
-                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato excel (.xls) y etiquetelo con la clave 2.6.',
+                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato excel (.xls) y etiquételo con la clave 2.6.',
                 'name' => 'total_budget',
                 'number' => 6,
                 'category_id' => 2,
@@ -665,7 +671,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => '¿Cuáles han sido los presupuestos destinados a esfuerzos de sostenibilidad en su entidad en los últimos 3 años? Repórtelos por año en pesos mexicanos (MXN). Se toman en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros relacionados con los esfuerzos de sostenibilidad. Adjunte su exidencia en una hoja de cálculo en formato excel (.xls) y etiquetelo con la clave 2.7.',
                 'name' => 'budget_sustainability',
@@ -734,7 +739,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => '¿Cuál es el porcentaje del presupuesto destinado a esfuerzos de sostenibilidad en su entidad? Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.6 y 2.7',
                 'name' => 'percentage_budget_sustainability',
@@ -744,10 +748,8 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
                 'autoAnswer' => true
             ]);
-
-
             Question::factory()->create([
-                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.9.',
+                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato word (.doc) y etiquétalo con la clave 2.9.',
                 'name' => 'facilities_state',
                 'number' => 9,
                 'category_id' => 2,
@@ -920,7 +922,6 @@ class DatabaseSeeder extends Seeder
                 }
 
             }
-
             Question::factory()->create([
                 'question' => 'Marque la celda que indique el estado de los ítems destinados a la seguridad y protección del personal que puedan estar presentes dentro de su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.10.',
                 'name' => 'items_state',
@@ -1257,7 +1258,6 @@ class DatabaseSeeder extends Seeder
                     ]);
                 }
             }
-
             Question::factory()->create([
                 'question' => 'Si en tu entidad existe algún programa de conservación de la biodiversidad, marca las celdas que indiquen el tipo de especies que se albergan y el estatus del programa. Si la conservación se lleva a cabo en otro lugar, su entidad puede incluirlos y colocar esa área de conservación en el área total del campus (pregunta 1.2). Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.12.',
                 'name' => 'biodiversity_program',
@@ -1266,8 +1266,6 @@ class DatabaseSeeder extends Seeder
                 'type' => 'multi',
                 'required' => true,
             ]);
-
-
             Question::factory()->create([
                 'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Entorno, por favor, escriba al respecto. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.13.',
                 'name' => 'comment',
@@ -1301,7 +1299,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'a',
-                        'text' => 'Refirgerador',
+                        'text' => 'Refrigerador',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 2,
@@ -1389,7 +1387,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'l',
-                        'text' => 'plancha',
+                        'text' => 'Plancha',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 13,
@@ -1397,7 +1395,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'm',
-                        'text' => 'Lavavajiilas',
+                        'text' => 'Lavavajillas',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 14,
@@ -1405,7 +1403,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'n',
-                        'text' => 'television',
+                        'text' => 'Television',
                         'question_id' => 29,
                         'x' => 1,
                         'y' => 15,
@@ -1633,7 +1631,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'a',
-                        'text' => 'Refirgerador',
+                        'text' => 'Refrigerador',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 2,
@@ -1721,7 +1719,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'l',
-                        'text' => 'plancha',
+                        'text' => 'Plancha',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 13,
@@ -1729,7 +1727,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'm',
-                        'text' => 'Lavavajiilas',
+                        'text' => 'Lavavajillas',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 14,
@@ -1737,7 +1735,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'n',
-                        'text' => 'television',
+                        'text' => 'Television',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 15,
@@ -1874,7 +1872,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'E',
-                        'text' => 'Equipos de sonifo',
+                        'text' => 'Equipos de sonido',
                         'question_id' => 30,
                         'x' => 1,
                         'y' => 32,
@@ -2063,7 +2061,6 @@ class DatabaseSeeder extends Seeder
                     ]);
                 }
             }
-
             Question::factory()->create([
                 'question' => 'Indique la cantidad de energía producida (en kilovatios/hora) por las fuentes de energía renovable reportadas en el indicador 3.6.',
                 'name' => 'total_energy_produced',
@@ -2568,7 +2565,7 @@ class DatabaseSeeder extends Seeder
                         'text' => 'Sumatoria',
                         'question_id' => 41,
                         'x' => 1,
-                        'y' => 6,
+                        'y' => 7,
                     ]);
 
                 } {
@@ -2780,7 +2777,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'q',
-                        'text' => 'Difusión y fomento de buenas prácticas de consumo',
+                        'text' => 'Evitar el almacenamiento individual de materiales de oficina',
                         'question_id' => 44,
                         'x' => 1,
                         'y' => 19,
@@ -2919,8 +2916,8 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'g-battery',
-                        'text' => 'Residuos de manejo especial (RME): baterías alcalineas',
+                        'name' => 'g',
+                        'text' => 'Residuos de manejo especial (RME): baterías alcalinas',
                         'question_id' => 48,
                         'x' => 1,
                         'y' => 8,
@@ -2976,7 +2973,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'n',
-                        'text' => 'Residuos de manejo especial (RME): lamparas de halógeno',
+                        'text' => 'Residuos de manejo especial (RME): lámparas de halógeno',
                         'question_id' => 48,
                         'x' => 1,
                         'y' => 15,
@@ -3211,7 +3208,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'v',
-                        'text' => 'Elaboración de libretas con hojas de reuso o recicladas',
+                        'text' => 'Elaboración de libretas con hojas de reúso o recicladas',
                         'question_id' => 49,
                         'x' => 1,
                         'y' => 23,
@@ -3219,7 +3216,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => 'w',
-                        'text' => 'Existecia de directorio de proveedores de insumos sostenibles',
+                        'text' => 'Existencia de directorio de proveedores de insumos sostenibles',
                         'question_id' => 49,
                         'x' => 1,
                         'y' => 24,
@@ -3573,7 +3570,7 @@ class DatabaseSeeder extends Seeder
                         'type' => 'heading',
                         'name' => '',
                         'text' => 'Incluye sedimentación y coagulación-floculación
-                        (Adicion de sustancias quimicas para fomentar la precipitación de los contaminantes)',
+                        (Adición de sustancias químicas para fomentar la precipitación de los contaminantes)',
                         'question_id' => 64,
                         'x' => 2,
                         'y' => 3,
@@ -3581,7 +3578,7 @@ class DatabaseSeeder extends Seeder
                     Multiinput::factory()->create([
                         'type' => 'heading',
                         'name' => '',
-                        'text' => 'Sistemas de crecimiento adjuntos o sistemas de crecimiento suspendidos (Tratamiento biologicos aerobios y anaerobios)',
+                        'text' => 'Sistemas de crecimiento adjuntos o sistemas de crecimiento suspendidos (Tratamiento biológicos aerobios y anaerobios)',
                         'question_id' => 64,
                         'x' => 2,
                         'y' => 4,
@@ -3809,6 +3806,14 @@ class DatabaseSeeder extends Seeder
                         'question_id' => 67,
                         'x' => 1,
                         'y' => 5,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'e',
+                        'text' => 'Otro',
+                        'question_id' => 67,
+                        'x' => 1,
+                        'y' => 6,
                     ]);
                 }
                 //Top Headers
@@ -4088,7 +4093,7 @@ class DatabaseSeeder extends Seeder
             ]);
             Question::factory()->create([
                 'question' => 'Indique la cantidad de agua en litros anual que consume dentro de su entidad acorde las distintas fuentes presentadas en la tabla. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.6.',
-                'name' => 'percentage_efficient_water_program',
+                'name' => 'water_consumption',
                 'number' => 6,
                 'category_id' => 6,
                 'type' => 'tableinteger',
@@ -4349,6 +4354,593 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
                 'needsEvidence' => true,
             ]);
+
+
+        }
+        //Formulario de Transporte
+        {
+            Question::factory()->create([
+                'question' => 'Indique el número de automóviles (con motor de combustión) que son propiedad y directamente gestionados por la entidad. Incluya vehículos subcontratados a terceros. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.1.',
+                'name' => 'cars',
+                'number' => 1,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el número promedio de automóviles (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.2.',
+                'name' => 'cars_entry',
+                'number' => 2,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el número promedio de motocicletas (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.3.',
+                'name' => 'bikes',
+                'number' => 3,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Calcule el índice de vehículos motorizados por persona en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.1, 2.3, 2.4, 7.2 y 7.3.',
+                'name' => 'motorized_vehicles_per_person',
+                'number' => 4,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el número promedio de pasajeros que son transportados por los vehículos institucionales. Puede estimarlo a partir de la disponibilidad de asientos del servicio de transporte.',
+                'name' => 'passengers',
+                'number' => 5,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el promedio total de viajes realizado por los vehículos de transporte de la entidad en un año..',
+                'name' => 'trips',
+                'number' => 6,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Seleccione la medida que promueve y/o incentiva el uso de vehículos de cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) para el transporte dentro del campus. Indique su respuesta seleccionando la celda que mejor le convenga. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.8.',
+                'name' => 'zero_emission_program',
+                'number' => 7,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Seleccione la medida que promueve y/o incentiva el uso de vehículos de cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) para el transporte dentro del campus. Indique su respuesta seleccionando la celda que mejor le convenga. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.8.',
+                'name' => 'zero_emission_program',
+                'number' => 8,
+                'category_id' => 7,
+                'type' => 'verticalradio',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+                //Side headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Programa, política o tecnología',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '0',
+                        'text' => 'No hay vehículos cero emisiones disponibles',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '3',
+                        'text' => 'Estos no son posibles o prácticos',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '6',
+                        'text' => 'Estos vehículos están disponibles, pero no los proporciona la entidad',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '8',
+                        'text' => 'Si hay vehículos de cero emisiones disponibles, proporcionados por la universidad',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 5,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '8',
+                        'text' => 'Los vehículos cero emisiones están disponibles y son proporcionados por la universidad de forma gratuita. Estos son regularmente usados por la comunidad.',
+                        'question_id' => 82,
+                        'x' => 1,
+                        'y' => 6,
+                    ]);
+                }
+                //Top headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Medida',
+                        'question_id' => 82,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                }
+            }
+            Question::factory()->create([
+                'question' => 'Indique el número promedio diario de vehículos cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) que ingresan a su entidad. Contabilice vehículos de la universidad y propiedad privada. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.9.',
+                'name' => 'zero_emission_vehicles',
+                'number' => 9,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Calcule el índice de vehículos de cero emisiones por persona en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.1, 2.3, 2.4 y 7.8.',
+                'name' => 'zero_emission_vehicles_per_person',
+                'number' => 10,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el área total de estacionamientos de tierra de su entidad en metros cuadrados. Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.11.',
+                'name' => 'parking_area',
+                'number' => 11,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Indique el área total de estacionamientos encarpetados de su entidad en metros cuadrados (asfalto, cemento, chapopote, etc.). Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.12.',
+                'name' => 'paved_parking_area',
+                'number' => 12,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Calcule el porcentaje de estacionamientos de tierra de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2 y 7.11.',
+                'name' => 'dirt_parking_percentage',
+                'number' => 13,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Calcule el porcentaje de estacionamiento de pavimentos de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2 y 7.12.',
+                'name' => 'paved_parking_percentage',
+                'number' => 14,
+                'category_id' => 7,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Programas e iniciativas que propongan la disminución de área de estacionamiento y el uso de vehículos privados en la entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.15.',
+                'name' => 'parking_reduction_program',
+                'number' => 15,
+                'category_id' => 7,
+                'type' => 'multiradio',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+                //Side headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => '',
+                        'question_id' => 89,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Programa para limitar o disminuir el área de estacionamiento en la entidad',
+                        'question_id' => 89,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Iniciativas para disminuir el uso de vehículos motorizados privados en el campus (días sin automóviles, uso compartido de automóviles, cobro elevado de tarifas de estacionamiento, becas para la movilidad, uso compartido de bicicletas, abonos a tarifas bajas, limitación del coche de los estudiantes, etc.)',
+                        'question_id' => 89,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                }
+                //Top headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '0',
+                        'text' => 'Ninguno',
+                        'question_id' => 89,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '3',
+                        'text' => 'En planeación',
+                        'question_id' => 89,
+                        'x' => 3,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '7',
+                        'text' => 'Recién implementado',
+                        'question_id' => 89,
+                        'x' => 4,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '10',
+                        'text' => 'Consolidado',
+                        'question_id' => 89,
+                        'x' => 5,
+                        'y' => 1,
+                    ]);
+                }
+            }
+            Question::factory()->create([
+                'question' => 'Programas e iniciativas que propongan la seguridad vial y la movilidad urbana sostenible. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.16.',
+                'name' => 'sustainable_mobility_program',
+                'number' => 16,
+                'category_id' => 7,
+                'type' => 'multiradio',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+                //Side headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => '',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Caminos peatonales disponibles en la entidad',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Caminos peatonales disponibles y diseñados para la seguridad',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Hay caminos peatonales disponibles, diseñados para la seguridad y conveniencia',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Senderos peatonales disponibles, diseñados para la seguridad y la comodidad, y en algunas partes cuentan con características adaptadas para personas con discapacidad.',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 5,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'e',
+                        'text' => 'Caminos peatonales equipados con iluminación',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 6,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'f',
+                        'text' => 'Instalaciones viales adaptadas y adecuadas para personas con discapacidad ',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 7,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'g',
+                        'text' => 'Estaciones y/o servicio de reparación de bicicletas dentro de la entidad',
+                        'question_id' => 90,
+                        'x' => 1,
+                        'y' => 8,
+                    ]);
+                }
+                //Top headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '0',
+                        'text' => 'Ninguno',
+                        'question_id' => 90,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '7',
+                        'text' => 'En planeación',
+                        'question_id' => 90,
+                        'x' => 3,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '10',
+                        'text' => 'En función',
+                        'question_id' => 90,
+                        'x' => 4,
+                        'y' => 1,
+                    ]);
+                }
+            }
+            Question::factory()->create([
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Transporte, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.17.',
+                'name' => 'comment',
+                'number' => 17,
+                'category_id' => 7,
+                'type' => 'textarea',
+                'required' => true,
+                'needsEvidence' => true,
+            ]);
+
+        }
+
+        //Formulario de Educación e investigación
+        {
+            Question::factory()->create([
+                'question' => 'Indique el número de programas educativos que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.1.',
+                'name' => 'educational_programs',
+                'number' => 1,
+                'category_id' => 8,
+                'type' => 'tableinteger',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+                //Side Headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Nivel académico',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Educación media superior (preparatoria)',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'TSU',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Licenciatura',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Maestría',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 5,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'e',
+                        'text' => 'Especialidad',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 6,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'f',
+                        'text' => 'Doctorado',
+                        'question_id' => 92,
+                        'x' => 1,
+                        'y' => 7,
+                    ]);
+                }
+                //Top Headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Cantidad de programas educativos',
+                        'question_id' => 92,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                }
+            }
+            Question::factory()->create([
+                'question' => 'Indique número y nombre de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.2.',
+                'name' => 'environmental_programs',
+                'number' => 2,
+                'category_id' => 8,
+                'type' => 'tableintegername',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+
+            }
+
+            Question::factory()->create([
+                'question' => 'Número total de cursos o materias que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.3..',
+                'name' => 'courses',
+                'number' => 3,
+                'category_id' => 8,
+                'type' => 'tableinteger',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+                //Side Headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Nivel académico',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Educación media superior (preparatoria)',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'TSU',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Licenciatura',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Maestría',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 5,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'e',
+                        'text' => 'Especialidad',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 6,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'f',
+                        'text' => 'Doctorado',
+                        'question_id' => 94,
+                        'x' => 1,
+                        'y' => 7,
+                    ]);
+                }
+                //Top Headings
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => '',
+                        'text' => 'Cantidad de cursos y/o materias que oferta la entidad',
+                        'question_id' => 94,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                }
+            }
+
+            Question::factory()->create([
+                'question' => '. Número de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.4.',
+                'name' => 'environmental_courses',
+                'number' => 4,
+                'category_id' => 8,
+                'type' => 'tableintegername',
+                'required' => true,
+                'needsEvidence' => true,
+            ]); {
+
+            }
+            Question::factory()->create([
+                'question' => 'Calcule el porcentaje de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 8.1 y 8.2.',
+                'name' => 'environmental_programs_percentage',
+                'number' => 5,
+                'category_id' => 8,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+            Question::factory()->create([
+                'question' => 'Calcule el porcentaje de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad con respecto al total de asignaturas. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 8.3 y 8.4.',
+                'name' => 'environmental_courses_percentage',
+                'number' => 6,
+                'category_id' => 8,
+                'type' => 'number',
+                'required' => true,
+                'autoAnswer' => true,
+            ]);
+
+
+
+
 
 
         }

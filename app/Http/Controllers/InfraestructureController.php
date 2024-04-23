@@ -9,16 +9,16 @@ use App\Models\Multiinput;
 use App\Models\Answer;
 use App\Models\File;
 use App\Models\Entity;
+use App\Models\Modification;
 
 class InfraestructureController extends Controller
 {
     public function index()
     {
-        if (!auth()->hasUser())
-            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'infraestructure')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
+        $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
 
         $multiinputs = [];
 
@@ -34,7 +34,8 @@ class InfraestructureController extends Controller
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)
             ->with('questions', $questions)
-            ->with('multiinputs', $multiinputs);
+            ->with('multiinputs', $multiinputs)
+            ->with('answers', $answers);
     }
 
     function store(Request $request)
@@ -48,7 +49,6 @@ class InfraestructureController extends Controller
         $questions = Question::where('category_id', $currentCategory->id)->get()->toArray();
         $entity = Entity::find(auth()->user()->entity_id);
 
-        $array = [];
 
         foreach ($inputs as $key => $value) {
 
@@ -78,9 +78,13 @@ class InfraestructureController extends Controller
                 $file->question_id = $questionId;
                 $file->save();
             }
-            array_push($array, $found_key);
+
 
         }
+        $modification = new Modification();
+        $modification->user_id = auth()->user()->id;
+        $modification->message = 'Ha modificado la sección de Infraestructura';
+        $modification->save();
 
     }
 }

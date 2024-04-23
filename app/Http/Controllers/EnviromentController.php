@@ -9,13 +9,12 @@ use App\Models\Multiinput;
 use App\Models\Answer;
 use App\Models\File;
 use App\Models\Entity;
+use App\Models\Modification;
 
 class EnviromentController extends Controller
 {
     public function index()
     {
-        if (!auth()->hasUser())
-            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'enviroment')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -26,6 +25,9 @@ class EnviromentController extends Controller
         $ground = Answer::where('entity_id', auth()->user()->entity_id)
             ->where('question_id', 4)
             ->get();
+
+        $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
+
 
         $totalArea = 0;
         $totalGround = 0;
@@ -51,7 +53,8 @@ class EnviromentController extends Controller
             ->with('questions', $questions)
             ->with('multiinputs', $multiinputs)
             ->with('totalArea', $totalArea)
-            ->with('totalGround', $totalGround);
+            ->with('totalGround', $totalGround)
+            ->with('answers', $answers);
     }
 
     function store(Request $request)
@@ -102,6 +105,10 @@ class EnviromentController extends Controller
             array_push($array, $found_key);
 
         }
+        $modification = new Modification();
+        $modification->user_id = auth()->user()->id;
+        $modification->message = 'Ha modificado la sección de Entorno';
+        $modification->save();
 
     }
 }

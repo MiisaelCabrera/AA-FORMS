@@ -15,6 +15,8 @@
             @php
                 $questionInputs = null;
 
+                $answer = $answers->where('question_id', $question->id);
+
                 if (array_key_exists($question->id, $multiinputs)) {
                     $questionInputs = $multiinputs[$question->id];
                 }
@@ -23,6 +25,7 @@
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
+                'answer' => $answer,
             ])
         @endforeach
 
@@ -108,11 +111,14 @@
 
             e.preventDefault();
             $('input').prop('disabled', false);
-            var formData = $(this).serialize();
+            var formData = new FormData(this);
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),
                 data: formData,
+
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     swal.fire({
                         title: '¡Guardado!',

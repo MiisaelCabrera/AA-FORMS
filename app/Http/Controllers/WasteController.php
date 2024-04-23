@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\Multiinput;
+use App\Models\Answer;
+use App\Models\File;
+use App\Models\Entity;
+use App\Models\Modification;
 
 class WasteController extends Controller
 {
     public function index()
     {
-        if (!auth()->hasUser())
-            return redirect()->route('login');
+
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'waste')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -78,6 +81,10 @@ class WasteController extends Controller
             }
 
         }
+        $modification = new Modification();
+        $modification->user_id = auth()->user()->id;
+        $modification->message = 'Ha modificado la sección de Residuos';
+        $modification->save();
 
     }
 }

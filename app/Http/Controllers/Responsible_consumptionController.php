@@ -14,8 +14,6 @@ class Responsible_consumptionController extends Controller
 {
     public function index()
     {
-        if (!auth()->hasUser())
-            return redirect()->route('login');
         $categories = Category::select('name', 'controller')->get();
         $currentCategory = Category::where('controller', 'responsible_consumption')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
@@ -81,6 +79,10 @@ class Responsible_consumptionController extends Controller
             }
 
         }
+        $modification = new Modification();
+        $modification->user_id = auth()->user()->id;
+        $modification->message = 'Ha modificado la sección de Consumo Responsable';
+        $modification->save();
 
     }
 }
