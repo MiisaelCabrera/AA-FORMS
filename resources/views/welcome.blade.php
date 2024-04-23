@@ -30,12 +30,9 @@
         <div
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-
-
-
                 <main class="dashboard">
                     @foreach ($categories as $category)
-                        @if ($category->name != 'Historial' && $category->name != 'Bitácora')
+                        @if ($category->controller != 'history' && $category->controller != 'binnacle' && $category->controller != 'report')
                             <a href="{{ $category->controller }}" class="dashboard-item">
                                 <img src="{{ asset('images/' . $category->name . '.png') }}" alt="">
                                 {{ $category->name }}

@@ -12,6 +12,7 @@ use App\Http\Controllers\WaterController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\Education_researchController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\GlobalReportController;
 use App\Models\Category;
 
 Route::get('/', function () {
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('education_research', Education_researchController::class);
     Route::resource('history', HistoryController::class);
     Route::resource('binnacle', BinnacleController::class);
+    Route::resource('report', GlobalReportController::class);
 });
 
 

@@ -1,10 +1,8 @@
 <div class="question-block">
 
     {{-- Texto de la pregunta --}}
-    @if ($currentCategory->number == 2 && $question->number != 12)
-        <label
-            for="">{{ $currentCategory->number . '.' . $question->number . ' ' . $question->question }}</label>
-    @endif
+    <label for="">{{ $currentCategory->number . '.' . $question->number . ' ' . $question->question }}</label>
+
 
     @php
         $currentAnswer = $answer->first();

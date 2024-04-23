@@ -86,14 +86,20 @@ class DatabaseSeeder extends Seeder
                               La educación y la investigación se hacen cotidianamente en nuestras aulas, pero las entidades preocupadas por incorporar o fortalecer la perspectiva ambiental y de sostenibilidad en sus planes y programas de estudios merecen reconocer este esfuerzo. Por ello, a través de los indicadores de este criterio se busca tener la recopilación de información sobre los programas educativos sobre temas de ambiente y sostenibilidad y la producción de materiales en torno a la sostenibilidad.'
             ]);
             Category::factory()->create([
+                'name' => 'Reporte global',
+                'controller' => 'report',
+                'number' => 9,
+            ]);
+
+            Category::factory()->create([
                 'name' => 'Bitácora',
                 'controller' => 'binnacle',
-                'number' => 9,
+                'number' => 10,
             ]);
             Category::factory()->create([
                 'name' => 'Historial',
                 'controller' => 'history',
-                'number' => 10,
+                'number' => 11,
             ]);
         }
         //Fomrulario de Infraestructura

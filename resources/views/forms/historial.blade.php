@@ -3,18 +3,18 @@
     <!-- Header del cuestionario-->
     @include('layouts.formHeader', ['currentCategory' => $currentCategory])
 
-    @foreach ($modifications as $modification)
+    @foreach ($files as $file)
         @php
-            $user = $users->where('id', $modification->user_id)->first();
-            $entity = $entities->where('id', $user->entity_id)->first();
+            $entity = $entities->where('id', $file->entity_id)->first();
+            $filename = explode('/', $file->path);
         @endphp
         <div class="history-card">
             <div>
-                <h3>{{ $user->name . ': ' . $entity->name }}</h3>
-                {{ $modification->message }}
+                <h3>{{ $entity->name . ': ' . end($filename) }}</h3>
+                <a href="{{ asset($file->path) }}">{{ 'Descargar ' . end($filename) }}</a>
             </div>
             <div class="history-card__date">
-                {{ $modification->created_at }}
+                {{ $file->created_at }}
             </div>
         </div>
     @endforeach

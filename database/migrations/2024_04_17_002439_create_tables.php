@@ -65,6 +65,13 @@ return new class extends Migration {
             $table->string('path');
             $table->timestamps();
         });
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('entity_id')->unsigned();
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
+            $table->string('path');
+            $table->timestamps();
+        });
         Schema::create('modifications', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
