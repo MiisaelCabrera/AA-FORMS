@@ -20,7 +20,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @include('layouts.header', ['heading' => 'Reporte de Sostenibilidad 2024'])
+        @include('layouts.header', ['heading' => 'Programa UASLP Sostenible*'])
         @include('layouts.navigation')
 
         <!-- Page Content -->

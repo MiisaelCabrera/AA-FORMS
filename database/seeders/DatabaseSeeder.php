@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Entity::factory()->create([
-            'name' => 'Facultad de ingenier[ia',
+            'name' => 'Facultad de ingeniería',
         ]);
 
         User::factory(10)->create();
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
                 'type' => 'select',
                 'required' => true,
                 'hasLink' => true,
-                'link' => 'https://www.youtube.com/watch?v=RJdt0jF-JX8',
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
 
             //Inputs de la pregunta 1
@@ -154,12 +154,14 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => '¿Cuál es el área total de su entidad?',
+                'question' => '¿Cuál es el área total de su entidad? (Se reporta en metros cuadrados y se consideran estacionamientos, áreas verdes, edifcios, aulas, canchas).',
                 'name' => 'area_total',
                 'number' => 2,
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
                 'question' => '¿Cuál es el área total de su entidad destinada a actividades académicas y administrativas? (Se reporta en metros cuadrados. Incluya edificios administrativos, edificios para actividades estudiantiles y de personal, clases, invernaderos y comedores. Los jardines, campos y otras áreas solo deben contarse si son utilizadas con fines académicos y/o recreativos, como conferencias, prácticas, capacitaciones, eventos, ferias, etc.)',
@@ -168,6 +170,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
                 'question' => '¿Cuál es la superficie total de la planta baja de los edificios de su entidad? (Se reporta en metros cuadrados. Considere para el cálculo el área total de las partes de la planta baja de los edificios universitarios en su entidad).',
@@ -176,6 +180,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
                 'question' => '¿Cuál es el área total de edificios de su entidad? (Se reporta en metros cuadrados). Proporcionar información del área ocupada por edificios, es decir, proporcionar el área total de todos los pisos, incluidas las plantas bajas y otros pisos de los edificios universitarios en su entidad.',
@@ -186,7 +192,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje de espacios abiertos en su entidad?',
+                'question' => '¿Cuál es el porcentaje de espacios abiertos en su entidad? El cálculo es automático con base a los indicadores 1.2 y 1.4.',
                 'name' => 'percentage_open_spaces',
                 'number' => 6,
                 'category_id' => 1,
@@ -195,7 +201,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el área de cubierta vegetal forestal de su entidad? (Se reporta en metros cuadrados). Proporcione el porcentaje del área de su entidad cubierta de vegetación en forma de bosque, no incluir jardineras. Adjunte su evidencia fotográfica en formato word (.doc) y etiquetelo con la clave 1.7.',
+                'question' => '¿Cuál es el área de cubierta vegetal forestal de su entidad? (Se reporta en metros cuadrados). Proporcione el porcentaje del área de su entidad cubierta de vegetación en forma de bosque, no incluir jardineras. Adjunte su evidencia fotográfica en formato Word y etiquételo con la clave 1.7.',
                 'name' => 'area_forest_vegetation',
                 'number' => 7,
                 'category_id' => 1,
@@ -204,7 +210,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje de cubierta vegetal forestal de su entidad?',
+                'question' => '¿Cuál es el porcentaje de cubierta vegetal forestal de su entidad? El cálculo es autómatico con base a los indicadores 1.2 y 1.7.',
                 'name' => 'percentage_forest_vegetation',
                 'number' => 8,
                 'category_id' => 1,
@@ -213,16 +219,18 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el área de vegetación plantada de su entidad? (Se reporta en metros cuadrados. No contabilice los bosques. Se pueden contar áreas de jardín, techos verdes, invernaderos, jardineras, plantaciones internas, jardines verticales y canchas de futbol). Adjunte su evidencia fotográfica en formato word (.doc) y etiquetelo con la clave 1.9.',
+                'question' => '¿Cuál es el área de vegetación plantada de su entidad? (Se reporta en metros cuadrados. No contabilice los bosques. Se pueden contar áreas de jardín, techos verdes, invernaderos, jardineras, plantaciones internas, jardines verticales y canchas de fútbol). Adjunte su evidencia fotográfica en formato Word y etiquételo con la clave 1.9.',
                 'name' => 'area_planted_vegetation',
                 'number' => 9,
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje de vegetación plantada de su entidad?',
+                'question' => '¿Cuál es el porcentaje de vegetación plantada de su entidad? El cálculo es autómatico con base a los indicadores 1.2 y 1.9.',
                 'name' => 'percentage_planted_vegetation',
                 'number' => 10,
                 'category_id' => 1,
@@ -231,16 +239,18 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con superficies que permitan la absorción de agua, especifique el área en metros cuadrados. Estas áreas excluyen los bosques y la vegetación plantada. Tome en cuenta, por ejemplo: tierra, bloques de concreto, campo sintético, estacionamientos sin asfalto, camellones, pozos de absorción, concreto permeable, adoquín. Adjunte su evidencia fotográfica en formato word (.doc) y etiquetelo con la clave 1.11.',
+                'question' => 'Si su entidad cuenta con superficies que permitan la absorción de agua, especifique el área en metros cuadrados. Estas áreas excluyen los bosques y la vegetación plantada. Tome en cuenta, por ejemplo: tierra, bloques de concreto, campo sintético, estacionamientos sin asfalto, camellones, pozos de absorción, concreto permeable, adoquín. Adjunte su evidencia fotográfica en formato Word y etiquételo con la clave 1.11.',
                 'name' => 'area_water_absorption',
                 'number' => 11,
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje de superficies que permitan la absorción de agua de su entidad?',
+                'question' => '¿Cuál es el porcentaje de superficies que permitan la absorción de agua de su entidad? El cálculo es automático con base a los indicadores 1.2 y 1.11.',
                 'name' => 'percentage_water_absorption',
                 'number' => 12,
                 'category_id' => 1,
@@ -249,16 +259,18 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Si su entidad tuvo actividades de operación y mantenimiento en los edificios que la conforman, especifiqué el área ocuapada por los mismos en metros cudrados. (Se consideran la construcción de nuevos edificios y las actividades de mantenimiento de rutina del edificio). Adjunte su evidencia fotográfica en formato word (.doc) y etiquetelo con la clave 1.13.',
+                'question' => 'Si su entidad tuvo actividades de operación y mantenimiento en los edificios que la conforman, especifiqué el área ocuapada por los mismos en metros cudrados. (Se consideran la construcción de nuevos edificios y las actividades de mantenimiento de rutina del edificio). Adjunte su evidencia fotográfica en formato Word y etiquételo con la clave 1.13.',
                 'name' => 'area_building_maintenance',
                 'number' => 13,
                 'category_id' => 1,
                 'type' => 'number',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje de actividades de operación y mantenimiento de los edificios de su entidad?',
+                'question' => '¿Cuál es el porcentaje de actividades de operación y mantenimiento de los edificios de su entidad? El cálculo es automático con base a los indicadores 1.5 y 1.13.',
                 'name' => 'percentage_building_maintenance',
                 'number' => 14,
                 'category_id' => 1,
@@ -267,7 +279,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Infraestructura, por favor, escriba al respecto.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Infraestructura, por favor, escriba al respecto. Adjunte su evidencia en formato Word y etiquételo con la clave 1.15.',
                 'name' => 'comment',
                 'number' => 15,
                 'category_id' => 1,
@@ -610,7 +622,7 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => 'Calcule el índice de población en espacios abiertos de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2, 1.4, 2.1, 2.3 y 2.4',
+                'question' => 'Calcule el índice de población en espacios abiertos de su entidad. El cálculo es automático con base a los indicadores 1.2, 1.4, 2.1, 2.3 y 2.4',
                 'name' => 'population_index_open_spaces',
                 'number' => 5,
                 'category_id' => 2,
@@ -619,7 +631,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true
             ]);
             Question::factory()->create([
-                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato excel (.xls) y etiquételo con la clave 2.6.',
+                'question' => '¿Cuál es el presupuesto total de los últimos 3 años de su entidad? Repórtelos en pesos mexicanos (MXN). (Tome en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros). Adjunte su evidencia en una hoja de cálculo en formato Excel y etiquételo con la clave 2.6.',
                 'name' => 'total_budget',
                 'number' => 6,
                 'category_id' => 2,
@@ -687,13 +699,15 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => '¿Cuáles han sido los presupuestos destinados a esfuerzos de sostenibilidad en su entidad en los últimos 3 años? Repórtelos por año en pesos mexicanos (MXN). Se toman en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros relacionados con los esfuerzos de sostenibilidad. Adjunte su exidencia en una hoja de cálculo en formato excel (.xls) y etiquetelo con la clave 2.7.',
+                'question' => '¿Cuáles han sido los presupuestos destinados a esfuerzos de sostenibilidad en su entidad en los últimos 3 años? Repórtelos por año en pesos mexicanos (MXN). Se toman en cuenta las inversiones en infraestructura, instalaciones, costos de personal, investigación, programas y otros relacionados con los esfuerzos de sostenibilidad. Adjunte su exidencia en una hoja de cálculo en formato Excel y etiquételo con la clave 2.7.',
                 'name' => 'budget_sustainability',
                 'number' => 7,
                 'category_id' => 2,
                 'type' => 'multinumber',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //x = 1
                 {
@@ -755,7 +769,7 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => '¿Cuál es el porcentaje del presupuesto destinado a esfuerzos de sostenibilidad en su entidad? Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.6 y 2.7',
+                'question' => '¿Cuál es el porcentaje del presupuesto destinado a esfuerzos de sostenibilidad en su entidad? El cálculo es automático con base a los indicadores 2.6 y 2.7.',
                 'name' => 'percentage_budget_sustainability',
                 'number' => 8,
                 'category_id' => 2,
@@ -764,13 +778,15 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true
             ]);
             Question::factory()->create([
-                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato word (.doc) y etiquétalo con la clave 2.9.',
+                'question' => 'Marque la celda que indique el estado en el que se encuentran las instalaciones de la entidad con respecto a su adecuación para personas en situación o condición de discapacidad, necesidades especiales y/o atención de maternidad.  Adjunte su evidencia en formato Word y etiquételo con la clave 2.9.',
                 'name' => 'facilities_state',
                 'number' => 9,
                 'category_id' => 2,
                 'type' => 'multiradio',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side Headings
                 {
@@ -938,13 +954,15 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => 'Marque la celda que indique el estado de los ítems destinados a la seguridad y protección del personal que puedan estar presentes dentro de su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.10.',
+                'question' => 'Marque la celda que indique el estado de los ítems destinados a la seguridad y protección del personal que puedan estar presentes dentro de su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 2.10.',
                 'name' => 'items_state',
                 'number' => 10,
                 'category_id' => 2,
                 'type' => 'multiradio',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side Headings
                 {
@@ -1145,7 +1163,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Marque la celda que indique el estado de la infraestructura destinada a la atención de la salud de los estudiantes, académicos y personal administrativo que puedan estar presentes dentro de su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.11.',
+                'question' => 'Marque la celda que indique el estado de la infraestructura destinada a la atención de la salud de los estudiantes, académicos y personal administrativo que puedan estar presentes dentro de su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 2.11.',
                 'name' => 'health_infrastructure_state',
                 'number' => 11,
                 'category_id' => 2,
@@ -1274,7 +1292,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si en tu entidad existe algún programa de conservación de la biodiversidad, marca las celdas que indiquen el tipo de especies que se albergan y el estatus del programa. Si la conservación se lleva a cabo en otro lugar, su entidad puede incluirlos y colocar esa área de conservación en el área total del campus (pregunta 1.2). Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.12.',
+                'question' => 'Si en tu entidad existe algún programa de conservación de la biodiversidad, marca las celdas que indiquen el tipo de especies que se albergan y el estatus del programa. Si la conservación se lleva a cabo en otro lugar, su entidad puede incluirlos y colocar esa área de conservación en el área total del campus (pregunta 1.2). Adjunte su evidencia en formato Word y etiquételo con la clave 2.12.',
                 'name' => 'biodiversity_program',
                 'number' => 12,
                 'category_id' => 2,
@@ -1423,7 +1441,7 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Entorno, por favor, escriba al respecto. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.13.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Entorno, por favor, escriba al respecto. Adjunte su evidencia en formato Word y etiquétalo con la clave 2.13.',
                 'name' => 'comment',
                 'number' => 13,
                 'category_id' => 2,
@@ -1765,7 +1783,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Índique la cantidad de aparatos electrónicos energéticamente eficientes y/o de bajo consumo en uso dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos son: aire acondicionado con tecnología inverter, bombillas LED, computadoras con certificación Energy Star, refrigeradores de alta eficiencia, generadores eléctricos, etc. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.2.',
+                'question' => 'Índique la cantidad de aparatos electrónicos energéticamente eficientes y/o de bajo consumo en uso dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos son: aire acondicionado con tecnología inverter, bombillas LED, computadoras con certificación Energy Star, refrigeradores de alta eficiencia, generadores eléctricos, etc. Adjunte su evidencia en formato Word y etiquételo con la clave 3.2.',
                 'name' => 'total_energy_efficient_devices',
                 'number' => 2,
                 'category_id' => 3,
@@ -2097,7 +2115,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de aparatos electrónicos energéticamente eficientes y/o de bajo consumo utilizados en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 3.1 y 3.2.',
+                'question' => 'Calcule el porcentaje de aparatos electrónicos energéticamente eficientes y/o de bajo consumo utilizados en su entidad. El cálculo es automático con base a los indicadores 3.1 y 3.2.',
                 'name' => 'percentage_energy_efficient_devices',
                 'number' => 3,
                 'category_id' => 3,
@@ -2112,9 +2130,11 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 3,
                 'type' => 'number',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',                
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de implementación de edificios inteligentes en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.5 y 3.4. ',
+                'question' => 'Calcule el porcentaje de implementación de edificios inteligentes en su entidad. El cálculo es automático con base a los indicadores 1.5 y 3.4. ',
                 'name' => 'percentage_smart_buildings',
                 'number' => 5,
                 'category_id' => 3,
@@ -2123,7 +2143,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true
             ]);
             Question::factory()->create([
-                'question' => 'Indique la cantidad de fuentes de energía renovable presentes en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.6',
+                'question' => 'Indique la cantidad de fuentes de energía renovable presentes en su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 3.6',
                 'name' => 'total_renewable_energy_sources',
                 'number' => 6,
                 'category_id' => 3,
@@ -2312,7 +2332,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique el número de edificios totales de su entidad y aquellos que están construidos o renovados con base en alguna política o normativa para edificios sustentables. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.8.',
+                'question' => 'Indique el número de edificios totales de su entidad y aquellos que están construidos o renovados con base en alguna política o normativa para edificios sustentables. Adjunte su evidencia en formato Word y etiquételo con la clave 3.8.',
                 'name' => 'total_sustainable_buildings',
                 'number' => 8,
                 'category_id' => 3,
@@ -2391,6 +2411,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 3,
                 'type' => 'tablecheckbox',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //side headings
                 {
@@ -2465,13 +2487,15 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique dentro de la celda el estatus de los programas implementados por su entidad sobre riesgo, impactos, mitigación, adaptación, reducción de impactos y alerta temprana del cambio climático. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.10.',
+                'question' => 'Indique dentro de la celda el estatus de los programas implementados por su entidad sobre riesgo, impactos, mitigación, adaptación, reducción de impactos y alerta temprana del cambio climático. Adjunte su evidencia en formato Word y etiquételo con la clave 3.10.',
                 'name' => 'climate_change_program',
                 'number' => 10,
                 'category_id' => 3,
                 'type' => 'multiradio',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //side headings
                 {
@@ -2577,7 +2601,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => '¿Su entidad actualmente cuenta con la implementación de algún programa innovador sobre Energía y Cambio Climático? Indique en la celda la cantidad de programas existentes relacionados a su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.11.',
+                'question' => '¿Su entidad actualmente cuenta con la implementación de algún programa innovador sobre Energía y Cambio Climático? Indique en la celda la cantidad de programas existentes relacionados a su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 3.11.',
                 'name' => 'innovative_programs',
                 'number' => 11,
                 'category_id' => 3,
@@ -2656,7 +2680,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique la cantidad de instalaciones de gas que se encuentren en su entidad. Recuerde tomar en cuenta aquellas empleadas para actividades de aprendizaje, laboratorios y bienestar del personal docente y administrativo. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.13.',
+                'question' => 'Indique la cantidad de instalaciones de gas que se encuentren en su entidad. Recuerde tomar en cuenta aquellas empleadas para actividades de aprendizaje, laboratorios y bienestar del personal docente y administrativo. Adjunte su evidencia en formato Word y etiquételo con la clave 3.13.',
                 'name' => 'total_gas_installations',
                 'number' => 13,
                 'category_id' => 3,
@@ -2736,7 +2760,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Energía y Cambio Climáticos, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 3.14.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Energía y Cambio Climáticos, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. Adjunte su evidencia en formato Word y etiquételo con la clave 3.14.',
                 'name' => 'comment',
                 'number' => 14,
                 'category_id' => 3,
@@ -2754,6 +2778,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 4,
                 'type' => 'select',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 Multiinput::factory()->create([
                     'type' => 'select',
@@ -2774,7 +2800,7 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => '¿Indique dentro de la celda el estátus de las políticas y/o programas realizados en su entidad que favorezcan las compras sustentables. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 4.2.',
+                'question' => '¿Indique dentro de la celda el estatus de las políticas y/o programas realizados en su entidad que favorezcan las compras sustentables. Adjunte su evidencia en formato Word y etiquételo con la clave 4.2.',
                 'name' => 'percentage_sustainable_purchases',
                 'number' => 2,
                 'category_id' => 4,
@@ -2993,9 +3019,11 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 4,
                 'type' => 'number',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje del presupuesto invertido en compras verdes para oficinas de forma anual. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 4.3 y 4.4.',
+                'question' => 'Calcule el porcentaje del presupuesto invertido en compras verdes para oficinas de forma anual. El cálcula es automático con base a los indicadores 4.3 y 4.4.',
                 'name' => 'percentage_green_budget',
                 'number' => 5,
                 'category_id' => 4,
@@ -3004,13 +3032,15 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => '¿Su entidad cuenta con áreas y contenedores específicos para la segregación de los residuos generados en los edificios y áreas verdes? ¿Cuántas clasificaciones emplea? Indique el estatus de éstos. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 4.6.',
+                'question' => '¿Su entidad cuenta con áreas y contenedores específicos para la segregación de los residuos generados en los edificios y áreas verdes? ¿Cuántas clasificaciones emplea? Indique el estatus de éstos. Adjunte su evidencia en formato Word y etiquetelo con la clave 4.6.',
                 'name' => 'segregation_containers',
                 'number' => 6,
                 'category_id' => 4,
                 'type' => 'multiradio',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side headings
                 {
@@ -3172,7 +3202,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique dentro de la celda el estátus de acciones realizadas por la entidad para el fomento del consumo responsable. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 4.7.',
+                'question' => 'Indique dentro de la celda el estatus de acciones realizadas por la entidad para el fomento del consumo responsable. Adjunte su evidencia en formato Word y etiquételo con la clave 4.7.',
                 'name' => 'responsible_consumption_actions',
                 'number' => 7,
                 'category_id' => 4,
@@ -3440,7 +3470,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Consumo Responsable, por favor, escriba al respecto. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 4.8.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Consumo Responsable, por favor, escriba al respecto. No hay extensión máxima. Adjunte su evidencia en formato Word y etiquételo con la clave 4.8.',
                 'name' => 'comment',
                 'number' => 8,
                 'category_id' => 4,
@@ -3453,7 +3483,7 @@ class DatabaseSeeder extends Seeder
         //Formulario de Residuos
         {
             Question::factory()->create([
-                'question' => 'Indique si en su entidad está vigente algún programa o política que fomente la reducción, reutilización y el reciclaje de los residuos sólidos urbanos universitarios marcando la celda adecuada. Estos programas y políticas pueden ir dirigidos a alentar al personal académico, administrativo y estudiantil en el empleo de las 3R (Reducir, Reutilizar, Reciclar). Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.1.',
+                'question' => 'Indique si en su entidad está vigente algún programa o política que fomente la reducción, reutilización y el reciclaje de los residuos sólidos urbanos universitarios marcando la celda adecuada. Estos programas y políticas pueden ir dirigidos a alentar al personal académico, administrativo y estudiantil en el empleo de las 3R (Reducir, Reutilizar, Reciclar). Adjunte su evidencia en formato Word y etiquételo con la clave 5.1.',
                 'name' => '3r_program',
                 'number' => 1,
                 'category_id' => 5,
@@ -3557,7 +3587,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de tratamiento de residuos orgánicos compostables. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 5.2 y 5.4.',
+                'question' => 'Calcule el porcentaje de tratamiento de residuos orgánicos compostables. El cálculo es automático con base a los indicadores 5.2 y 5.4.',
                 'name' => 'percentage_treated_organic_waste',
                 'number' => 5,
                 'category_id' => 5,
@@ -3574,7 +3604,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Cantidad de residuos inorgánicos (no peligrosos) tratados anualmente en kilogramos. Esto significa que se debe de cuantificar la cantidad de residuos inorgánicos que han sido tratados (reciclados, reutilizados, aprovechados) dentro de la entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.7.',
+                'question' => 'Cantidad de residuos inorgánicos (no peligrosos) tratados anualmente en kilogramos. Esto significa que se debe de cuantificar la cantidad de residuos inorgánicos que han sido tratados (reciclados, reutilizados, aprovechados) dentro de la entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 5.7.',
                 'name' => 'treated_inorganic_waste',
                 'number' => 7,
                 'category_id' => 5,
@@ -3583,7 +3613,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de tratamiento de residuos inorgánicos (no peligrosos). Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 5.2 y 5.7',
+                'question' => 'Calcule el porcentaje de tratamiento de residuos inorgánicos (no peligrosos). El cálculo es automático con base a los indicadores 5.2 y 5.7',
                 'name' => 'percentage_treated_inorganic_waste',
                 'number' => 8,
                 'category_id' => 5,
@@ -3592,7 +3622,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Cantidad de residuos peligrosos y/o de manejo controlado producidos anualmente en su entidad en kilogramos. Aquí se cuantifican las pilas, tóneres genéricos, lámparas de fluorescentes, sólidos contaminados, sobrantes de reactivos usados en laboratorios de docencia e investigación, reactivos químicos vencidos o caducados, RPBI, etc. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.9. ',
+                'question' => 'Cantidad de residuos peligrosos y/o de manejo controlado producidos anualmente en su entidad en kilogramos. Aquí se cuantifican las pilas, tóneres genéricos, lámparas de fluorescentes, sólidos contaminados, sobrantes de reactivos usados en laboratorios de docencia e investigación, reactivos químicos vencidos o caducados, RPBI, etc. Adjunte su evidencia en formato Word y etiquételo con la clave 5.9. ',
                 'name' => 'dangerous_waste',
                 'number' => 9,
                 'category_id' => 5,
@@ -3617,7 +3647,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de tratamiento de residuos peligrosos y/o de manejo controlado. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 5.9, 5.10 y 5.11.',
+                'question' => 'Calcule el porcentaje de tratamiento de residuos peligrosos y/o de manejo controlado. El cálculo es automático con base a los indicadores 5.9, 5.10 y 5.11.',
                 'name' => 'percentage_treated_dangerous_waste',
                 'number' => 12,
                 'category_id' => 5,
@@ -3626,13 +3656,15 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => '¿Su entidad cuenta con alguna política de reducción de producción de residuos peligrosos y/o de manejo controlado? Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.13.',
+                'question' => '¿Su entidad cuenta con alguna política de reducción de producción de residuos peligrosos y/o de manejo controlado? Adjunte su evidencia en formato Word y etiquételo con la clave 5.13.',
                 'name' => 'dangerous_waste_reduction_policy',
                 'number' => 13,
                 'category_id' => 5,
                 'type' => 'select',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 Multiinput::factory()->create([
                     'type' => 'select',
@@ -3652,7 +3684,7 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
             Question::factory()->create([
-                'question' => 'Indique si en su entidad está vigente algún programa o política que fomente el tratamiento de aguas residuales en su entidad. Marque la celda que mejor describa el estado de los programas o tecnologías implementadas para los sistemas de tratamiento de aguas residuales existentes en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.14.',
+                'question' => 'Indique si en su entidad está vigente algún programa o política que fomente el tratamiento de aguas residuales en su entidad. Marque la celda que mejor describa el estado de los programas o tecnologías implementadas para los sistemas de tratamiento de aguas residuales existentes en su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 5.14.',
                 'name' => 'waste_water_program',
                 'number' => 14,
                 'category_id' => 5,
@@ -3786,7 +3818,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Residuos, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 5.15.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Residuos, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. Adjunte su evidencia en formato Word y etiquételo con la clave 5.15.',
                 'name' => 'comment',
                 'number' => 15,
                 'category_id' => 5,
@@ -3800,7 +3832,7 @@ class DatabaseSeeder extends Seeder
         //Formulario de Agua
         {
             Question::factory()->create([
-                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que fomente la conservación del agua. Marque la celda que corresponda a la etapa del programa. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.1.',
+                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que fomente la conservación del agua. Marque la celda que corresponda a la etapa del programa. Adjunte su evidencia en formato Word y etiquételo con la clave 6.1.',
                 'name' => 'water_program',
                 'number' => 1,
                 'category_id' => 6,
@@ -3912,7 +3944,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que fomente el uso de agua reciclada. Marque la celda que corresponda a la etapa del programa. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.2.',
+                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que fomente el uso de agua reciclada. Marque la celda que corresponda a la etapa del programa. Adjunte su evidencia en formato Word y etiquételo con la clave 6.2.',
                 'name' => 'recycled_water_program',
                 'number' => 2,
                 'category_id' => 6,
@@ -4009,7 +4041,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Índique la cantidad total de aparatos electrónicos y muebles que usan agua para operar dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.3.',
+                'question' => 'Índique la cantidad total de aparatos electrónicos y muebles que usan agua para operar dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Adjunte su evidencia en formato Word y etiquételo con la clave 6.3.',
                 'name' => 'efficient_water_program',
                 'number' => 3,
                 'category_id' => 6,
@@ -4104,7 +4136,7 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => 'Índique la cantidad total de aparatos electrónicos y muebles que ahorran agua dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos se refieren a acciones y accesorios para el uso eficiente de agua. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.4.',
+                'question' => 'Índique la cantidad total de aparatos electrónicos y muebles que ahorran agua dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos se refieren a acciones y accesorios para el uso eficiente de agua. Adjunte su evidencia en formato Word y etiquételo con la clave 6.4.',
                 'name' => 'electric_water_program',
                 'number' => 4,
                 'category_id' => 6,
@@ -4239,7 +4271,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de políticas, aparatos electrónicos y muebles que ahorran agua utilizados en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 6.3 y 6.4.',
+                'question' => 'Calcule el porcentaje de políticas, aparatos electrónicos y muebles que ahorran agua utilizados en su entidad. El cálculo es automático con base a los indicadores 6.3 y 6.4.',
                 'name' => 'percentage_efficient_water_program',
                 'number' => 5,
                 'category_id' => 6,
@@ -4248,13 +4280,15 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique la cantidad de agua en litros anual que consume dentro de su entidad acorde las distintas fuentes presentadas en la tabla. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.6.',
+                'question' => 'Indique la cantidad de agua en litros anual que consume dentro de su entidad acorde las distintas fuentes presentadas en la tabla. Adjunte su evidencia en formato Word y etiquételo con la clave 6.6.',
                 'name' => 'water_consumption',
                 'number' => 6,
                 'category_id' => 6,
                 'type' => 'tableinteger',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side headers
                 {
@@ -4334,7 +4368,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que procure el control de la contaminación del agua en la entidad. Marque la celda que corresponda a la etapa de algún programa destinado a evitar descargas de agua contaminada en el sistema de drenaje municipal. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.7.',
+                'question' => 'Indique si la entidad cuenta con alguna política, programa y/o tecnología que procure el control de la contaminación del agua en la entidad. Marque la celda que corresponda a la etapa de algún programa destinado a evitar descargas de agua contaminada en el sistema de drenaje municipal. Adjunte su evidencia en formato Word y etiquételo con la clave 6.7.',
                 'name' => 'water_pollution_program',
                 'number' => 7,
                 'category_id' => 6,
@@ -4415,12 +4449,14 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique la institución que le abastece de agua a su entidad y repote los consumos bimestrales en volumen y pesos mexicanos. ',
+                'question' => 'Indique la institución que le abastece de agua a su entidad y reporte los consumos bimestrales en volumen y pesos mexicanos. ',
                 'name' => 'water_supplier',
                 'number' => 8,
                 'category_id' => 6,
                 'type' => 'tableinteger',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side headings
                 {
@@ -4502,7 +4538,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Agua, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.9.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Agua, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato Word y etiquételo con la clave 6.9.',
                 'name' => 'comment',
                 'number' => 9,
                 'category_id' => 6,
@@ -4516,7 +4552,7 @@ class DatabaseSeeder extends Seeder
         //Formulario de Transporte
         {
             Question::factory()->create([
-                'question' => 'Indique el número de automóviles (con motor de combustión) que son propiedad y directamente gestionados por la entidad. Incluya vehículos subcontratados a terceros. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.1.',
+                'question' => 'Indique el número de automóviles (con motor de combustión) que son propiedad y directamente gestionados por la entidad. Incluya vehículos subcontratados a terceros. Adjunte su evidencia en formato Word y etiquételo con la clave 7.1.',
                 'name' => 'cars',
                 'number' => 1,
                 'category_id' => 7,
@@ -4525,7 +4561,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique el número promedio de automóviles (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.2.',
+                'question' => 'Indique el número promedio de automóviles (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato Word y etiquételo con la clave 7.2.',
                 'name' => 'cars_entry',
                 'number' => 2,
                 'category_id' => 7,
@@ -4534,7 +4570,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique el número promedio de motocicletas (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.3.',
+                'question' => 'Indique el número promedio de motocicletas (con motor de combustión) que entran diariamente a su entidad tomando en consideración fechas festivas y periodos vacacionales. Adjunte su evidencia en formato Word y etiquételo con la clave 7.3.',
                 'name' => 'bikes',
                 'number' => 3,
                 'category_id' => 7,
@@ -4543,7 +4579,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el índice de vehículos motorizados por persona en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.1, 2.3, 2.4, 7.2 y 7.3.',
+                'question' => 'Calcule el índice de vehículos motorizados por persona en su entidad. El cálculo es automático con base a los indicadores 2.1, 2.3, 2.4, 7.2 y 7.3.',
                 'name' => 'motorized_vehicles_per_person',
                 'number' => 4,
                 'category_id' => 7,
@@ -4560,7 +4596,7 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique el promedio total de viajes realizado por los vehículos de transporte de la entidad en un año..',
+                'question' => 'Indique el promedio total de viajes realizado por los vehículos de transporte de la entidad en un año.',
                 'name' => 'trips',
                 'number' => 6,
                 'category_id' => 7,
@@ -4568,21 +4604,23 @@ class DatabaseSeeder extends Seeder
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Seleccione la medida que promueve y/o incentiva el uso de vehículos de cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) para el transporte dentro del campus. Indique su respuesta seleccionando la celda que mejor le convenga. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.8.',
-                'name' => 'zero_emission_program',
+                'question' => 'Indique la distancia aproximada diaria de trayecto de un vehículo (autobús, auto, motocicleta) dentro de la entidad en kilómetros; por ejemplo, la distancia de la entrada principal del campus hasta el estacionamiento.',
+                'name' => 'vehicle_distance',
                 'number' => 7,
                 'category_id' => 7,
                 'type' => 'number',
                 'required' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Seleccione la medida que promueve y/o incentiva el uso de vehículos de cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) para el transporte dentro del campus. Indique su respuesta seleccionando la celda que mejor le convenga. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.8.',
+                'question' => 'Seleccione la medida que promueve y/o incentiva el uso de vehículos de cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) para el transporte dentro del campus. Indique su respuesta seleccionando la celda que mejor le convenga. Adjunte su evidencia en formato Word y etiquételo con la clave 7.8.',
                 'name' => 'zero_emission_program',
                 'number' => 8,
                 'category_id' => 7,
                 'type' => 'verticalradio',
                 'required' => true,
                 'needsEvidence' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]); {
                 //Side headings
                 {
@@ -4648,7 +4686,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique el número promedio diario de vehículos cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) que ingresan a su entidad. Contabilice vehículos de la universidad y propiedad privada. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.9.',
+                'question' => 'Indique el número promedio diario de vehículos cero emisiones (bicicletas, scooters, patinetas, patines, automóviles eléctricos, motocicletas eléctricas, etc.) que ingresan a su entidad. Contabilice vehículos de la universidad y propiedad privada. Adjunte su evidencia en formato Word y etiquételo con la clave 7.9.',
                 'name' => 'zero_emission_vehicles',
                 'number' => 9,
                 'category_id' => 7,
@@ -4657,7 +4695,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el índice de vehículos de cero emisiones por persona en su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 2.1, 2.3, 2.4 y 7.8.',
+                'question' => 'Calcule el índice de vehículos de cero emisiones por persona en su entidad. El cálculo es automático con base a los indicadores 2.1, 2.3, 2.4 y 7.8.',
                 'name' => 'zero_emission_vehicles_per_person',
                 'number' => 10,
                 'category_id' => 7,
@@ -4666,7 +4704,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique el área total de estacionamientos de tierra de su entidad en metros cuadrados. Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.11.',
+                'question' => 'Indique el área total de estacionamientos de tierra de su entidad en metros cuadrados. Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato Word y etiquételo con la clave 7.11.',
                 'name' => 'parking_area',
                 'number' => 11,
                 'category_id' => 7,
@@ -4675,7 +4713,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Indique el área total de estacionamientos encarpetados de su entidad en metros cuadrados (asfalto, cemento, chapopote, etc.). Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.12.',
+                'question' => 'Indique el área total de estacionamientos encarpetados de su entidad en metros cuadrados (asfalto, cemento, chapopote, etc.). Puede estimar o validar esta área utilizando la función de mapas de Google. Adjunte su evidencia en formato Word y etiquételo con la clave 7.12.',
                 'name' => 'paved_parking_area',
                 'number' => 12,
                 'category_id' => 7,
@@ -4684,7 +4722,7 @@ class DatabaseSeeder extends Seeder
                 'needsEvidence' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de estacionamientos de tierra de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2 y 7.11.',
+                'question' => 'Calcule el porcentaje de estacionamientos de tierra de su entidad. El cálculo es automático con base a los indicadores 1.2 y 7.11.',
                 'name' => 'dirt_parking_percentage',
                 'number' => 13,
                 'category_id' => 7,
@@ -4693,7 +4731,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de estacionamiento de pavimentos de su entidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 1.2 y 7.12.',
+                'question' => 'Calcule el porcentaje de estacionamiento de pavimentos de su entidad. El cálculo es automático con base a los indicadores 1.2 y 7.12.',
                 'name' => 'paved_parking_percentage',
                 'number' => 14,
                 'category_id' => 7,
@@ -4702,7 +4740,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Programas e iniciativas que propongan la disminución de área de estacionamiento y el uso de vehículos privados en la entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.15.',
+                'question' => 'Programas e iniciativas que propongan la disminución de área de estacionamiento y el uso de vehículos privados en la entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 7.15.',
                 'name' => 'parking_reduction_program',
                 'number' => 15,
                 'category_id' => 7,
@@ -4774,7 +4812,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Programas e iniciativas que propongan la seguridad vial y la movilidad urbana sostenible. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.16.',
+                'question' => 'Programas e iniciativas que propongan la seguridad vial y la movilidad urbana sostenible. Adjunte su evidencia en formato Word y etiquételo con la clave 7.16.',
                 'name' => 'sustainable_mobility_program',
                 'number' => 16,
                 'category_id' => 7,
@@ -4878,7 +4916,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Transporte, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 7.17.',
+                'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Transporte, por favor, escriba al respecto. Pueden ser programas,  políticas internas, iniciativas, campañas, entre otros. No hay extensión máxima. Adjunte su evidencia en formato Word y etiquételo con la clave 7.17.',
                 'name' => 'comment',
                 'number' => 17,
                 'category_id' => 7,
@@ -4892,7 +4930,7 @@ class DatabaseSeeder extends Seeder
         //Formulario de Educación e investigación
         {
             Question::factory()->create([
-                'question' => 'Indique el número de programas educativos que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.1.',
+                'question' => 'Indique el número de programas educativos que se ofrecen en su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 8.1.',
                 'name' => 'educational_programs',
                 'number' => 1,
                 'category_id' => 8,
@@ -4972,7 +5010,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
             Question::factory()->create([
-                'question' => 'Indique número y nombre de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.2.',
+                'question' => 'Indique número y nombre de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. Adjunte su evidencia en formato Word y etiquételo con la clave 8.2.',
                 'name' => 'environmental_programs',
                 'number' => 2,
                 'category_id' => 8,
@@ -4984,7 +5022,7 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => 'Número total de cursos o materias que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.3..',
+                'question' => 'Número total de cursos o materias que se ofrecen en su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 8.3..',
                 'name' => 'courses',
                 'number' => 3,
                 'category_id' => 8,
@@ -5065,7 +5103,7 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => '. Número de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.4.',
+                'question' => '. Número de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad. Adjunte su evidencia en formato Word y etiquételo con la clave 8.4.',
                 'name' => 'environmental_courses',
                 'number' => 4,
                 'category_id' => 8,
@@ -5076,7 +5114,7 @@ class DatabaseSeeder extends Seeder
 
             }
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 8.1 y 8.2.',
+                'question' => 'Calcule el porcentaje de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. El cálculo es automático con base a los indicadores 8.1 y 8.2.',
                 'name' => 'environmental_programs_percentage',
                 'number' => 5,
                 'category_id' => 8,
@@ -5085,7 +5123,7 @@ class DatabaseSeeder extends Seeder
                 'autoAnswer' => true,
             ]);
             Question::factory()->create([
-                'question' => 'Calcule el porcentaje de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad con respecto al total de asignaturas. Esta respuesta se calcula automáticamente con base en las respuestas de los indicadores 8.3 y 8.4.',
+                'question' => 'Calcule el porcentaje de cursos o materias relacionados con temas ambientales y/o de sostenibilidad que se ofrecen en su entidad con respecto al total de asignaturas. El cálculo es automático con base a los indicadores 8.3 y 8.4.',
                 'name' => 'environmental_courses_percentage',
                 'number' => 6,
                 'category_id' => 8,

@@ -4,7 +4,7 @@
     <label for="">{{ $currentCategory->number . '.' . $question->number . ' ' . $question->question }}</label>
 
     @if ($question->hasLink)
-        <a href="{{ $question->link }}" target="_blank" style="text-decoration: underline">Ver video de ejemplo</a>
+        <a href="{{ $question->link }}" target="_blank" style="text-decoration: underline">Vea el video explicativo</a>
     @endif
 
 
