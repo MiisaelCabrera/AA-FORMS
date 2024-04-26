@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Entity::factory()->create([
-            'name' => 'Universidad Autónoma de San Luis Potosí',
+            'name' => 'Facultad de ingenier[ia',
         ]);
 
         User::factory(10)->create();
@@ -23,6 +23,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => '123',
+            'role' => 'superadmin',
+            'entity_id' => 1,
+        ]);
+        User::factory()->create([
+            'name' => 'Misa',
+            'email' => '327822',
             'password' => '123',
             'role' => 'superadmin',
             'entity_id' => 1,
@@ -111,6 +118,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 1,
                 'type' => 'select',
                 'required' => true,
+                'hasLink' => true,
+                'link' => 'https://www.youtube.com/watch?v=RJdt0jF-JX8',
             ]);
 
             //Inputs de la pregunta 1
@@ -1269,9 +1278,150 @@ class DatabaseSeeder extends Seeder
                 'name' => 'biodiversity_program',
                 'number' => 12,
                 'category_id' => 2,
-                'type' => 'multi',
-                'required' => true,
-            ]);
+                'type' => 'dinamyctable',
+            ]); {
+                //Flora 
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Programas, laboratorios, iniciativas y/o proyectos',
+                        'question_id' => 27,
+                        'x' => 1,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Número de especies',
+                        'question_id' => 27,
+                        'x' => 2,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Género/Especies',
+                        'question_id' => 27,
+                        'x' => 3,
+                        'y' => 1,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Objeto de la conservación',
+                        'question_id' => 27,
+                        'x' => 4,
+                        'y' => 1,
+                    ]);
+                }
+                //Fauna
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Programas, laboratorios, iniciativas y/o proyectos',
+                        'question_id' => 27,
+                        'x' => 1,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Número de especies',
+                        'question_id' => 27,
+                        'x' => 2,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Género/Especies',
+                        'question_id' => 27,
+                        'x' => 3,
+                        'y' => 2,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Objeto de la conservación',
+                        'question_id' => 27,
+                        'x' => 4,
+                        'y' => 2,
+                    ]);
+                }
+                //Vida silvestre
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Programas, laboratorios, iniciativas y/o proyectos',
+                        'question_id' => 27,
+                        'x' => 1,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Número de especies',
+                        'question_id' => 27,
+                        'x' => 2,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Género/Especies',
+                        'question_id' => 27,
+                        'x' => 3,
+                        'y' => 3,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Objeto de la conservación',
+                        'question_id' => 27,
+                        'x' => 4,
+                        'y' => 3,
+                    ]);
+                }
+                //Recursos genéticos para la conservación, alimentación y la agricultura
+                {
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'a',
+                        'text' => 'Programas, laboratorios, iniciativas y/o proyectos',
+                        'question_id' => 27,
+                        'x' => 1,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'b',
+                        'text' => 'Número de especies',
+                        'question_id' => 27,
+                        'x' => 2,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'c',
+                        'text' => 'Género/Especies',
+                        'question_id' => 27,
+                        'x' => 3,
+                        'y' => 4,
+                    ]);
+                    Multiinput::factory()->create([
+                        'type' => 'heading',
+                        'name' => 'd',
+                        'text' => 'Objeto de la conservación',
+                        'question_id' => 27,
+                        'x' => 4,
+                        'y' => 4,
+                    ]);
+                }
+
+            }
             Question::factory()->create([
                 'question' => 'Si su entidad cuenta con alguna otra información sobresaliente en el tema de Entorno, por favor, escriba al respecto. No hay extensión máxima. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 2.13.',
                 'name' => 'comment',
@@ -3954,8 +4104,8 @@ class DatabaseSeeder extends Seeder
             }
 
             Question::factory()->create([
-                'question' => '4 Índique la cantidad total de aparatos electrónicos y muebles que ahorran agua dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos se refieren a acciones y accesorios para el uso eficiente de agua. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.4.',
-                'name' => 'efficient_water_program_2',
+                'question' => 'Índique la cantidad total de aparatos electrónicos y muebles que ahorran agua dentro de su entidad. Recuerde tomar en cuenta aquellos empleados para actividades de aprendizaje, laboratorios, aseo y bienestar del personal docente y administrativo. Algunos ejemplos de éstos se refieren a acciones y accesorios para el uso eficiente de agua. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 6.4.',
+                'name' => 'electric_water_program',
                 'number' => 4,
                 'category_id' => 6,
                 'type' => 'tableinteger',

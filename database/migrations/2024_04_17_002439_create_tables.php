@@ -30,6 +30,8 @@ return new class extends Migration {
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->boolean('autoAnswer')->nullable();
+            $table->boolean('hasLink')->nullable();
+            $table->string('link')->nullable();
             $table->boolean('required')->nullable();
             $table->boolean('needsEvidence')->nullable();
             $table->timestamps();
@@ -54,6 +56,7 @@ return new class extends Migration {
             $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->text('answer');
+            $table->string('name');
             $table->timestamps();
         });
         Schema::create('files', function (Blueprint $table) {
