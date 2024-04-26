@@ -40,8 +40,10 @@ class GlobalReportController extends Controller
         $route = $currentEntity->name . '/' . 'Reporte global';
 
         $file = $request->file('report');
-        $path = $file->storeAs($route, $currentEntity->name . '_' . 'Reporte global' . $file->extension());
+        $path = $file->storeAs('public/' . $route, $currentEntity->name . '_' . 'Reporte global' . $file->extension());
         $entity = $currentEntity->id;
+
+        $path = str_replace('public/', '', $path);
 
         $report = new Report();
         $report->path = $path;

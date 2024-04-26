@@ -7,13 +7,14 @@ use App\Models\Category;
 use App\Models\HistoryFile;
 use App\Models\User;
 use App\Models\Entity;
+use Illuminate\Support\Facades\Storage;
 
 class HistoryController extends Controller
 {
     public function index()
     {
         if (auth()->user()->role == 'user') {
-            $files = HistoryFile::where('entity_id', auth()->user()->entity_id)->where('entity_id', 1)->orderByDesc('created_at')->get();
+            $files = HistoryFile::where('entity_id', auth()->user()->entity_id)->orderByDesc('created_at')->get();
             $users = User::where('entity_id', auth()->user()->entity_id)->get();
             $entities = Entity::where('id', auth()->user()->entity_id)->get();
         } else {
@@ -21,6 +22,7 @@ class HistoryController extends Controller
             $users = User::all();
             $entities = Entity::all();
         }
+
         $categories = Category::select('name', 'controller', 'number')->get();
         $currentCategory = Category::where('controller', 'history')->first();
         return view('forms/historial')
@@ -30,4 +32,17 @@ class HistoryController extends Controller
             ->with('users', $users)
             ->with('entities', $entities);
     }
+
+    public function show($history)
+    {
+        $rutaArchivo = $history;
+
+        if (!Storage::exists($rutaArchivo)) {
+            abort(404);
+        }
+
+        return response()->file(storage_path($rutaArchivo));
+    }
+
+
 }

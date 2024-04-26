@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('infraestructure.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('infraestructure.update', '1') }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->
@@ -21,15 +22,18 @@
                     $questionInputs = $multiinputs[$question->id];
                 }
 
+                $file = $files->where('question_id', $question->id);
+
             @endphp
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
+                'file' => $file,
             ])
         @endforeach
 
-        <button type="submit" class="submit">Enviar</button>
+        <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
 

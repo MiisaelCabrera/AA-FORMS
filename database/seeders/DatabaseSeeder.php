@@ -2649,7 +2649,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => ' a',
+                        'name' => 'a',
                         'text' => 'Sistema inteligente de salud y confort interior',
                         'question_id' => 39,
                         'x' => 1,
@@ -2728,7 +2728,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => ' a',
+                        'name' => 'a',
                         'text' => 'Calefacción central',
                         'question_id' => 41,
                         'x' => 1,
@@ -2864,7 +2864,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'electronic_devices_maintenance',
+                        'name' => 'c',
                         'text' => 'Mantenimiento y reemplazo de aparatos electrónicos por aquellos que mejoren la eficiencia y promuevan el ahorro de electricidad y agua',
                         'question_id' => 44,
                         'x' => 1,
@@ -2873,7 +2873,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'c',
+                        'name' => 'd',
                         'text' => 'Adquisición de productos elaborados o empacados con materiales reciclados',
                         'question_id' => 44,
                         'x' => 1,
@@ -2882,7 +2882,7 @@ class DatabaseSeeder extends Seeder
 
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'd',
+                        'name' => 'e',
                         'text' => 'Adquisición de papel duplicador tamaño oficio y/o carta cuya composición sea 100% reciclado',
                         'question_id' => 44,
                         'x' => 1,
@@ -2890,7 +2890,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'e',
+                        'name' => 'f',
                         'text' => 'Adquisición de insumos químicos destinados a limpieza que cumplan con los criterios de menor impacto ambiental para disminuir riesgos a la salud de la comunidad UASLP por manejo y exposición',
                         'question_id' => 44,
                         'x' => 1,
@@ -2898,7 +2898,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'f',
+                        'name' => 'g',
                         'text' => 'Adquisición de productos que sustituyan aquellos que comunmente se apliquen en aerosol',
                         'question_id' => 44,
                         'x' => 1,
@@ -2906,7 +2906,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'g',
+                        'name' => 'h',
                         'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores que cuenten con sus permisos',
                         'question_id' => 44,
                         'x' => 1,
@@ -2914,7 +2914,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'h',
+                        'name' => 'i',
                         'text' => 'Adquisición de sustancias de uso regulado (para fines académicos y de investigación) con provedores ambientalmente responsables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2922,7 +2922,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'i',
+                        'name' => 'j',
                         'text' => 'Incentivar al consumo eficiente de los insumos de laboratorio, docencia y administración  ',
                         'question_id' => 44,
                         'x' => 1,
@@ -2930,7 +2930,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'j',
+                        'name' => 'k',
                         'text' => 'Incentivar a la disminución de plásticos de un solo uso',
                         'question_id' => 44,
                         'x' => 1,
@@ -2938,7 +2938,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'k',
+                        'name' => 'l',
                         'text' => 'Incentivar el rechazo de productos desechables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2946,7 +2946,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'l',
+                        'name' => 'm',
                         'text' => 'Incentivar el uso de productos reutilizables y/o retornables',
                         'question_id' => 44,
                         'x' => 1,
@@ -2954,7 +2954,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'm',
+                        'name' => 'n',
                         'text' => 'Incentivar al uso de termos, tuppers, tazas, etc',
                         'question_id' => 44,
                         'x' => 1,
@@ -2962,7 +2962,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'n',
+                        'name' => 'o',
                         'text' => 'Incentivar al reuso y máximo aprovechamiento de insumos de oficina (uso eficiente de materiales)',
                         'question_id' => 44,
                         'x' => 1,
@@ -2970,7 +2970,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'o',
+                        'name' => 'p',
                         'text' => 'Incentivar el uso responsable, durable, eficiente, eficaz y exhaustivo del material de oficina',
                         'question_id' => 44,
                         'x' => 1,
@@ -2978,7 +2978,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'p',
+                        'name' => 'q',
                         'text' => 'Difusión y fomento de buenas prácticas de consumo',
                         'question_id' => 44,
                         'x' => 1,
@@ -2986,7 +2986,7 @@ class DatabaseSeeder extends Seeder
                     ]);
                     Multiinput::factory()->create([
                         'type' => 'heading',
-                        'name' => 'q',
+                        'name' => 'r',
                         'text' => 'Evitar el almacenamiento individual de materiales de oficina',
                         'question_id' => 44,
                         'x' => 1,

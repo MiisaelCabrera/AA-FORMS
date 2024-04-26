@@ -23,6 +23,8 @@ class Education_researchController extends Controller
 
         $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
 
+        $files = File::where('entity_id', auth()->user()->entity_id)->get();
+
         $multiinputs = [];
 
         foreach ($questions as $question) {
@@ -38,7 +40,8 @@ class Education_researchController extends Controller
             ->with('questions', $questions)
             ->with('multiinputs', $multiinputs)
             ->with('answers', $answers)
-            ->with('entities', $entities);
+            ->with('entities', $entities)
+            ->with('files', $files);
     }
 
     function store(Request $request)
@@ -102,8 +105,9 @@ class Education_researchController extends Controller
                     $questionNumber = $questions[$found_key]['number'];
                     $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
                     $file = $request->file($key);
-                    $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
+                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . '.docx');
                     $questionId = $questions[$found_key]['id'];
+                    $fileRoute = str_replace('public/', '', $fileRoute);
 
                     $file = new File();
                     $file->path = $fileRoute;

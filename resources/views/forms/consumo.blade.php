@@ -21,15 +21,18 @@
                     $questionInputs = $multiinputs[$question->id];
                 }
 
+                $file = $files->where('question_id', $question->id);
+
             @endphp
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
+                'file' => $file,
             ])
         @endforeach
 
-        <button type="submit" class="submit">Enviar</button>
+        <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
 

@@ -20,6 +20,8 @@ class Responsible_consumptionController extends Controller
         $questions = Question::where('category_id', $currentCategory->id)->get();
         $entities = Entity::all();
 
+        $files = File::where('entity_id', auth()->user()->entity_id)->get();
+
         $multiinputs = [];
 
         $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
@@ -37,7 +39,8 @@ class Responsible_consumptionController extends Controller
             ->with('questions', $questions)
             ->with('multiinputs', $multiinputs)
             ->with('answers', $answers)
-            ->with('entities', $entities);
+            ->with('entities', $entities)
+            ->with('files', $files);
     }
 
     function store(Request $request)
@@ -59,9 +62,12 @@ class Responsible_consumptionController extends Controller
 
                 if (!$request->hasFile($key)) {
 
+                    $newkey = $key;
+
                     for ($i = 'a'; $i <= 'z'; $i++) {
-                        if (stripos($key, '__' . $i)) {
-                            $newkey = str_replace('__' . $i, "", $key);
+                        if (stripos($newkey, '__' . $i)) {
+                            $newkey = str_replace('__' . $i, "", $newkey);
+                            $newkey = str_replace('__' . strtoupper($i), "", $newkey);
                         }
                     }
                     for ($i = 0; $i <= 9; $i++) {
@@ -71,9 +77,11 @@ class Responsible_consumptionController extends Controller
                     }
                     $found_key = array_search($newkey, array_column($questions, 'name'));
 
+
                     $questionId = $questions[$found_key]['id'];
 
                     $name = $currentCategory->number . '.' . $questions[$found_key]['number'];
+
 
                     for ($i = 'a'; $i <= 'z'; $i++) {
                         if (stripos($key, '__' . $i)) {
@@ -92,7 +100,7 @@ class Responsible_consumptionController extends Controller
                     $answer->name = $name;
                     $answer->question_id = $questionId;
 
-                    array_push($array, $answer);
+                    array_push($array, $name);
 
                     $answer->save();
                 } else {
@@ -101,8 +109,10 @@ class Responsible_consumptionController extends Controller
                     $questionNumber = $questions[$found_key]['number'];
                     $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
                     $file = $request->file($key);
-                    $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
+                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . '.docx');
                     $questionId = $questions[$found_key]['id'];
+
+                    $fileRoute = str_replace('public/', '', $fileRoute);
 
                     $file = new File();
                     $file->path = $fileRoute;

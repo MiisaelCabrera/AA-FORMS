@@ -39,7 +39,7 @@ class UserUploadController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->entity_id = $request->entity;
-        $user->verifiedAt = now();
+        $user->email_verified_at = now();
         $user->remember_token = Str::random(10);
         $user->save();
 

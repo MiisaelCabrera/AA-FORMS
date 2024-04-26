@@ -34,7 +34,9 @@ class FileUploadController extends Controller
         $route = $currentEntity->name . '/' . 'Historial';
 
         $newFile = $request->file('historyFile');
-        $path = $newFile->storeAs($route, $newFile->getClientOriginalName());
+        $path = $newFile->storeAs('public/' . $route, $newFile->getClientOriginalName());
+
+        $path = str_replace('public/', '', $path);
 
         $file = new HistoryFile();
         $file->entity_id = $request->entity;

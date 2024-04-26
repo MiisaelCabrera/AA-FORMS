@@ -20,11 +20,14 @@
                     $questionInputs = $multiinputs[$question->id];
                 }
 
+                $file = $files->where('question_id', $question->id);
+
             @endphp
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
+                'file' => $file,
             ])
         @endforeach
         <input type="number" id="efficient_water_program" name="efficient_water_program" style="display: none">
@@ -33,7 +36,7 @@
         <input type="number" id="water_supplier_b" name="water_supplier__b" style="display:none">
         <input type="number" id="water_consumption" name="water_consumption" style="display: none">
 
-        <button type="submit" class="submit">Enviar</button>
+        <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
 
@@ -93,7 +96,7 @@
 
         function percentage_efficient_water_program() {
             var a63 = parseFloat($('#efficient_water_program').val());
-            var a64 = parseFloat($('#efficient_water_program_2').val());
+            var a64 = parseFloat($('#electric_water_program').val());
             var porcentaje = a64 * 100 / a63;
             $('#percentage_efficient_water_program').val(porcentaje);
 
@@ -173,11 +176,6 @@
             e.preventDefault();
             $('input').prop('disabled', false);
 
-            $('[id^="efficient_water_program__"]').prop('disabled', true);
-            $('[id^="electric_water_program__"]').prop('disabled', true);
-            $('[id^="water_consumption__"]').prop('disabled', true);
-            $('[id^="water_supplier__"]').prop('disabled', true);
-
 
             var formData = new FormData(this);
             $.ajax({
@@ -188,7 +186,14 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-
+                    swal.fire({
+                        title: '¡Guardado!',
+                        text: 'Se ha guardado el cuestionario',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then(() => {
+                        window.location.href = "{{ route('water.index') }}";
+                    });
                 },
                 error: function(response) {
                     swal.fire({

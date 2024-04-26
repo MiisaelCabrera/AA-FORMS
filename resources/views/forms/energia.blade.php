@@ -21,16 +21,19 @@
                     $questionInputs = $multiinputs[$question->id];
                 }
 
+                $file = $files->where('question_id', $question->id);
+
             @endphp
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
+                'file' => $file,
             ])
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
 
-        <button type="submit" class="submit">Enviar</button>
+        <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
 
@@ -50,7 +53,7 @@
         });
 
         function total_electronic_devices() {
-            var elementos = $('[id^="total_electronic_devices__"]:not(#total_electronic_devices__sumatory_1)');
+            var elementos = $('[id^="total_electronic_devices__"]:not(#total_electronic_devices__sumatory__1)');
 
             var suma = 0;
 
@@ -62,7 +65,7 @@
                 }
             });
 
-            $('#total_electronic_devices__sumatory_1').val(suma);
+            $('#total_electronic_devices__sumatory__1').val(suma);
         }
 
 
@@ -73,7 +76,8 @@
 
         function total_energy_efficient_devices() {
             var elementos = $(
-                '[id^="total_energy_efficient_devices__"]:not(#total_energy_efficient_devices__sumatory_1)');
+                '[id^="total_energy_efficient_devices__"]:not(#total_energy_efficient_devices__sumatory__1)'
+            );
 
             var suma = 0;
 
@@ -85,12 +89,12 @@
                 }
             });
 
-            $('#total_energy_efficient_devices__sumatory_1').val(suma);
+            $('#total_energy_efficient_devices__sumatory__1').val(suma);
         }
 
         function percentage_energy_efficient_devices() {
-            var total = parseFloat($('#total_electronic_devices__sumatory_1').val());
-            var energyEfficient = parseFloat($('#total_energy_efficient_devices__sumatory_1').val());
+            var total = parseFloat($('#total_electronic_devices__sumatory__1').val());
+            var energyEfficient = parseFloat($('#total_energy_efficient_devices__sumatory__1').val());
 
             if (!isNaN(total) && !isNaN(energyEfficient)) {
                 var percentage = (energyEfficient / total) * 100;
@@ -118,7 +122,8 @@
 
         function total_renewable_energy_sources() {
             var elementos = $(
-                '[id^="total_renewable_energy_sources__"]:not(#total_renewable_energy_sources__sumatory_1)');
+                '[id^="total_renewable_energy_sources__"]:not(#total_renewable_energy_sources__sumatory__1)'
+            );
 
             var suma = 0;
 
@@ -130,7 +135,7 @@
                 }
             });
 
-            $('#total_renewable_energy_sources__sumatory_1').val(suma);
+            $('#total_renewable_energy_sources__sumatory__1').val(suma);
         }
 
         $('[id^="total_energy_produced__"]').on('change', () => {
@@ -139,7 +144,7 @@
 
         function total_energy_produced() {
             var elementos = $(
-                '[id^="total_energy_produced__"]:not(#total_energy_produced__sumatory_1)');
+                '[id^="total_energy_produced__"]:not(#total_energy_produced__sumatory__1)');
 
             var suma = 0;
 
@@ -151,16 +156,16 @@
                 }
             });
 
-            $('#total_energy_produced__sumatory_1').val(suma);
+            $('#total_energy_produced__sumatory__1').val(suma);
         }
 
-        $('[id^="total_sustainable_buildings__"][id$="_1"]').on('change', () => {
+        $('[id^="total_sustainable_buildings__"][id$="__1"]').on('change', () => {
             total_sustainable_buildings_1();
         });
 
         function total_sustainable_buildings_1() {
             var elementos = $(
-                '[id^="total_sustainable_buildings__"][id$="_1"]:not(#total_sustainable_buildings__sumatory_1)'
+                '[id^="total_sustainable_buildings__"][id$="__1"]:not(#total_sustainable_buildings__sumatory__1)'
             );
 
             var suma = 0;
@@ -173,16 +178,16 @@
                 }
             });
 
-            $('#total_sustainable_buildings__sumatory_1').val(suma);
+            $('#total_sustainable_buildings__sumatory__1').val(suma);
         }
 
-        $('[id^="total_sustainable_buildings__"][id$="_2"]').on('change', () => {
+        $('[id^="total_sustainable_buildings__"][id$="__2"]').on('change', () => {
             total_sustainable_buildings_2();
         });
 
         function total_sustainable_buildings_2() {
             var elementos = $(
-                '[id^="total_sustainable_buildings__"][id$="_2"]:not(#total_sustainable_buildings__sumatory_2)'
+                '[id^="total_sustainable_buildings__"][id$="__2"]:not(#total_sustainable_buildings__sumatory__2)'
             );
 
             var suma = 0;
@@ -195,7 +200,7 @@
                 }
             });
 
-            $('#total_sustainable_buildings__sumatory_2').val(suma);
+            $('#total_sustainable_buildings__sumatory__2').val(suma);
         }
 
 
@@ -228,7 +233,7 @@
 
         function innovative_programs() {
             var elementos = $(
-                '[id^="innovative_programs__"]:not(#innovative_programs__sumatory_1)');
+                '[id^="innovative_programs__"]:not(#innovative_programs__sumatory__1)');
 
             var suma = 0;
 
@@ -240,7 +245,7 @@
                 }
             });
 
-            $('#innovative_programs__sumatory_1').val(suma);
+            $('#innovative_programs__sumatory__1').val(suma);
         }
 
         $('[id^="total_gas_installations__"]').on('change', () => {
@@ -249,7 +254,7 @@
 
         function total_gas_installations() {
             var elementos = $(
-                '[id^="total_gas_installations__"]:not(#total_gas_installations__sumatory_1)');
+                '[id^="total_gas_installations__"]:not(#total_gas_installations__sumatory__1)');
 
             var suma = 0;
 
@@ -261,7 +266,7 @@
                 }
             });
 
-            $('#total_gas_installations__sumatory_1').val(suma);
+            $('#total_gas_installations__sumatory__1').val(suma);
         }
 
 
@@ -269,31 +274,21 @@
             e.preventDefault();
             $('input').prop('disabled', false);
 
-            const sumatories = $('[id$="__sumatory_1"]');
+            const sumatories = $('[id$="__sumatory__1"]');
             sumatories.each(function() {
                 const id = $(this).attr('id');
-                const newId = id.replace('__sumatory_1', '');
+                const newId = id.replace('__sumatory__1', '__1');
                 $(this).attr('id', newId);
-                $(this).attr('name', newId + '__a');
+                $(this).attr('name', newId);
             });
-            const sumatories2 = $('[id$="__sumatory_2"]');
+            const sumatories2 = $('[id$="__sumatory__2"]');
             sumatories2.each(function() {
                 const id = $(this).attr('id');
-                const newId = id.replace('__sumatory_2', '');
+                const newId = id.replace('__sumatory__2', '__2');
                 $(this).attr('id', newId);
-                $(this).attr('name', newId + '__b');
+                $(this).attr('name', newId);
             });
 
-            $('[id^="total_electronic_devices__"]').prop('disabled', true);
-            $('[id^="total_electronic_devices__"]').prop('disabled', true);
-            $('[id^="total_energy_efficient_devices__"]').prop('disabled', true);
-            $('[id^="total_renewable_energy_sources__"]').prop('disabled', true);
-            $('[id^="total_energy_produced__"]').prop('disabled', true);
-            $('[id^="total_sustainable_buildings__"][id$="_1"]').prop('disabled', true);
-            $('[id^="total_sustainable_buildings__"][id$="_2"]').prop('disabled', true);
-            $('[id^="greenhouse_gas_emission_program_"]').prop('disabled', true);
-            $('[id^="innovative_programs__"]').prop('disabled', true);
-            $('[id^="total_gas_installations__"]').prop('disabled', true);
 
             var formData = new FormData(this);
             $.ajax({

@@ -20,16 +20,19 @@
                     $questionInputs = $multiinputs[$question->id];
                 }
 
+                $file = $files->where('question_id', $question->id);
+
             @endphp
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
+                'file' => $file,
             ])
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
 
-        <button type="submit" class="submit">Enviar</button>
+        <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
 

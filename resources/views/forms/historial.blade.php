@@ -7,11 +7,13 @@
         @php
             $entity = $entities->where('id', $file->entity_id)->first();
             $filename = explode('/', $file->path);
+            $url = 'storage/' . $file->path;
+
         @endphp
         <div class="history-card">
             <div>
                 <h3>{{ $entity->name . ': ' . end($filename) }}</h3>
-                <a href="{{ asset($file->path) }}">{{ 'Descargar ' . end($filename) }}</a>
+                <a href="{{ asset($url) }}" target="_blank">{{ 'Descargar ' . end($filename) }}</a>
             </div>
             <div class="history-card__date">
                 {{ $file->created_at }}

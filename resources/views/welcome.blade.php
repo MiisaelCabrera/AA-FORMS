@@ -19,7 +19,10 @@
 </head>
 
 <body class="font-sans  ">
-    @include('layouts.header', ['heading' => 'Bienvenido al portal de agenda ambiental'])
+    @include('layouts.header', [
+        'heading' => 'Programa UASLP Sostenible*',
+        'subheading' => 'Derivado del proceso UI Green Metric',
+    ])
 
     @include('layouts.navigation_user')
 
