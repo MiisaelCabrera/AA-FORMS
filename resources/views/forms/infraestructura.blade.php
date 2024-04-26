@@ -42,8 +42,13 @@
 <script>
     $(document).ready(function() {
 
+        calculatePercentageOpenSpaces();
+        calculatePercentageForestVegetation();
+        calculatePercentagePlantedVegetation();
+        calculatePercentageWaterAbsorption();
+        calculatePercentageBuildingMaintenance();
+
         $('#area_total').on('change', () => {
-            console.log('change');
             calculatePercentageOpenSpaces();
             calculatePercentageForestVegetation();
             calculatePercentagePlantedVegetation();

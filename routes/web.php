@@ -13,16 +13,23 @@ use App\Http\Controllers\TransportController;
 use App\Http\Controllers\Education_researchController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\GlobalReportController;
+use App\Http\Controllers\UserUploadController;
+use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
+use App\Models\Entity;
 
 Route::get('/', function () {
     $categories = Category::all();
-    return view('welcome')->with('categories', $categories);
+    $entities = Entity::all();
+    return view('welcome')->with('categories', $categories)->with('entities', $entities);
 });
 
 Route::get('/dashboard', function () {
     $categories = Category::all();
-    return view('welcome')->with('categories', $categories);
+    $entities = Entity::all();
+    return view('welcome')->with('categories', $categories)->with('entities', $entities);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -40,6 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('history', HistoryController::class);
     Route::resource('binnacle', BinnacleController::class);
     Route::resource('report', GlobalReportController::class);
+    Route::resource('usersUpload', UserUploadController::class);
+    Route::resource('filesUpload', FileUploadController::class);
+    Route::resource('FAQ', FAQController::class);
+    Route::resource('user', UserController::class);
 });
 
 

@@ -26,7 +26,7 @@
         <input type="number" step="0.1" name="{{ $question->name }}" id="{{ $question->name }}"
             {{ $question->required ? 'required' : '' }} {{ $question->autoAnswer ? 'disabled' : '' }}
             value="{{ $currentAnswer && $currentAnswer->question_id === $question->id ? $currentAnswer->answer : '' }}"
-            {{ $currentAnswer ? 'disabled' : '' }}>
+            {{ count($answer) ? 'disabled' : '' }}>
     @elseif ($question->type == 'textarea')
         {{-- Input de tipo area de texto --}}
 
@@ -323,21 +323,18 @@
     @endif
 </div>
 
-@if (auth()->user()->role == 'admin')
+@if (auth()->user()->role != 'user' || $answer->count() > 0)
     <script>
         $(document).ready(function() {
             $('select').prop('disabled', true);
             $('.submit').addClass('disabled');
             $('textarea').prop('disabled', true);
-        });
-    </script>
-@endif
-@if ($answer->count() > 0)
-    <script>
-        $(document).ready(function() {
-            $('select').prop('disabled', true);
-            $('textarea').prop('disabled', true);
-            $('.submit').addClass('disabled');
+            $('input[type="number"]').prop('disabled', true);
+            $('input[type="text"]').prop('disabled', true);
+            $('input[type="radio"]').prop('disabled', true);
+            $('input[type="file"]').prop('disabled', true);
+            $('input[type="checkbox"]').prop('disabled', true);
+            $('#entity').prop('disabled', false);
         });
     </script>
 @endif

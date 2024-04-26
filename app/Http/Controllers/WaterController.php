@@ -16,10 +16,13 @@ class WaterController extends Controller
     public function index()
     {
 
-        $categories = Category::select('name', 'controller')->get();
+        $categories = Category::select('name', 'controller', 'number')->get();
         $currentCategory = Category::where('controller', 'water')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
         $multiinputs = [];
+        $entities = Entity::all();
+
+        $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
 
         foreach ($questions as $question) {
             $questionInputs = Multiinput::where('question_id', $question->id)->get();
@@ -33,7 +36,9 @@ class WaterController extends Controller
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)
             ->with('questions', $questions)
-            ->with('multiinputs', $multiinputs);
+            ->with('multiinputs', $multiinputs)
+            ->with('answers', $answers)
+            ->with('entities', $entities);
     }
 
     function store(Request $request)
@@ -46,45 +51,72 @@ class WaterController extends Controller
         $questions = Question::where('category_id', $currentCategory->id)->get()->toArray();
         $entity = Entity::find(auth()->user()->entity_id);
 
+        $array = [];
+
         foreach ($inputs as $key => $value) {
 
 
-            if (!$request->hasFile($key)) {
-                for ($i = 'a'; $i <= 'z'; $i++) {
-                    if (stripos($key, '__' . $i) !== false) {
-                        $key = str_replace('__' . $i, "", $key);
+            if ($value != null) {
+
+                if (!$request->hasFile($key)) {
+
+                    for ($i = 'a'; $i <= 'z'; $i++) {
+                        if (stripos($key, '__' . $i)) {
+                            $newkey = str_replace('__' . $i, "", $key);
+                        }
                     }
+                    for ($i = 0; $i <= 9; $i++) {
+                        if (stripos($newkey, '__' . $i)) {
+                            $newkey = str_replace('__' . $i, "", $newkey);
+                        }
+                    }
+                    $found_key = array_search($newkey, array_column($questions, 'name'));
+
+                    $questionId = $questions[$found_key]['id'];
+
+                    $name = $currentCategory->number . '.' . $questions[$found_key]['number'];
+
+                    for ($i = 'a'; $i <= 'z'; $i++) {
+                        if (stripos($key, '__' . $i)) {
+                            $name = $name . "." . $i;
+                        }
+                    }
+                    for ($i = 0; $i <= 9; $i++) {
+                        for ($j = 0; $j < substr_count($key, '__' . $i); $j++) {
+                            $name = $name . "." . $i;
+                        }
+                    }
+
+                    $answer = new Answer();
+                    $answer->answer = $value;
+                    $answer->entity_id = auth()->user()->entity_id;
+                    $answer->name = $name;
+                    $answer->question_id = $questionId;
+
+                    array_push($array, $answer);
+
+                    $answer->save();
+                } else {
+                    $name = str_replace('_evidence', "", $key);
+                    $found_key = array_search($name, array_column($questions, 'name'));
+                    $questionNumber = $questions[$found_key]['number'];
+                    $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
+                    $file = $request->file($key);
+                    $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
+                    $questionId = $questions[$found_key]['id'];
+
+                    $file = new File();
+                    $file->path = $fileRoute;
+                    $file->entity_id = auth()->user()->entity_id;
+                    $file->question_id = $questionId;
+                    $file->save();
                 }
-                $found_key = array_search($key, array_column($questions, 'name'));
-                $questionId = $questions[$found_key]['id'];
-
-
-                $answer = new Answer();
-                $answer->answer = $value;
-                $answer->entity_id = auth()->user()->entity_id;
-                $answer->question_id = $questionId;
-
-                $answer->save();
-            } else {
-                dd($inputs);
-                $name = str_replace('_evidence', "", $key);
-                $found_key = array_search($name, array_column($questions, 'name'));
-                $questionNumber = $questions[$found_key]['number'];
-                $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
-                $file = $request->file($key);
-                $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
-
-                $file = new File();
-                $file->path = $fileRoute;
-                $file->entity_id = auth()->user()->entity_id;
-                $file->question_id = $questionId;
-                $file->save();
             }
-
         }
         $modification = new Modification();
         $modification->user_id = auth()->user()->id;
-        $modification->message = 'Ha modificado la sección de Residuos';
+        $modification->entity_id = auth()->user()->entity_id;
+        $modification->message = 'Ha modificado la sección de Agua';
         $modification->save();
 
     }

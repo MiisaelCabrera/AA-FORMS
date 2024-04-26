@@ -68,6 +68,12 @@ return new class extends Migration {
             $table->string('path');
             $table->timestamps();
         });
+        Schema::create('history_files', function (Blueprint $table) {
+            $table->id();
+            $table->string('path');
+            $table->bigInteger('entity_id')->unsigned()->nullable();
+            $table->timestamps();
+        });
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('entity_id')->unsigned();
@@ -78,7 +84,9 @@ return new class extends Migration {
         Schema::create('modifications', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('entity_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
             $table->string('message');
             $table->timestamps();
         });

@@ -14,6 +14,7 @@
         @foreach ($questions as $question)
             @php
                 $questionInputs = null;
+                $answer = $answers->where('question_id', $question->id);
 
                 if (array_key_exists($question->id, $multiinputs)) {
                     $questionInputs = $multiinputs[$question->id];
@@ -23,10 +24,11 @@
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
+                'answer' => $answer,
             ])
         @endforeach
         <input type="number" id="efficient_water_program" name="efficient_water_program" style="display: none">
-        <input type="number" id="efficient_water_program_2" name="efficient_water_program_2" style="display:none">
+        <input type="number" id="electric_water_program" name="electric_water_program" style="display:none">
         <input type="number" id="water_supplier_a" name="water_supplier__b" style="display:none">
         <input type="number" id="water_supplier_b" name="water_supplier__b" style="display:none">
         <input type="number" id="water_consumption" name="water_consumption" style="display: none">
@@ -67,14 +69,14 @@
             $('#efficient_water_program').val(suma);
         }
 
-        $('[id^="efficient_water_program_2__"]').on('change', () => {
-            efficient_water_program_2();
+        $('[id^="electric_water_program__"]').on('change', () => {
+            electric_water_program();
             percentage_efficient_water_program();
         });
 
-        function efficient_water_program_2() {
+        function electric_water_program() {
             var elementos = $(
-                '[id^="efficient_water_program_2__"]');
+                '[id^="electric_water_program__"]');
 
             var suma = 0;
 
@@ -86,7 +88,7 @@
                 }
             });
 
-            $('#efficient_water_program_2').val(suma);
+            $('#electric_water_program').val(suma);
         }
 
         function percentage_efficient_water_program() {
@@ -172,7 +174,7 @@
             $('input').prop('disabled', false);
 
             $('[id^="efficient_water_program__"]').prop('disabled', true);
-            $('[id^="efficient_water_program_2__"]').prop('disabled', true);
+            $('[id^="electric_water_program__"]').prop('disabled', true);
             $('[id^="water_consumption__"]').prop('disabled', true);
             $('[id^="water_supplier__"]').prop('disabled', true);
 

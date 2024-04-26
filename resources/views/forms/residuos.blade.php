@@ -14,6 +14,7 @@
         @foreach ($questions as $question)
             @php
                 $questionInputs = null;
+                $answer = $answers->where('question_id', $question->id);
 
                 if (array_key_exists($question->id, $multiinputs)) {
                     $questionInputs = $multiinputs[$question->id];
@@ -23,6 +24,7 @@
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
+                'answer' => $answer,
             ])
         @endforeach
 

@@ -2,35 +2,26 @@
 @section('content')
     <!-- Header del cuestionario-->
     @include('layouts.formHeader', ['currentCategory' => $currentCategory])
-    @if ($reports->isEmpty() && auth()->user()->role == 'user')
-        <form method="POST" action="{{ route('report.store') }}" id="cuestionario" class="cuestionario"
-            enctype="multipart/form-data">
-            @csrf
+    <form method="POST" action="{{ route('filesUpload.store') }}" id="cuestionario" class="cuestionario"
+        enctype="multipart/form-data">
+        @csrf
 
-            <div class="question-block">
+        <div class="question-block">
 
-                <label for="report">Sube tu archivo</label>
-                <input type="file" name="report" id="report">
-            </div>
-            <button class="submit">Subir</button>
-        </form>
-    @endif
-    @foreach ($reports as $report)
-        @php
-            $entity = $entities->where('id', $report->entity_id)->first();
-
-            $filename = explode('/', $report->path);
-        @endphp
-        <div class="history-card">
-            <div>
-                <h3>{{ $entity->name . ': ' . end($filename) }}</h3>
-                <a href="{{ asset($report->path) }}">{{ 'Descargar ' . end($filename) }}</a>
-            </div>
-            <div class="history-card__date">
-                {{ $report->created_at }}
-            </div>
+            <label for="file">Sube tu archivo</label>
+            <input type="file" name="historyFile" id="historyFile">
         </div>
-    @endforeach
+        <div class="question-block">
+
+            <label for="file">Selecciona qué entidad puede visualizarlo</label>
+            <select name="entity" id="entity">
+                @foreach ($entities as $entity)
+                    <option value="{{ $entity->id }}">{{ $entity->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button class="submit">Subir</button>
+    </form>
 @endsection
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -61,7 +52,7 @@
                         confirmButtonText: 'Aceptar'
                     }).then(() => {
                         window.location.href =
-                            "{{ route('report.index') }}";
+                            "{{ route('filesUpload.index') }}";
                     });
                 },
                 error: function(response) {

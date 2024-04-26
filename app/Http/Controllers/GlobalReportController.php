@@ -22,7 +22,7 @@ class GlobalReportController extends Controller
             $users = User::all();
             $entities = Entity::all();
         }
-        $categories = Category::select('name', 'controller')->get();
+        $categories = Category::select('name', 'controller', 'number')->get();
         $currentCategory = Category::where('controller', 'report')->first();
         return view('forms/reporte')
             ->with('categories', $categories)
@@ -34,15 +34,13 @@ class GlobalReportController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'report' => 'required|mimes:pdf|max:2048',
-        ]);
+
 
         $currentEntity = Entity::find(auth()->user()->entity_id);
         $route = $currentEntity->name . '/' . 'Reporte global';
 
         $file = $request->file('report');
-        $path = $file->storeAs($route, $currentEntity->name . '_' . 'Reporte global.pdf');
+        $path = $file->storeAs($route, $currentEntity->name . '_' . 'Reporte global' . $file->extension());
         $entity = $currentEntity->id;
 
         $report = new Report();
@@ -52,6 +50,7 @@ class GlobalReportController extends Controller
 
         $modification = new Modification();
         $modification->user_id = auth()->user()->id;
+        $modification->entity_id = auth()->user()->entity_id;
         $modification->message = "Ha subido un reporte global";
         $modification->save();
 

@@ -15,6 +15,8 @@
             @php
                 $questionInputs = null;
 
+                $answer = $answers->where('question_id', $question->id);
+
                 if (array_key_exists($question->id, $multiinputs)) {
                     $questionInputs = $multiinputs[$question->id];
                 }
@@ -23,6 +25,7 @@
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
+                'answer' => $answer,
             ])
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">

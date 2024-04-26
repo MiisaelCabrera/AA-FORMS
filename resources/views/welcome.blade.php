@@ -20,11 +20,9 @@
 
 <body class="font-sans  ">
     @include('layouts.header', ['heading' => 'Bienvenido al portal de agenda ambiental'])
-    @if (auth()->user() == null)
-        @include('layouts.navigation_unlogged')
-    @else
-        @include('layouts.navigation', ['categories' => $categories])
-    @endif
+
+    @include('layouts.navigation_user')
+
     <div class="bg-gray-50 dark:text-white/50">
 
         <div
@@ -32,7 +30,7 @@
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <main class="dashboard">
                     @foreach ($categories as $category)
-                        @if ($category->controller != 'history' && $category->controller != 'binnacle' && $category->controller != 'report')
+                        @if ($category->number <= 8)
                             <a href="{{ $category->controller }}" class="dashboard-item">
                                 <img src="{{ asset('images/' . $category->name . '.png') }}" alt="">
                                 {{ $category->name }}

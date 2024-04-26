@@ -1,35 +1,36 @@
 @extends('layouts.app')
 @section('content')
-<!-- Header del cuestionario-->
-@include('layouts.formHeader', ['currentCategory' => $currentCategory])
+    <!-- Header del cuestionario-->
+    @include('layouts.formHeader', ['currentCategory' => $currentCategory])
 
 
 
-<!-- Formulario -->
-<form action="{{ route('education_research.store') }}" method="POST" class="cuestionario" id='cuestionario'
-    enctype="multipart/form-data">
-    @csrf
+    <!-- Formulario -->
+    <form action="{{ route('education_research.store') }}" method="POST" class="cuestionario" id='cuestionario'
+        enctype="multipart/form-data">
+        @csrf
 
-    <!-- Preguntas del cuestionario-->
-    @foreach ($questions as $question)
-    @php
-    $questionInputs = null;
+        <!-- Preguntas del cuestionario-->
+        @foreach ($questions as $question)
+            @php
+                $questionInputs = null;
+                $answer = $answers->where('question_id', $question->id);
 
-    if (array_key_exists($question->id, $multiinputs)) {
-    $questionInputs = $multiinputs[$question->id];
-    }
+                if (array_key_exists($question->id, $multiinputs)) {
+                    $questionInputs = $multiinputs[$question->id];
+                }
 
-    @endphp
-    @include('forms.questionBlocks', [
-    'questionInputs' => $questionInputs,
-    'question' => $question,
-    ])
-    @endforeach
-    <input type="number" style="display:none;" name="greenhouse_gas_emission_program"
-        id="greenhouse_gas_emission_program">
+            @endphp
+            @include('forms.questionBlocks', [
+                'questionInputs' => $questionInputs,
+                'question' => $question,
+                'answer' => $answer,
+            ])
+        @endforeach
+        <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
 
-    <button type="submit" class="submit">Enviar</button>
-</form>
+        <button type="submit" class="submit">Enviar</button>
+    </form>
 @endsection
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -40,7 +41,7 @@
 
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         $('[id^="total_electronic_devices__"]').on('change', () => {
             total_electronic_devices();
@@ -52,7 +53,7 @@
 
             var suma = 0;
 
-            elementos.each(function () {
+            elementos.each(function() {
                 var valor = parseFloat($(this).val());
 
                 if (!isNaN(valor)) {
@@ -75,7 +76,7 @@
 
             var suma = 0;
 
-            elementos.each(function () {
+            elementos.each(function() {
                 var valor = parseFloat($(this).val());
 
                 if (!isNaN(valor)) {
@@ -121,7 +122,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -142,7 +143,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -164,7 +165,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -186,7 +187,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -208,7 +209,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             if ($(this).is(':checked')) {
                 var valor = parseFloat($(this).val());
 
@@ -231,7 +232,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -252,7 +253,7 @@
 
         var suma = 0;
 
-        elementos.each(function () {
+        elementos.each(function() {
             var valor = parseFloat($(this).val());
 
             if (!isNaN(valor)) {
@@ -264,19 +265,19 @@
     }
 
 
-    $("#cuestionario").submit(function (e) {
+    $("#cuestionario").submit(function(e) {
         e.preventDefault();
         $('input').prop('disabled', false);
 
         const sumatories = $('[id$="__sumatory_1"]');
-        sumatories.each(function () {
+        sumatories.each(function() {
             const id = $(this).attr('id');
             const newId = id.replace('__sumatory_1', '');
             $(this).attr('id', newId);
             $(this).attr('name', newId + '__a');
         });
         const sumatories2 = $('[id$="__sumatory_2"]');
-        sumatories2.each(function () {
+        sumatories2.each(function() {
             const id = $(this).attr('id');
             const newId = id.replace('__sumatory_2', '');
             $(this).attr('id', newId);
@@ -300,7 +301,7 @@
             type: "POST",
             url: $(this).attr("action"),
             data: formData,
-            success: function (response) {
+            success: function(response) {
                 swal.fire({
                     title: '¡Guardado!',
                     text: 'Se ha guardado la información',
@@ -311,7 +312,7 @@
                         "{{ route('education_research.index') }}";
                 });
             },
-            error: function (response) {
+            error: function(response) {
                 swal.fire({
                     title: '¡Error!',
                     text: 'Ha ocurrido un error',

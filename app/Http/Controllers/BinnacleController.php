@@ -8,11 +8,13 @@ use App\Models\Modification;
 use App\Models\User;
 use App\Models\Entity;
 
+
 class BinnacleController extends Controller
 {
     public function index()
     {
         if (auth()->user()->role == 'user') {
+
             $modifications = Modification::where('entity_id', auth()->user()->entity_id)->get();
             $users = User::where('entity_id', auth()->user()->entity_id)->get();
             $entities = Entity::where('id', auth()->user()->entity_id)->get();
@@ -21,7 +23,7 @@ class BinnacleController extends Controller
             $users = User::all();
             $entities = Entity::all();
         }
-        $categories = Category::select('name', 'controller')->get();
+        $categories = Category::select('name', 'controller', 'number')->get();
         $currentCategory = Category::where('controller', 'binnacle')->first();
         return view('forms/bitacora')
             ->with('categories', $categories)

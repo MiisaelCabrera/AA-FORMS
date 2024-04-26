@@ -2,34 +2,50 @@
 @section('content')
     <!-- Header del cuestionario-->
     @include('layouts.formHeader', ['currentCategory' => $currentCategory])
-
-
-
-    <!-- Formulario -->
-    <form action="{{ route('responsible_consumption.store') }}" method="POST" class="cuestionario" id='cuestionario'
-        enctype="multipart/form-data">
+    <form action="{{ route('usersUpload.store') }}" id="cuestionario" class="cuestionario" method="POST">
         @csrf
+        <div class="question-block">
 
-        <!-- Preguntas del cuestionario-->
-        @foreach ($questions as $question)
-            @php
-                $questionInputs = null;
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="question-block">
 
-                $answer = $answers->where('question_id', $question->id);
+            <label for="email">Correo institucional</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="question-block">
 
-                if (array_key_exists($question->id, $multiinputs)) {
-                    $questionInputs = $multiinputs[$question->id];
-                }
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div class="question-block">
 
-            @endphp
-            @include('forms.questionBlocks', [
-                'questionInputs' => $questionInputs,
-                'question' => $question,
-                'answer' => $answer,
-            ])
-        @endforeach
+            <label for="password">Confirmar contraseña</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" required>
+        </div>
+        <div class="question-block">
 
-        <button type="submit" class="submit">Enviar</button>
+            <label for="role">Rol</label>
+            <select name="role" id="role" required>
+                <option value="superadmin">Superadministrador</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Capturísta</option>
+            </select>
+        </div>
+        <div class="question-block">
+
+            <label for="entity">Entidad</label>
+            <select name="entity" id="entity" required>
+                @foreach ($entities as $entity)
+                    <option value="{{ $entity->id }}">{{ $entity->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
+        <button type="submit" class="submit">Registrar</button>
+
     </form>
 @endsection
 
@@ -39,33 +55,14 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-
 <script>
     $(document).ready(function() {
 
-        $('#office_supplies_budget').on('change', () => {
-            percentage_green_budget();
-        });
-
-        $('#sustentable_supplies_budget').on('change', () => {
-            percentage_green_budget();
-        });
-
-        function percentage_green_budget() {
-            var budget = parseFloat($('#office_supplies_budget').val());
-            var sustentable = parseFloat($('#sustentable_supplies_budget').val());
-
-            var promedio = (sustentable / budget) * 100;
-
-
-            $('#percentage_green_budget').val(promedio);
-        }
-
 
         $("#cuestionario").submit(function(e) {
+
             e.preventDefault();
             $('input').prop('disabled', false);
-
             var formData = new FormData(this);
             $.ajax({
                 type: "POST",
@@ -82,7 +79,7 @@
                         confirmButtonText: 'Aceptar'
                     }).then(() => {
                         window.location.href =
-                            "{{ route('responsible_consumption.index') }}";
+                            "{{ route('usersUpload.index') }}";
                     });
                 },
                 error: function(response) {

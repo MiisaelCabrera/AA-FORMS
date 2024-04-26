@@ -15,7 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Entity::factory()->create([
+            'name' => 'Universidad autónoma de San Luis Potosí',
+        ]);
+        Entity::factory()->create([
             'name' => 'Facultad de ingeniería',
+        ]);
+        Entity::factory()->create([
+            'name' => 'Agenda ambiental',
         ]);
 
         User::factory(10)->create();
@@ -24,12 +30,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => '123',
-            'role' => 'superadmin',
+            'role' => 'admin',
             'entity_id' => 1,
         ]);
         User::factory()->create([
-            'name' => 'Misa',
-            'email' => '327822',
+            'name' => 'User',
+            'email' => 'admin@gmail.com',
+            'password' => '123',
+            'role' => 'user',
+            'entity_id' => 2,
+        ]);
+        User::factory()->create([
+            'name' => 'Misael Cabrera',
+            'email' => 'misael.cabrera.es@gmail.com',
             'password' => '123',
             'role' => 'superadmin',
             'entity_id' => 1,
@@ -107,6 +120,21 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Historial',
                 'controller' => 'history',
                 'number' => 11,
+            ]);
+            Category::factory()->create([
+                'name' => 'Preguntas frecuentes',
+                'controller' => 'FAQ',
+                'number' => 12,
+            ]);
+            Category::factory()->create([
+                'name' => 'Dar de alta usuarios',
+                'controller' => 'usersUpload',
+                'number' => 13,
+            ]);
+            Category::factory()->create([
+                'name' => 'Dar de alta archivos',
+                'controller' => 'filesUpload',
+                'number' => 14,
             ]);
         }
         //Fomrulario de Infraestructura
@@ -2131,7 +2159,7 @@ class DatabaseSeeder extends Seeder
                 'type' => 'number',
                 'required' => true,
                 'hasLink' => true,
-                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',                
+                'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
             ]);
             Question::factory()->create([
                 'question' => 'Calcule el porcentaje de implementación de edificios inteligentes en su entidad. El cálculo es automático con base a los indicadores 1.5 y 3.4. ',

@@ -73,10 +73,11 @@ h2{
 
 .login{
     display: flex;
-    margin: auto;
     justify-content: end;
-    width: 90%;
-    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 64px;
 }
 .login a{
     text-decoration: none;

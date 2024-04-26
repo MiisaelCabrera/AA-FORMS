@@ -46,6 +46,112 @@
 <script>
     $(document).ready(function() {
 
+        var filaActual_1 = 2;
+        var filaActual_2 = 2;
+        var filaActual_3 = 2;
+        var filaActual_4 = 2;
+        $("#biodiversity_program_1").click(function() {
+            console.log("click");
+            if (filaActual_1 < 10) {
+                var nuevaFila = $("<tr>");
+                for (var i = 'a'.charCodeAt(0); i <= 'd'.charCodeAt(0); i++) {
+                    console.log(String.fromCharCode(i));
+                    if (String.fromCharCode(i) == 'b') {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="number" name="biodiversity_program__' +
+                            String.fromCharCode(i) +
+                            '__' + filaActual_1 + '__1"></td>');
+                    } else {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="text" name="biodiversity_program__' +
+                            String
+                            .fromCharCode(i) +
+                            '__' + filaActual_1 + '__1"></td>');
+                    }
+                }
+                $("#biodiversity_program_1_table tbody").append(nuevaFila);
+                filaActual_1++;
+            } else {
+                alert("Se ha alcanzado el límite máximo de filas.");
+            }
+        });
+
+        $("#biodiversity_program_2").click(function() {
+            console.log("click");
+            if (filaActual_2 < 10) {
+                var nuevaFila = $("<tr>");
+                for (var i = 'a'.charCodeAt(0); i <= 'd'.charCodeAt(0); i++) {
+                    console.log(String.fromCharCode(i));
+                    if (String.fromCharCode(i) == 'b') {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="number" name="biodiversity_program__' +
+                            String.fromCharCode(i) +
+                            '__' + filaActual_2 + '__2"></td>');
+                    } else {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="text" name="biodiversity_program__' +
+                            String
+                            .fromCharCode(i) +
+                            '__' + filaActual_2 + '__2"></td>');
+                    }
+                }
+                $("#biodiversity_program_2_table tbody").append(nuevaFila);
+                filaActual_2++;
+            } else {
+                alert("Se ha alcanzado el límite máximo de filas.");
+            }
+        });
+        $("#biodiversity_program_3").click(function() {
+            console.log("click");
+            if (filaActual_3 < 10) {
+                var nuevaFila = $("<tr>");
+                for (var i = 'a'.charCodeAt(0); i <= 'd'.charCodeAt(0); i++) {
+                    console.log(String.fromCharCode(i));
+                    if (String.fromCharCode(i) == 'b') {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="number" name="biodiversity_program__' +
+                            String.fromCharCode(i) +
+                            '__' + filaActual_3 + '__3"></td>');
+                    } else {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="text" name="biodiversity_program__' +
+                            String
+                            .fromCharCode(i) +
+                            '__' + filaActual_3 + '__3"></td>');
+                    }
+                }
+                $("#biodiversity_program_3_table tbody").append(nuevaFila);
+                filaActual_3++;
+            } else {
+                alert("Se ha alcanzado el límite máximo de filas.");
+            }
+        });
+        $("#biodiversity_program_4").click(function() {
+            console.log("click");
+            if (filaActual_4 < 10) {
+                var nuevaFila = $("<tr>");
+                for (var i = 'a'.charCodeAt(0); i <= 'd'.charCodeAt(0); i++) {
+                    console.log(String.fromCharCode(i));
+                    if (String.fromCharCode(i) == 'b') {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="number" name="biodiversity_program__' +
+                            String.fromCharCode(i) +
+                            '__' + filaActual_4 + '__4"></td>');
+                    } else {
+                        nuevaFila.append(
+                            '<td style="padding: 0%"><input style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;" type="text" name="biodiversity_program__' +
+                            String
+                            .fromCharCode(i) +
+                            '__' + filaActual_4 + '__4"></td>');
+                    }
+                }
+                $("#biodiversity_program_4_table tbody").append(nuevaFila);
+                filaActual_4++;
+            } else {
+                alert("Se ha alcanzado el límite máximo de filas.");
+            }
+        });
+
 
 
         $('#number_academic_staff__a').on('change', () => {

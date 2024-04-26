@@ -15,10 +15,11 @@ class InfraestructureController extends Controller
 {
     public function index()
     {
-        $categories = Category::select('name', 'controller')->get();
+        $categories = Category::select('name', 'controller', 'number')->get();
         $currentCategory = Category::where('controller', 'infraestructure')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
         $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
+        $entities = Entity::all();
 
         $multiinputs = [];
 
@@ -35,7 +36,8 @@ class InfraestructureController extends Controller
             ->with('currentCategory', $currentCategory)
             ->with('questions', $questions)
             ->with('multiinputs', $multiinputs)
-            ->with('answers', $answers);
+            ->with('answers', $answers)
+            ->with('entities', $entities);
     }
 
     function store(Request $request)
@@ -51,38 +53,45 @@ class InfraestructureController extends Controller
 
 
         foreach ($inputs as $key => $value) {
+            if ($value) {
+
+                if (!$request->hasFile($key)) {
+                    $found_key = array_search($key, array_column($questions, 'name'));
+                    $questionId = $questions[$found_key]['id'];
+
+                    $name = $currentCategory->number . '.' . $questions[$found_key]['number'];
 
 
-            if (!$request->hasFile($key)) {
-                $found_key = array_search($key, array_column($questions, 'name'));
-                $questionId = $questions[$found_key]['id'];
 
+                    $answer = new Answer();
+                    $answer->answer = $value;
+                    $answer->entity_id = auth()->user()->entity_id;
+                    $answer->name = $name;
+                    $answer->question_id = $questionId;
 
-                $answer = new Answer();
-                $answer->answer = $value;
-                $answer->entity_id = auth()->user()->entity_id;
-                $answer->question_id = $questionId;
+                    $answer->save();
+                } else {
+                    $name = str_replace('_evidence', "", $key);
+                    $found_key = array_search($name, array_column($questions, 'name')) - 1;
+                    $questionNumber = $questions[$found_key]['number'];
+                    $questionId = $questions[$found_key]['id'];
+                    $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
+                    $file = $request->file($key);
+                    $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
 
-                $answer->save();
-            } else {
-                $name = str_replace('_evidence', "", $key);
-                $found_key = array_search($name, array_column($questions, 'name')) - 1;
-                $questionNumber = $questions[$found_key]['number'];
-                $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
-                $file = $request->file($key);
-                $fileRoute = $file->storeAs($route, $currentCategory->number . '.' . $questionNumber . '.docx');
-
-                $file = new File();
-                $file->path = $fileRoute;
-                $file->entity_id = auth()->user()->entity_id;
-                $file->question_id = $questionId;
-                $file->save();
+                    $file = new File();
+                    $file->path = $fileRoute;
+                    $file->entity_id = auth()->user()->entity_id;
+                    $file->question_id = $questionId;
+                    $file->save();
+                }
             }
 
 
         }
         $modification = new Modification();
         $modification->user_id = auth()->user()->id;
+        $modification->entity_id = auth()->user()->entity_id;
         $modification->message = 'Ha modificado la sección de Infraestructura';
         $modification->save();
 
