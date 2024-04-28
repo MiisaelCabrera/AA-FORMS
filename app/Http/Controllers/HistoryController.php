@@ -14,12 +14,12 @@ class HistoryController extends Controller
     public function index()
     {
         if (auth()->user()->role == 'user') {
-            $files = HistoryFile::where('entity_id', auth()->user()->entity_id)->orderByDesc('created_at')->get();
-            $users = User::where('entity_id', auth()->user()->entity_id)->get();
-            $entities = Entity::where('id', auth()->user()->entity_id)->get();
+            $files = HistoryFile::where('entity_id', auth()->user()->entity_id)->orWhere('entity_id', '1')->orderByDesc('created_at')->get();
+
+            $entities = Entity::where('id', auth()->user()->entity_id)->orWhere('id', '1')->get();
         } else {
             $files = HistoryFile::orderByDesc('created_at')->get();
-            $users = User::all();
+
             $entities = Entity::all();
         }
 
@@ -29,7 +29,6 @@ class HistoryController extends Controller
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)
             ->with('files', $files)
-            ->with('users', $users)
             ->with('entities', $entities);
     }
 

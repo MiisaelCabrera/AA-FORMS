@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('water.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('water.update', 6) }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->
@@ -32,8 +33,8 @@
         @endforeach
         <input type="number" id="efficient_water_program" name="efficient_water_program" style="display: none">
         <input type="number" id="electric_water_program" name="electric_water_program" style="display:none">
-        <input type="number" id="water_supplier_a" name="water_supplier__b" style="display:none">
-        <input type="number" id="water_supplier_b" name="water_supplier__b" style="display:none">
+        <input type="number" id="water_supplier_a" name="water_supplier__1" style="display:none">
+        <input type="number" id="water_supplier_b" name="water_supplier__2" style="display:none">
         <input type="number" id="water_consumption" name="water_consumption" style="display: none">
 
         <button type="submit" class="submit">Guardar</button>

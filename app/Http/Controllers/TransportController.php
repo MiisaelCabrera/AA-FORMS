@@ -35,6 +35,8 @@ class TransportController extends Controller
             }
         }
 
+        $a21 = Answer::where('entity_id', auth()->user()->entity_id)->where('category_id', $currentCategory->id)->first();
+
         return view('forms/transporte')
             ->with('categories', $categories)
             ->with('currentCategory', $currentCategory)

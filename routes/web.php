@@ -53,13 +53,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('history', HistoryController::class);
     Route::resource('binnacle', BinnacleController::class);
     Route::resource('report', GlobalReportController::class);
-    Route::resource('usersUpload', UserUploadController::class);
     Route::resource('filesUpload', FileUploadController::class);
     Route::resource('FAQ', FAQController::class);
     Route::resource('user', UserController::class);
 
 
 });
+Route::resource('usersUpload', UserUploadController::class);
 
 
 

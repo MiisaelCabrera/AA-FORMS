@@ -155,14 +155,13 @@ class EnviromentController extends Controller
         $inputs = $request->except(['_token', '_method']);
 
 
-
         $currentCategory = Category::where('controller', 'enviroment')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get()->toArray();
         $entity = Entity::find(auth()->user()->entity_id);
 
 
         foreach ($inputs as $key => $value) {
-            if ($value) {
+            if ($value != null) {
 
                 if (!$request->hasFile($key)) {
                     $newkey = $key;

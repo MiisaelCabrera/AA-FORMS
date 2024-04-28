@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('waste.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('waste.update', 5) }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->

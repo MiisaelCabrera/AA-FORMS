@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('energy_climate_change.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('energy_climate_change.update', 3) }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->

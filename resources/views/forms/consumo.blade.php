@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('responsible_consumption.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('responsible_consumption.update', 4) }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->
