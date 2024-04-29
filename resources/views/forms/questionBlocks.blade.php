@@ -49,9 +49,7 @@
         @php
             $matrix = [];
             $answerMatrix = [];
-            foreach ($answer as $key => $value) {
-                array_push($answerMatrix, $value->answer);
-            }
+           
         @endphp
 
         @foreach ($questionInputs as $item)
@@ -60,10 +58,24 @@
             @endphp
         @endforeach
 
+        @php
+            for ($i = 1; $i <= count($matrix); $i++) {
+                for($j = 2; $j <= count($matrix[$i]); $j++){
+                    foreach ($answer as $key => $value) {
+                        $indexes = explode('.', $value->name);
+                        if ($indexes[2] === $matrix[$i][$j]->name) {
+                            $answerMatrix[$i][$j] = $value->answer;
+                        }
+                    }
+                }
+                
+            }
+        @endphp
+
         @for ($i = 1; $i <= count($matrix); $i++)
             @for ($j = 1; $j <= count($matrix[$i]); $j++)
                 @if ($matrix[$i][$j]->type == 'label')
-                    <label for="{{ $matrix[$i][$j + 1]->name }}">{{ $matrix[$i][$j]->text }}</label>
+                    <label >{{ $matrix[$i][$j]->text }}</label>
                     @elseif ($matrix[$i][$j]->type == 'integer')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
@@ -71,7 +83,7 @@
                     @elseif ($matrix[$i][$j]->type == 'number')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}" step="0.01"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
-                        value="{{ array_key_exists($i - 1, $answerMatrix) ? $answerMatrix[$i - 1] : '' }}">
+                        value="{{ array_key_exists($i, $answerMatrix) && array_key_exists($j, $answerMatrix[$i]) ? $answerMatrix[$i][$j] : '' }}">
                 @endif
             @endfor
         @endfor
