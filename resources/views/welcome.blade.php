@@ -20,8 +20,8 @@
 
 <body class="font-sans  ">
     @include('layouts.header', [
-        'heading' => 'Programa UASLP Sostenible*',
-        'subheading' => 'Derivado del proceso UI Green Metric',
+        'heading' => 'Programa UASLP Sostenible 2024',
+        'subheading' => '#UASLPSostenible',
     ])
 
     @include('layouts.navigation_user')
@@ -32,7 +32,7 @@
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <main class="dashboard">
-                    @foreach ($categories as $category)
+                   @foreach ($categories as $category)
                         @if ($category->number <= 8)
                             <a href="{{ $category->controller }}" class="dashboard-item">
                                 <img src="{{ asset('images/' . $category->name . '.png') }}" alt="">

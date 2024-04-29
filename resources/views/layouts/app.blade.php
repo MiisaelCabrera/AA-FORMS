@@ -21,8 +21,8 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
         @include('layouts.header', [
-            'heading' => 'Programa UASLP Sostenible*',
-            'subheading' => 'Derivado del proceso UI Green Metric',
+            'heading' => 'Programa UASLP Sostenible 2024',
+            'subheading' => '#UASLPSostenible',
         ])
 
         @include('layouts.navigation_user')
