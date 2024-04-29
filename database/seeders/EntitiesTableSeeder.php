@@ -15,13 +15,13 @@ class EntitiesTableSeeder extends Seeder
     {
 
         Entity::factory()->create([
-            'name' => 'Universidad autónoma de San Luis Potosí',
+            'name' => 'Universidad Autónoma de San Luis Potosí',
         ]);
         Entity::factory()->create([
-            'name' => 'Facultad de ingeniería',
+            'name' => 'Facultad de Ingeniería',
         ]);
         Entity::factory()->create([
-            'name' => 'Agenda ambiental',
+            'name' => 'Agenda Ambiental',
         ]);
 
     }

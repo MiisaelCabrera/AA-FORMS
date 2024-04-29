@@ -190,7 +190,7 @@ class InfraestructureFormSeeder extends Seeder
             'number' => 15,
             'category_id' => 1,
             'type' => 'textarea',
-            'needsEvidence' => false,
+            'needsEvidence' => true,
         ]);
     }
 }

@@ -30,7 +30,7 @@
             <select name="role" id="role" required>
                 <option value="superadmin">Superadministrador</option>
                 <option value="admin">Administrador</option>
-                <option value="user">Capturísta</option>
+                <option value="user">Capturista</option>
             </select>
         </div>
         <div class="question-block">
