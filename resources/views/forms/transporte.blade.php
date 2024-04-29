@@ -6,8 +6,9 @@
 
 
     <!-- Formulario -->
-    <form action="{{ route('transport.store') }}" method="POST" class="cuestionario" id='cuestionario'
+    <form action="{{ route('transport.update', 1) }}" method="POST" class="cuestionario" id='cuestionario'
         enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <!-- Preguntas del cuestionario-->
@@ -44,259 +45,87 @@
 
 
 <script>
+
     $(document).ready(function() {
+        motorized_vehicles_per_person();
+        zero_emission_vehicles_per_person();
+        dirt_parking_percentage();
+        paved_parking_percentage();
+        
 
-        $('[id^="total_electronic_devices__"]').on('change', () => {
-            total_electronic_devices();
-            percentage_energy_efficient_devices()
+        $('#cars_entry').change(function() {
+            motorized_vehicles_per_person();
         });
+        $('#bikes').change(function() {
+            motorized_vehicles_per_person();
+        });
+        
+        function motorized_vehicles_per_person(){
+            console.log('Jola')
+            const a21 = {{$a21}};
+            const a23 = {{$a23}};
+            const a24 = {{$a24}};
+            const a72 = parseFloat($('#cars_entry').val());
+            const a73 = parseFloat($('#bikes').val());
 
-        function total_electronic_devices() {
-            var elementos = $('[id^="total_electronic_devices__"]:not(#total_electronic_devices__sumatory_1)');
-
-            var suma = 0;
-
-            elementos.each(function() {
-                var valor = parseFloat($(this).val());
-
-                if (!isNaN(valor)) {
-                    suma += valor;
-                }
-            });
-
-            $('#total_electronic_devices__sumatory_1').val(suma);
+            const calculation = (a72 + a73) / (a21 + a23 + a24 ) * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#motorized_vehicles_per_person').val(0);
+                return;
+            }
+            $('#motorized_vehicles_per_person').val(calculation);
         }
 
-
-        $('[id^="total_energy_efficient_devices__"]').on('change', () => {
-            total_energy_efficient_devices();
-            percentage_energy_efficient_devices()
+        $('input[type="radio"][name="zero_emission_program"]').change(function() {
+            zero_emission_vehicles_per_person();
         });
 
-        function total_energy_efficient_devices() {
-            var elementos = $(
-                '[id^="total_energy_efficient_devices__"]:not(#total_energy_efficient_devices__sumatory_1)');
-
-            var suma = 0;
-
-            elementos.each(function() {
-                var valor = parseFloat($(this).val());
-
-                if (!isNaN(valor)) {
-                    suma += valor;
-                }
-            });
-
-            $('#total_energy_efficient_devices__sumatory_1').val(suma);
+        function zero_emission_vehicles_per_person(){
+            const a21 = {{$a21}};
+            const a23 = {{$a23}};
+            const a24 = {{$a24}};
+            var a78 = parseFloat($('input[type="radio"][name="zero_emission_program"]:checked').val());
+            const calculation = a78 / (a21 + a23 + a24 ) * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#zero_emission_vehicles_per_person').val(0);
+                return;
+            }
+            $('#zero_emission_vehicles_per_person').val(calculation);
         }
 
-        function percentage_energy_efficient_devices() {
-            var total = parseFloat($('#total_electronic_devices__sumatory_1').val());
-            var energyEfficient = parseFloat($('#total_energy_efficient_devices__sumatory_1').val());
+        $('#parking_area').change(function() {
+            dirt_parking_percentage();
+        });
 
-            if (!isNaN(total) && !isNaN(energyEfficient)) {
-                var percentage = (energyEfficient / total) * 100;
-                $('#percentage_energy_efficient_devices').val(percentage);
+        function dirt_parking_percentage(){
+            const a12 = {{$a12}};
+            const a711 = parseFloat($('#parking_area').val());
+            const calculation = a711 / a12 * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#dirt_parking_percentage').val(0);
+                return;
             }
+            $('#dirt_parking_percentage').val(calculation);
         }
 
-        $('#total_smart_buildings').on('change', () => {
-            percentage_smart_buildings();
+        $('#paved_parking_area').change(function() {
+            paved_parking_percentage();
         });
 
-        function percentage_smart_buildings() {
-            var total = parseFloat($('#total_smart_buildings').val());
-            var sustainable = 0
-        };
-
-        if (!isNaN(total) && !isNaN(sustainable)) {
-            var percentage = (sustainable / total) * 100;
-            $('#percentage_smart_buildings').val(percentage);
+        function paved_parking_percentage(){
+            const a12 = {{$a12}};
+            const a712 = parseFloat($('#paved_parking_area').val());
+            const calculation = a712 / a12 * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#paved_parking_percentage').val(0);
+                return;
+            }
+            $('#paved_parking_percentage').val(calculation);
         }
-    }
-
-    $('[id^="total_renewable_energy_sources__"]').on('change', () => {
-        total_renewable_energy_sources();
-    });
-
-    function total_renewable_energy_sources() {
-        var elementos = $(
-            '[id^="total_renewable_energy_sources__"]:not(#total_renewable_energy_sources__sumatory_1)');
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#total_renewable_energy_sources__sumatory_1').val(suma);
-    }
-
-    $('[id^="total_energy_produced__"]').on('change', () => {
-        total_energy_produced();
-    });
-
-    function total_energy_produced() {
-        var elementos = $(
-            '[id^="total_energy_produced__"]:not(#total_energy_produced__sumatory_1)');
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#total_energy_produced__sumatory_1').val(suma);
-    }
-
-    $('[id^="total_sustainable_buildings__"][id$="_1"]').on('change', () => {
-        total_sustainable_buildings_1();
-    });
-
-    function total_sustainable_buildings_1() {
-        var elementos = $(
-            '[id^="total_sustainable_buildings__"][id$="_1"]:not(#total_sustainable_buildings__sumatory_1)'
-        );
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#total_sustainable_buildings__sumatory_1').val(suma);
-    }
-
-    $('[id^="total_sustainable_buildings__"][id$="_2"]').on('change', () => {
-        total_sustainable_buildings_2();
-    });
-
-    function total_sustainable_buildings_2() {
-        var elementos = $(
-            '[id^="total_sustainable_buildings__"][id$="_2"]:not(#total_sustainable_buildings__sumatory_2)'
-        );
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#total_sustainable_buildings__sumatory_2').val(suma);
-    }
-
-
-    $('[id^="greenhouse_gas_emission_program_"]').on('change', () => {
-        greenhouse_gas_emission_program();
-    });
-
-    function greenhouse_gas_emission_program() {
-        var elementos = $(
-            '[id^="greenhouse_gas_emission_program_"]');
-
-        var suma = 0;
-
-        elementos.each(function() {
-            if ($(this).is(':checked')) {
-                var valor = parseFloat($(this).val());
-
-                if (!isNaN(valor)) {
-                    suma += valor;
-                }
-            }
-        });
-
-        $('#greenhouse_gas_emission_program').val(suma);
-    }
-
-    $('[id^="innovative_programs__"]').on('change', () => {
-        innovative_programs();
-    });
-
-    function innovative_programs() {
-        var elementos = $(
-            '[id^="innovative_programs__"]:not(#innovative_programs__sumatory_1)');
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#innovative_programs__sumatory_1').val(suma);
-    }
-
-    $('[id^="total_gas_installations__"]').on('change', () => {
-        total_gas_installations();
-    });
-
-    function total_gas_installations() {
-        var elementos = $(
-            '[id^="total_gas_installations__"]:not(#total_gas_installations__sumatory_1)');
-
-        var suma = 0;
-
-        elementos.each(function() {
-            var valor = parseFloat($(this).val());
-
-            if (!isNaN(valor)) {
-                suma += valor;
-            }
-        });
-
-        $('#total_gas_installations__sumatory_1').val(suma);
-    }
-
 
     $("#cuestionario").submit(function(e) {
         e.preventDefault();
         $('input').prop('disabled', false);
-
-        const sumatories = $('[id$="__sumatory_1"]');
-        sumatories.each(function() {
-            const id = $(this).attr('id');
-            const newId = id.replace('__sumatory_1', '');
-            $(this).attr('id', newId);
-            $(this).attr('name', newId + '__a');
-        });
-        const sumatories2 = $('[id$="__sumatory_2"]');
-        sumatories2.each(function() {
-            const id = $(this).attr('id');
-            const newId = id.replace('__sumatory_2', '');
-            $(this).attr('id', newId);
-            $(this).attr('name', newId + '__b');
-        });
-
-        $('[id^="total_electronic_devices__"]').prop('disabled', true);
-        $('[id^="total_electronic_devices__"]').prop('disabled', true);
-        $('[id^="total_energy_efficient_devices__"]').prop('disabled', true);
-        $('[id^="total_renewable_energy_sources__"]').prop('disabled', true);
-        $('[id^="total_energy_produced__"]').prop('disabled', true);
-        $('[id^="total_sustainable_buildings__"][id$="_1"]').prop('disabled', true);
-        $('[id^="total_sustainable_buildings__"][id$="_2"]').prop('disabled', true);
-        $('[id^="greenhouse_gas_emission_program_"]').prop('disabled', true);
-        $('[id^="innovative_programs__"]').prop('disabled', true);
-        $('[id^="total_gas_installations__"]').prop('disabled', true);
 
 
         var formData = new FormData(this);

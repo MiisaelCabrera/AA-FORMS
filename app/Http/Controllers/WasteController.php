@@ -109,7 +109,7 @@ class WasteController extends Controller
                     $questionNumber = $questions[$found_key]['number'];
                     $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
                     $file = $request->file($key);
-                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . '.docx');
+                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . $file->extension());
                     $questionId = $questions[$found_key]['id'];
 
                     $fileRoute = str_replace('public/', '', $fileRoute);
@@ -205,7 +205,7 @@ class WasteController extends Controller
                     $questionNumber = $questions[$found_key]['number'];
                     $route = $entity->name . '/' . $currentCategory->name . '/' . $currentCategory->number . '.' . $questions[$found_key]['number'];
                     $file = $request->file($key);
-                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . '.docx');
+                    $fileRoute = $file->storeAs('public/' . $route, $currentCategory->number . '.' . $questionNumber . $file->extension());
                     $questionId = $questions[$found_key]['id'];
 
                     $fileRoute = str_replace('public/', '', $fileRoute);

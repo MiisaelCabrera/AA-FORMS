@@ -155,8 +155,9 @@
                         @if ($matrix[$i][$j]->type == 'heading')
                             <th>{{ $matrix[$i][$j]->text }}</th>
                             @elseif ($matrix[$i][$j]->type == 'radio')
-                            <td><input type="radio" name="{{ $question->name }}" id="{{ $question->name }}"
-                                    value="{{ $matrix[$i][1]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}} />
+                            <td><input type="radio" name="{{ $question->name }}" class="{{ $question->name }}"
+                                    value="{{ $matrix[$i][1]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}} 
+                                    {{count($answerMatrix) > 0 && $answerMatrix[0] === $matrix[$i][1]->name ? 'checked' : '' }}/>
                             </td>
                         @endif
                     @endfor

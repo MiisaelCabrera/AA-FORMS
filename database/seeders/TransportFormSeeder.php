@@ -136,7 +136,7 @@ class TransportFormSeeder extends Seeder
                 ]);
                 Multiinput::factory()->create([
                     'type' => 'heading',
-                    'name' => '8',
+                    'name' => '10',
                     'text' => 'Los vehículos cero emisiones están disponibles y son proporcionados por la universidad de forma gratuita. Estos son regularmente usados por la comunidad.',
                     'question_id' => $question->id,
                     'x' => 1,
