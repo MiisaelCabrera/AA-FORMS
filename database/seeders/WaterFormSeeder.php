@@ -468,7 +468,7 @@ class WaterFormSeeder extends Seeder
             'required' => true,
             'autoAnswer' => true,
         ]);
-        Question::factory()->create([
+        $question = Question::factory()->create([
             'question' => 'Indique la cantidad de agua en litros anual que consume dentro de su entidad acorde las distintas fuentes presentadas en la tabla. Adjunte su evidencia en formato Word y etiquételo con la clave 6.6.',
             'name' => 'water_consumption',
             'number' => 6,
