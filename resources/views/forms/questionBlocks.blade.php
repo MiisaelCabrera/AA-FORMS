@@ -81,12 +81,16 @@
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
                         value="{{ array_key_exists($i - 1, $answerMatrix) ? $answerMatrix[$i - 1] : '' }}"
                         {{stripos($matrix[$i][$j]->text, 'Promedio') === false ? '' : 'disabled'}}
+                        {{stripos($matrix[$i][$j]->text, 'Sumatoria') === false ? '' : 'disabled'}}
+                        {{ $question->autoAnswer ? 'disabled ' : '' }}
                         >
                     @elseif ($matrix[$i][$j]->type == 'number')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}" step="0.01"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
                         value="{{ array_key_exists($i, $answerMatrix) && array_key_exists($j, $answerMatrix[$i]) ? $answerMatrix[$i][$j] : '' }}"
                         {{strpos($matrix[$i][$j-1]->text, 'Promedio') === false ? '' : 'disabled'}}
+                        {{strpos($matrix[$i][$j-1]->text, 'Sumatoria') === false ? '' : 'disabled'}}
+                        {{ $question->autoAnswer ? 'disabled ' : '' }}
                         >
                         
                 @endif
@@ -214,6 +218,9 @@
                         if ($matrix[$i][1]->name === 'sumatory' && $j - 1 == $indexes[2]) {
                             $answerMatrix[($i - 2) * (count($matrix[$i]) - 1) + $j - 2] = $value->answer;
                         }
+                        if ($matrix[$i][1]->name === 'promedy' && $j - 1 == $indexes[2]) {
+                            $answerMatrix[($i - 2) * (count($matrix[$i]) - 1) + $j - 2] = $value->answer;
+                        }
                     }
                 }
             }
@@ -235,6 +242,7 @@
                                     style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0;"
                                     {{-- {{ $question->required ? 'required' : '' }} --}}
                                     {{ stripos($matrix[$i][1]->name, 'sumatory') === false ? '' : 'disabled' }}
+                                    {{ stripos($matrix[$i][1]->name, 'promedy') === false ? '' : 'disabled' }}
                                     value="{{ array_key_exists($arraykey, $answerMatrix) ? $answerMatrix[$arraykey] : '' }}" />
                             </td>
                         @endif
@@ -453,7 +461,7 @@
     @endif
 </div>
 
-@if (auth()->user()->role != 'user' /* || $answer->count() > 0 */)
+@if (auth()->user()->role == 'admin' /* || $answer->count() > 0 */)
     <script>
         $(document).ready(function() {
             $('select').prop('disabled', true);
@@ -467,4 +475,4 @@
             $('#entity').prop('disabled', false);
         });
     </script>
-@endif
+@endif 

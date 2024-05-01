@@ -24,6 +24,53 @@ class Energy_climate_changeController extends Controller
 
         $a15 = 0;
 
+        $answer21 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '2.1.a')->first();
+        $answer23 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '2.3.a')->first();
+        $answer24 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '2.4.a')->first();
+
+        $a21 = 0;
+        $a23 = 0;
+        $a24 = 0;
+
+        if ($answer21 != null) {
+            $a21 = $answer21->answer;
+        }
+        if ($answer23 != null) {
+            $a23 = $answer23->answer;
+        }
+        if ($answer24 != null) {
+            $a24 = $answer24->answer;
+        }
+
+        $answer71 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '7.1')->first();
+        $answer72 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '7.2')->first();
+        $answer73 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '7.3')->first();
+        $answer76 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '7.6')->first();
+        $answer77 = Answer::where('entity_id', auth()->user()->entity_id)->where('name', '7.7')->first();
+
+        $a71 = 0;
+        $a72 = 0;
+        $a73 = 0;
+        $a76 = 0;
+        $a77 = 0;
+
+        if ($answer71 != null) {
+            $a71 = $answer71->answer;
+        }
+        if ($answer72 != null) {
+            $a72 = $answer72->answer;
+        }
+        if ($answer73 != null) {
+            $a73 = $answer73->answer;
+        }
+        if ($answer76 != null) {
+            $a76 = $answer76->answer;
+        }
+        if ($answer77 != null) {
+            $a77 = $answer77->answer;
+        }
+
+
         $answer15 = Answer::where('entity_id', auth()->user()->entity_id)->where('question_id', '5')->get();
         if ($answer15->count() != 0) {
             $a15 = $answer15[0]->answer;
@@ -46,7 +93,15 @@ class Energy_climate_changeController extends Controller
             ->with('a15', $a15)
             ->with('answers', $answers)
             ->with('entities', $entities)
-            ->with('files', $files);
+            ->with('files', $files)
+            ->with('a21', $a21)
+            ->with('a23', $a23)
+            ->with('a24', $a24)
+            ->with('a71', $a71)
+            ->with('a72', $a72)
+            ->with('a73', $a73)
+            ->with('a76', $a76)
+            ->with('a77', $a77);
 
     }
     function store(Request $request)

@@ -15,16 +15,15 @@
                     @if (auth()->user()->role != 'user')
 
                         <form action="{{ route('user.update', auth()->user()->id) }}" id="entitychange"
-                            style="margin: auto auto auto 20px; " method="POST">
+                            style="margin: auto auto auto 0px; " method="POST">
                             @csrf
                             @method('PUT')
-                            <select name="entity" id="entity">
+                            <select name="entity" id="entity" style="width: 200px;">
                                 @foreach ($entities as $entity)
-                                    @if ($entity->id != 1)
                                         <option value="{{ $entity->id }}"
                                             {{ $entity->id == auth()->user()->entity_id ? 'selected' : '' }}>
                                             {{ $entity->name }}</option>
-                                    @endif
+                                   
                                 @endforeach
                             </select>
                         </form>

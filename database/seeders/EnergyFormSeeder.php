@@ -1338,5 +1338,223 @@ class EnergyFormSeeder extends Seeder
             'needsEvidence' => true,
         ]);
 
+        $question = Question::factory()->create([
+            'question' => 'Indique el consumo de electricidad total en kilovatios/hora (KW/h) y mesos mexicanos (MXN) por año de su entidad. Contabilice la energía utilizada en los últimos 12 meses en toda el área de la entidad para todos los fines (iluminación, calefacción, refrigeración, funcionamiento de laboratorios universitarios, etc.). Esta respuesta no es exacta, ya que se reportará la cantidad de electricidad equivalente en porcentaje al área ocupada de las entidades que compartan medidor).',
+            'name' => 'total_electricity_consumption',
+            'number' => 15,
+            'category_id' => 3,
+            'type' => 'tableinteger',
+            'required' => true,
+            'visibility' => 'admins',
+        ]); {
+            //x=1
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Periodo de facturación',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'a',
+                    'text' => 'Enero - Febrero',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'b',
+                    'text' => 'Marzo - Abril',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'c',
+                    'text' => 'Mayo - Junio',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 4,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'd',
+                    'text' => 'Julio - Agosto',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 5,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'e',
+                    'text' => 'Septiembre - Octubre',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 6,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'f',
+                    'text' => 'Noviembre - Diciembre',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 7,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Total',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 8,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'promedy',
+                    'text' => 'Promedio',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 9,
+                ]);
+
+            }
+            //y=1
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Consumo de electricidad (KW/h)',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Costo (MXN)',
+                    'question_id' => $question->id,
+                    'x' => 3,
+                    'y' => 1,
+                ]);
+            }
+        }
+        Question::factory()->create([
+            'question' => 'Calcule el índice de consumo de electricidad empleada por persona de su entidad en KW/h por persona. Apóyese de los indicadores 2.1, 2.3, 2.4. y 3.15. ',
+            'name' => 'electricity_consumption_per_person',
+            'number' => 16,
+            'category_id' => 3,
+            'type' => 'number',
+            'required' => true,
+            'visibility' => 'admins',
+            'autoAnswer' => true,
+        ]);
+        Question::factory()->create([
+            'question' => 'Calcule el porcentaje del uso de energía renovable por año. Apóyese de los indicadores 3.7 y 3.15',
+            'name' => 'percentage_renewable_energy_usage',
+            'number' => 17,
+            'category_id' => 3,
+            'type' => 'number',
+            'required' => true,
+            'visibility' => 'admins',
+            'autoAnswer' => true,
+        ]);
+        $question = Question::factory()->create([
+            'question' => 'Calcule la huella de carbono anual de su entidad, excluyendo la huella proveniente de fuentes secundarias como comida, compras y ropa. El cálculo de la huella de carbono se puede realizar en función de la etapa de cálculo que se indica en www.carbonfootprint.com. Esta determinación consiste en la suma del uso de electricidad por año y el uso del transporte por año. Esta se mide en toneladas métricas (MT) de dióxido de carbono (CO2). ',
+            'name' => 'carbon_footprint',
+            'number' => 18,
+            'category_id' => 3,
+            'type' => 'multinumber',
+            'required' => true,
+            'autoAnswer' => true,
+            'visibility' => 'admins',
+        ]); {
+            //x=1
+            {
+                Multiinput::create([
+                    'type' => 'label',
+                    'name' => '',
+                    'text' => 'A) Consumo de electricidad anual',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'label',
+                    'name' => '',
+                    'text' => 'B) Transporte por año (Autobuses)',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'label',
+                    'name' => '',
+                    'text' => 'C) Transporte por año (Automóvil)',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'label',
+                    'name' => '',
+                    'text' => 'D) Transporte por año (Motocicleta)',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 4,
+                ]);
+            }
+            //x=2
+            {
+                Multiinput::create([
+                    'type' => 'number',
+                    'name' => 'a',
+                    'text' => '',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'number',
+                    'name' => 'b',
+                    'text' => '',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'number',
+                    'name' => 'c',
+                    'text' => '',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'number',
+                    'name' => 'd',
+                    'text' => '',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 4,
+                ]);
+            }
+        }
+
+        Question::factory()->create([
+            'question' => 'Calcular la huella de carbono total emitida por persona dentro de su entidad. Reporte la respuesta en toneládas métricas de dióxido de carbono por persona. Apóyese en los indicadores 2.1, 2.3, 2.4 y 3.18.',
+            'name' => 'carbon_footprint_per_person',
+            'number' => 19,
+            'category_id' => 3,
+            'type' => 'number',
+            'required' => true,
+            'autoAnswer' => true,
+            'visibility' => 'admins',
+        ]);
+
     }
 }

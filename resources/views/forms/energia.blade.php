@@ -25,15 +25,19 @@
                 $file = $files->where('question_id', $question->id);
 
             @endphp
+            @if ($question->visibility == 'public' || ($question->visibility == 'admins' && Auth::user()->role != 'user'))
+                
             @include('forms.questionBlocks', [
                 'questionInputs' => $questionInputs,
                 'question' => $question,
                 'answer' => $answer,
                 'file' => $file,
-            ])
+                ])
+        @endif
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
-
+        <input type="number" style="display:none;" name="carbon_footprint" id="carbon_footprint">
+        
         <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
@@ -47,6 +51,58 @@
 
 <script>
     $(document).ready(function() {
+
+        total_electronic_devices();
+        total_energy_efficient_devices();
+        percentage_energy_efficient_devices();
+        total_sustainable_buildings_1();
+        total_sustainable_buildings_2();
+        total_renewable_energy_sources();
+        total_energy_produced();
+        total_electricity_consumption();
+        total_electricity_consumption_2();
+        greenhouse_gas_emission_program();
+        innovative_programs();
+        total_gas_installations();
+        percentage_smart_buildings();
+        percentage_renewable_energy_usage();
+        electricity_consumption_per_person();
+        carbon_footprint__a();
+        carbon_footprint__b();
+        carbon_footprint__c();
+        carbon_footprint__d();
+        carbon_footprint();
+        carbon_footprint_per_person();
+
+        function carbon_footprint(){
+            var a181 = parseFloat($('#carbon_footprint__a').val());
+            var a182 = parseFloat($('#carbon_footprint__b').val());
+            var a183 = parseFloat($('#carbon_footprint__c').val());
+            var a184 = parseFloat($('#carbon_footprint__d').val());
+
+            var calculation = a181 + a182 + a183 + a184;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint').val(0);
+                return;
+            }
+            $('#carbon_footprint').val(calculation);
+        }
+
+        function carbon_footprint_per_person(){
+            var a21 = {{$a21}};
+            var a23 = {{$a23}};
+            var a24 = {{$a24}};
+            var a328 = parseFloat($('#carbon_footprint').val());
+
+            var calculation = a328 / (a21 + a23 + a24 );
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint_per_person').val(0);
+                return;
+            }
+            $('#carbon_footprint_per_person').val(calculation);
+        }
+        
+
 
         $('[id^="total_electronic_devices__"]').on('change', () => {
             total_electronic_devices();
@@ -68,7 +124,6 @@
 
             $('#total_electronic_devices__sumatory__1').val(suma);
         }
-
 
         $('[id^="total_energy_efficient_devices__"]').on('change', () => {
             total_energy_efficient_devices();
@@ -158,6 +213,9 @@
             });
 
             $('#total_energy_produced__sumatory__1').val(suma);
+
+            carbon_footprint__a();
+
         }
 
         $('[id^="total_sustainable_buildings__"][id$="__1"]').on('change', () => {
@@ -202,6 +260,127 @@
             });
 
             $('#total_sustainable_buildings__sumatory__2').val(suma);
+        }
+
+        $('[id^="total_electricity_consumption__"][id$="__1"]').on('change', () => {
+            total_electricity_consumption();
+            percentage_renewable_energy_usage();
+            electricity_consumption_per_person();
+        });
+
+        function electricity_consumption_per_person(){
+            const a21 = {{$a21}};
+            const a23 = {{$a23}};
+            const a24 = {{$a24}};
+            const a315 = parseFloat($('#total_electricity_consumption__sumatory__1').val());
+            const calculation = a315 / (a21 + a23 + a24 ) * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#electricity_consumption_per_person').val(0);
+                return;
+            }
+            $('#electricity_consumption_per_person').val(calculation);
+        }
+
+        function carbon_footprint__a(){
+            var a37 = parseFloat($('#total_energy_produced__sumatory__1').val());
+            var calculation = (a37/1000)*0.84;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint__a').val(0);
+                return;
+            }
+            $('#carbon_footprint__a').val(calculation);
+        }
+        function carbon_footprint__b(){
+            var a71 = {{ $a71 }};
+            var a76 = {{ $a76 }};
+            var a77 = {{ $a77 }};
+
+            var calculation = (a71 * a76 * a77) * .01 /100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint__b').val(0);
+                return;
+            }
+            $('#carbon_footprint__b').val(calculation);
+        }
+        function carbon_footprint__c(){
+            var a72 = {{ $a72 }};
+            var a77 = {{ $a77 }};
+            var calculation = (a72  * 2 * a77) * .02 * 240 /100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint__c').val(0);
+                return;
+            }
+            $('#carbon_footprint__c').val(calculation);
+        }
+
+        function carbon_footprint__d(){
+            var a73 = {{ $a73 }};
+            var a77 = {{ $a77 }};
+            var calculation = (a73  * 2 * a77) * .01 * 240 /100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#carbon_footprint__d').val(0);
+                return;
+            }
+            $('#carbon_footprint__d').val(calculation);
+        }
+
+        function total_electricity_consumption() {
+            var elementos = $(
+                '[id^="total_electricity_consumption__"][id$="__1"]:not(#total_electricity_consumption__sumatory__1):not(#total_electricity_consumption__promedy__1)'
+            );
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+            var promedy = suma / elementos.length;
+
+            $('#total_electricity_consumption__sumatory__1').val(suma);
+            $('#total_electricity_consumption__promedy__1').val(promedy);
+        }
+
+        $('[id^="total_electricity_consumption__"][id$="__2"]').on('change', () => {
+            total_electricity_consumption_2();
+        });
+
+        $('#total_energy_produced__sumatory__1').on('change', () => {
+            percentage_renewable_energy_usage();
+        })
+        
+        function percentage_renewable_energy_usage(){
+            const a37 = parseFloat($('#total_energy_produced__sumatory__1').val());
+            const a315 = parseFloat($('#total_electricity_consumption__sumatory__1').val());
+            const calculation = a37 / (a37 + a315) * 100;
+            if(isNaN(calculation) || !isFinite(calculation)){
+                $('#percentage_renewable_energy_usage').val(0);
+                return; 
+            }
+            $('#percentage_renewable_energy_usage').val(calculation);
+        }
+
+        function total_electricity_consumption_2() {
+            var elementos = $(
+                '[id^="total_electricity_consumption__"][id$="__2"]:not(#total_electricity_consumption__sumatory__2):not(#total_electricity_consumption__promedy__2)'
+            );
+
+            var suma = 0;
+
+            elementos.each(function() {
+                var valor = parseFloat($(this).val());
+
+                if (!isNaN(valor)) {
+                    suma += valor;
+                }
+            });
+            var promedy = suma / elementos.length;
+
+            $('#total_electricity_consumption__sumatory__2').val(suma);
+            $('#total_electricity_consumption__promedy__2').val(promedy);
         }
 
 
@@ -279,6 +458,13 @@
             sumatories.each(function() {
                 const id = $(this).attr('id');
                 const newId = id.replace('__sumatory__1', '__1');
+                $(this).attr('id', newId);
+                $(this).attr('name', newId);
+            });
+            const promedy = $('[id$="promedy__1"]');
+            sumatories.each(function() {
+                const id = $(this).attr('id');
+                const newId = id.replace('promedy__1', '__1__2');
                 $(this).attr('id', newId);
                 $(this).attr('name', newId);
             });

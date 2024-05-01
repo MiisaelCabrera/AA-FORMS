@@ -34,6 +34,7 @@ return new class extends Migration {
             $table->string('link')->nullable();
             $table->boolean('required')->nullable();
             $table->boolean('needsEvidence')->nullable();
+            $table->string('visibility')->default('public');
             $table->timestamps();
         });
 
