@@ -29,6 +29,7 @@
                 'question' => $question,
                 'answer' => $answer,
                 'file' => $file,
+                'isCompleted' => $isCompleted,
             ])
         @endforeach
         <input type="number" id="efficient_water_program" name="efficient_water_program" style="display: none">
@@ -36,6 +37,8 @@
         <input type="number" id="water_supplier_a" name="water_supplier__1" style="display:none">
         <input type="number" id="water_supplier_b" name="water_supplier__2" style="display:none">
         <input type="number" id="water_consumption" name="water_consumption" style="display: none">
+        
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -175,6 +178,16 @@
 
         $("#cuestionario").submit(function(e) {
             e.preventDefault();
+            
+            var formularioCompleto = 1;
+            $(this).find('.required').each(function() {
+                if ($(this).val() == '') {
+                    formularioCompleto = 0;
+                }
+            });
+
+            $('#isCompleted').val(formularioCompleto);
+            
             $('input').prop('disabled', false);
 
 

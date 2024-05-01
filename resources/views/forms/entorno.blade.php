@@ -10,7 +10,8 @@
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
-
+        
+        
         <!-- Preguntas del cuestionario-->
         @foreach ($questions as $question)
             @php
@@ -30,11 +31,14 @@
                 'question' => $question,
                 'answer' => $answer,
                 'file' => $file,
+                'isCompleted' => $isCompleted,
             ])
         @endforeach
 
         <input type="number" style="display: none" value="{{ $totalArea }}" id="total_area">
         <input type="number" style="display: none" value="{{ $totalGround }}" id="total_ground">
+        
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -233,6 +237,16 @@
 
         $("#cuestionario").submit(function(e) {
             e.preventDefault();
+            
+            var formularioCompleto = 1;
+            $(this).find('.required').each(function() {
+                if ($(this).val() == '') {
+                    formularioCompleto = 0;
+                }
+            });
+
+            $('#isCompleted').val(formularioCompleto);
+            
             $('input').prop('disabled', false);
             var formData = new FormData(this);
             $.ajax({

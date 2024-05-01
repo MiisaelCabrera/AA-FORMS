@@ -49,6 +49,7 @@ h2{
     transition-timing-function: ease-in-out;
     transition: all;
     transition-duration: 150;
+    max-width: 150px;
 
 }
 

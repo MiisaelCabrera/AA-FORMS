@@ -92,6 +92,23 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        Schema::create('forms', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('entity_id')->unsigned();
+            $table->boolean('isCompleted')->default(false);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('entity_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('completeds', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('entity_id')->unsigned();
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -103,5 +120,11 @@ return new class extends Migration {
         Schema::dropIfExists('questions');
         Schema::dropIfExists('answers');
         Schema::dropIfExists('files');
+        Schema::dropIfExists('history_files');
+        Schema::dropIfExists('reports');
+        Schema::dropIfExists('modifications');
+        Schema::dropIfExists('forms');
+        Schema::dropIfExists('completeds');
+
     }
 };

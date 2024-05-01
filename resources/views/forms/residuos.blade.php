@@ -29,8 +29,11 @@
                 'question' => $question,
                 'answer' => $answer,
                 'file' => $file,
+                'isCompleted' => $isCompleted,
             ])
         @endforeach
+        
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -93,6 +96,16 @@
         $("#cuestionario").submit(function(e) {
 
             e.preventDefault();
+            
+            var formularioCompleto = 1;
+            $(this).find('.required').each(function() {
+                if ($(this).val() == '') {
+                    formularioCompleto = 0;
+                }
+            });
+
+            $('#isCompleted').val(formularioCompleto);
+            
             $('input').prop('disabled', false);
             var formData = new FormData(this);
             $.ajax({

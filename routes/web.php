@@ -17,6 +17,7 @@ use App\Http\Controllers\UserUploadController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FormCompletedController;
 use App\Models\Category;
 use App\Models\Entity;
 
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('filesUpload', FileUploadController::class);
     Route::resource('FAQ', FAQController::class);
     Route::resource('user', UserController::class);
+    Route::resource('formCompleted', FormCompletedController::class);
 
 
 });

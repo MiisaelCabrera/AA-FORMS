@@ -1344,7 +1344,6 @@ class EnergyFormSeeder extends Seeder
             'number' => 15,
             'category_id' => 3,
             'type' => 'tableinteger',
-            'required' => true,
             'visibility' => 'admins',
         ]); {
             //x=1
@@ -1449,7 +1448,6 @@ class EnergyFormSeeder extends Seeder
             'number' => 16,
             'category_id' => 3,
             'type' => 'number',
-            'required' => true,
             'visibility' => 'admins',
             'autoAnswer' => true,
         ]);
@@ -1459,7 +1457,6 @@ class EnergyFormSeeder extends Seeder
             'number' => 17,
             'category_id' => 3,
             'type' => 'number',
-            'required' => true,
             'visibility' => 'admins',
             'autoAnswer' => true,
         ]);
@@ -1469,7 +1466,6 @@ class EnergyFormSeeder extends Seeder
             'number' => 18,
             'category_id' => 3,
             'type' => 'multinumber',
-            'required' => true,
             'autoAnswer' => true,
             'visibility' => 'admins',
         ]); {
@@ -1551,7 +1547,6 @@ class EnergyFormSeeder extends Seeder
             'number' => 19,
             'category_id' => 3,
             'type' => 'number',
-            'required' => true,
             'autoAnswer' => true,
             'visibility' => 'admins',
         ]);

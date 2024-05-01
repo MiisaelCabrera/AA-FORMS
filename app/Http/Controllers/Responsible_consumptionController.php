@@ -10,6 +10,8 @@ use App\Models\Answer;
 use App\Models\File;
 use App\Models\Entity;
 use App\Models\Modification;
+use App\Models\Form;
+use App\Models\Completed;
 
 class Responsible_consumptionController extends Controller
 {
@@ -26,6 +28,15 @@ class Responsible_consumptionController extends Controller
 
         $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
 
+        $isCompleted = false;
+
+        $form = Completed::where('entity_id', auth()->user()->entity_id)->first();
+        if (!is_null($form)) {
+            $isCompleted = true;
+        }
+
+
+
         foreach ($questions as $question) {
             $questionInputs = Multiinput::where('question_id', $question->id)->get();
             if ($questionInputs->count() != 0) {
@@ -40,7 +51,8 @@ class Responsible_consumptionController extends Controller
             ->with('multiinputs', $multiinputs)
             ->with('answers', $answers)
             ->with('entities', $entities)
-            ->with('files', $files);
+            ->with('files', $files)
+            ->with('isCompleted', $isCompleted);
     }
 
     function store(Request $request)
@@ -133,7 +145,7 @@ class Responsible_consumptionController extends Controller
     function update(Request $request, $id)
     {
 
-        $inputs = $request->except(['_token', '_method']);
+        $inputs = $request->except(['_token', '_method', 'isCompleted']);
 
         $currentCategory = Category::where('controller', 'responsible_consumption')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get()->toArray();
@@ -234,6 +246,18 @@ class Responsible_consumptionController extends Controller
         $modification->entity_id = auth()->user()->entity_id;
         $modification->message = 'Ha modificado la sección de Consumo Responsable';
         $modification->save();
+
+        $form = Form::where('entity_id', auth()->user()->entity_id)->where('category_id', $currentCategory->id)->first();
+        if (is_null($form)) {
+            $form = new Form();
+            $form->category_id = $currentCategory->id;
+            $form->entity_id = auth()->user()->entity_id;
+            $form->isCompleted = $request->isCompleted;
+            $form->save();
+        } else {
+            $form->isCompleted = $request->isCompleted;
+            $form->update();
+        }
 
     }
 }

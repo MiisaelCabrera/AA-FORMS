@@ -10,6 +10,8 @@ use App\Models\Answer;
 use App\Models\File;
 use App\Models\Entity;
 use App\Models\Modification;
+use App\Models\Form;
+use App\Models\Completed;
 
 
 class TransportController extends Controller
@@ -20,6 +22,13 @@ class TransportController extends Controller
         $currentCategory = Category::where('controller', 'transport')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
         $entities = Entity::all();
+
+        $isCompleted = false;
+
+        $form = Completed::where('entity_id', auth()->user()->entity_id)->first();
+        if (!is_null($form)) {
+            $isCompleted = true;
+        }
 
 
         $files = File::where('entity_id', auth()->user()->entity_id)->get();
@@ -70,7 +79,8 @@ class TransportController extends Controller
             ->with('a12', $a12)
             ->with('a21', $a21)
             ->with('a23', $a23)
-            ->with('a24', $a24);
+            ->with('a24', $a24)
+            ->with('isCompleted', $isCompleted);
     }
 
     function store(Request $request)
@@ -163,7 +173,7 @@ class TransportController extends Controller
     function update(Request $request, $id)
     {
 
-        $inputs = $request->except(['_token', '_method']);
+        $inputs = $request->except(['_token', '_method', 'isCompleted']);
 
 
         $currentCategory = Category::where('controller', 'transport')->first();
@@ -254,6 +264,17 @@ class TransportController extends Controller
         $modification->message = 'Ha modificado la sección de Transporte';
         $modification->save();
 
+        $form = Form::where('entity_id', auth()->user()->entity_id)->where('category_id', $currentCategory->id)->first();
+        if (is_null($form)) {
+            $form = new Form();
+            $form->category_id = $currentCategory->id;
+            $form->entity_id = auth()->user()->entity_id;
+            $form->isCompleted = $request->isCompleted;
+            $form->save();
+        } else {
+            $form->isCompleted = $request->isCompleted;
+            $form->update();
+        }
     }
 
 }

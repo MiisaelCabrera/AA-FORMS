@@ -29,9 +29,13 @@
                 'question' => $question,
                 'answer' => $answer,
                 'file' => $file,
+                'isCompleted' => $isCompleted,
             ])
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
+
+        
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -279,6 +283,16 @@
 
     $("#cuestionario").submit(function(e) {
         e.preventDefault();
+            
+            var formularioCompleto = 1;
+            $(this).find('.required').each(function() {
+                if ($(this).val() == '') {
+                    formularioCompleto = 0;
+                }
+            });
+
+            $('#isCompleted').val(formularioCompleto);
+            
 
         var sums = $('[id$="__sumatory__1"]');
         

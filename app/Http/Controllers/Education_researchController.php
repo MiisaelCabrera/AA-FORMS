@@ -10,6 +10,8 @@ use App\Models\Answer;
 use App\Models\Entity;
 use App\Models\Modification;
 use App\Models\File;
+use App\Models\Form;
+use App\Models\Completed;
 
 class Education_researchController extends Controller
 {
@@ -19,6 +21,13 @@ class Education_researchController extends Controller
         $currentCategory = Category::where('controller', 'education_research')->first();
         $questions = Question::where('category_id', $currentCategory->id)->get();
         $entities = Entity::all();
+
+        $isCompleted = false;
+
+        $form = Completed::where('entity_id', auth()->user()->entity_id)->first();
+        if (!is_null($form)) {
+            $isCompleted = true;
+        }
 
 
         $answers = Answer::where('entity_id', auth()->user()->entity_id)->get();
@@ -41,7 +50,8 @@ class Education_researchController extends Controller
             ->with('multiinputs', $multiinputs)
             ->with('answers', $answers)
             ->with('entities', $entities)
-            ->with('files', $files);
+            ->with('files', $files)
+            ->with('isCompleted', $isCompleted);
     }
 
     function store(Request $request)
@@ -129,7 +139,7 @@ class Education_researchController extends Controller
     function update(Request $request, $id)
     {
 
-        $inputs = $request->except(['_token', '_method']);
+        $inputs = $request->except(['_token', '_method', 'isCompleted']);
 
 
         $currentCategory = Category::where('controller', 'education_research')->first();
@@ -219,6 +229,18 @@ class Education_researchController extends Controller
         $modification->entity_id = auth()->user()->entity_id;
         $modification->message = 'Ha modificado la sección de Educación e Investigación';
         $modification->save();
+
+        $form = Form::where('entity_id', auth()->user()->entity_id)->where('category_id', $currentCategory->id)->first();
+        if (is_null($form)) {
+            $form = new Form();
+            $form->category_id = $currentCategory->id;
+            $form->entity_id = auth()->user()->entity_id;
+            $form->isCompleted = $request->isCompleted;
+            $form->save();
+        } else {
+            $form->isCompleted = $request->isCompleted;
+            $form->update();
+        }
 
     }
 
