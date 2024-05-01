@@ -79,11 +79,16 @@
                     @elseif ($matrix[$i][$j]->type == 'integer')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
-                        value="{{ array_key_exists($i - 1, $answerMatrix) ? $answerMatrix[$i - 1] : '' }}">
+                        value="{{ array_key_exists($i - 1, $answerMatrix) ? $answerMatrix[$i - 1] : '' }}"
+                        {{stripos($matrix[$i][$j]->text, 'Promedio') === false ? '' : 'disabled'}}
+                        >
                     @elseif ($matrix[$i][$j]->type == 'number')
                     <input type="number" name="{{ $question->name . '__' . $matrix[$i][$j]->name }}" step="0.01"
                         id="{{ $question->name . '__' . $matrix[$i][$j]->name }}" {{-- {{ $question->required ? 'required' : '' }} --}}
-                        value="{{ array_key_exists($i, $answerMatrix) && array_key_exists($j, $answerMatrix[$i]) ? $answerMatrix[$i][$j] : '' }}">
+                        value="{{ array_key_exists($i, $answerMatrix) && array_key_exists($j, $answerMatrix[$i]) ? $answerMatrix[$i][$j] : '' }}"
+                        {{strpos($matrix[$i][$j-1]->text, 'Promedio') === false ? '' : 'disabled'}}
+                        >
+                        
                 @endif
             @endfor
         @endfor
@@ -366,6 +371,69 @@
             </table>
             <button type="button" class="submit" id="{{ $question->name . '_' . $i }}">Añadir item</button>
         @endfor
+    
+    @elseif ($question->type == 'tableintegername')
+        @php
+            $matrix = [];
+            foreach($questionInputs as $item){
+                $matrix[$item->y][$item->x] = $item;
+            }
+
+            for($i = 2; $i < count($matrix); $i++){
+                for($j = 2; $j <= count($matrix[1]); $j++){
+                    $name = $matrix[1][$j]->name;
+                    
+                    $matrix[$i][$j] = (object)['type' => $name, 'name' => '0', 'value' => ''];
+                }
+            }
+            
+            $name = 'a';
+            for($j = 2; $j <= count($matrix[1]); $j++){
+                for($i = 2; $i < count($matrix); $i++){
+                    $matrix[$i][$j]->name = $name;
+                    foreach ($answer as $key => $value) {
+                        $indexes = explode('.', $value->name);
+                        if($indexes[2] === $name){
+                            $matrix[$i][$j]->value = $value->answer;
+                        }
+                    }
+                    $name++;
+                    
+                }
+            }
+
+        
+            
+        @endphp
+
+        <h3 style="display: flex; margin:auto;">{{$matrix[0][0]->text}}</h3>
+        <table>
+            
+                @for ($i = 1; $i < count($matrix); $i++)
+                    <tr>
+                        @for ($j = 1; $j <= count($matrix[$i]); $j++)
+                            @if ($matrix[$i][$j]->type == 'heading')
+                                <th>{{ $matrix[$i][$j]->text }}</th>
+                                @elseif ($matrix[$i][$j]->type == 'number')
+                             
+                                <td style="padding: 0%"><input type="number" style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0"
+                                    name="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
+                                    id="{{ $question->name . '__' . $matrix[$i][$j]->name  }}"
+                                    value="{{$matrix[$i][$j]->value}}"
+                                    {{$matrix[$i][1]->name === 'sumatory' ? 'disabled' : ''}}    
+                                    >
+                                </td>
+                                @elseif ($matrix[$i][$j]->type == 'name' && $matrix[$i][1]->name !== 'sumatory')
+                                <td style="padding: 0%"><input type="text"  style="width: 100%; text-align: center; height: 100%; margin: 0;  border: 0"
+                                    name="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
+                                    value="{{$matrix[$i][$j]->value}}"
+                                    id="{{ $question->name . '__' . $matrix[$i][$j]->name }}"
+                                    >
+                            @endif
+                        @endfor
+                    </tr>
+                @endfor 
+        </table>
 
 
 

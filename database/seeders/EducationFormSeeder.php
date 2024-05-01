@@ -88,6 +88,14 @@ class EducationFormSeeder extends Seeder
                     'x' => 1,
                     'y' => 7,
                 ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Sumatoria',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 8,
+                ]);
             }
             //Top Headings
             {
@@ -110,6 +118,103 @@ class EducationFormSeeder extends Seeder
             'required' => true,
             'needsEvidence' => true,
         ]); {
+            Multiinput::create([
+                'type' => 'mainheading',
+                'name' => '',
+                'text' => 'Programas educativos con orientación explícita hacia el cuidado del medio ambiente',
+                'question_id' => $question->id,
+                'x' => 0,
+                'y' => 0,
+            ]);
+            //x=1
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Nivel académico',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Educación media superior (preparatoria)',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'TSU',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Licenciatura',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 4,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Maestría',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 5,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Especialidad',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 6,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Doctorado',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 7,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Sumatoria',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 8,
+                ]);
+            }
+            //x=2
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'number',
+                    'text' => 'Numero',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 1,
+                ]);
+            }
+            //x=3
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'name',
+                    'text' => 'Nombres',
+                    'question_id' => $question->id,
+                    'x' => 3,
+                    'y' => 1,
+                ]);
+            }
         }
 
         $question = Question::factory()->create([
@@ -179,6 +284,14 @@ class EducationFormSeeder extends Seeder
                     'x' => 1,
                     'y' => 7,
                 ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Sumatoria',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 8,
+                ]);
             }
             //Top Headings
             {
@@ -202,7 +315,103 @@ class EducationFormSeeder extends Seeder
             'required' => true,
             'needsEvidence' => true,
         ]); {
-
+            Multiinput::create([
+                'type' => 'mainheading',
+                'name' => '',
+                'text' => 'Programas educativos con orientación explícita hacia el cuidado del medio ambiente',
+                'question_id' => $question->id,
+                'x' => 0,
+                'y' => 0,
+            ]);
+            //x=1
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Nivel académico',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Educación media superior (preparatoria)',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'TSU',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Licenciatura',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 4,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Maestría',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 5,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Especialidad',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 6,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Doctorado',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 7,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Sumatoria',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 8,
+                ]);
+            }
+            //x=2
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'number',
+                    'text' => 'Numero',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 1,
+                ]);
+            }
+            //x=3
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'name',
+                    'text' => 'Nombres',
+                    'question_id' => $question->id,
+                    'x' => 3,
+                    'y' => 1,
+                ]);
+            }
         }
         Question::factory()->create([
             'question' => 'Calcule el porcentaje de programas educativos que tienen una orientación explícita hacia el cuidado del medio ambiente o la sostenibilidad. El cálculo es automático con base a los indicadores 8.1 y 8.2.',
@@ -1097,7 +1306,89 @@ class EducationFormSeeder extends Seeder
             'type' => 'tableintegername',
             'required' => true,
             'needsEvidence' => true,
-        ]);
+        ]); {
+            Multiinput::create([
+                'type' => 'mainheading',
+                'name' => '',
+                'text' => 'Programas educativos con orientación explícita hacia el cuidado del medio ambiente',
+                'question_id' => $question->id,
+                'x' => 0,
+                'y' => 0,
+            ]);
+            //x=1
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Nivel académico',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 1,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Licenciatura',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 2,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Maestría',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 3,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Especialidad',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 4,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => '',
+                    'text' => 'Doctorado',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 5,
+                ]);
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'sumatory',
+                    'text' => 'Sumatoria',
+                    'question_id' => $question->id,
+                    'x' => 1,
+                    'y' => 6,
+                ]);
+            }
+            //x=2
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'number',
+                    'text' => 'Numero',
+                    'question_id' => $question->id,
+                    'x' => 2,
+                    'y' => 1,
+                ]);
+            }
+            //x=3
+            {
+                Multiinput::create([
+                    'type' => 'heading',
+                    'name' => 'name',
+                    'text' => 'Nombres',
+                    'question_id' => $question->id,
+                    'x' => 3,
+                    'y' => 1,
+                ]);
+            }
+        }
 
         Question::factory()->create([
             'question' => 'Número de proyectos de servicio comunitario relacionados con temas de sostenibilidad y medio ambiente, organizados por y/o con participación de estudiantes que se realizan en su entidad anualmente. Adjunte su evidencia en formato word (.doc) y etiquetalo con la clave 8.16.',
