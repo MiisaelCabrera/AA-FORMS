@@ -99,5 +99,10 @@ class CategoriesTableSeeder extends Seeder
             'controller' => 'filesUpload',
             'number' => 14,
         ]);
+        Category::factory()->create([
+            'name' => 'Respuestas en excel',
+            'controller' => 'excel',
+            'number' => 15,
+        ]);
     }
 }

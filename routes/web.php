@@ -18,6 +18,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FormCompletedController;
+use App\Http\Controllers\ExcelController;
 use App\Models\Category;
 use App\Models\Entity;
 
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
 
 });
 Route::resource('usersUpload', UserUploadController::class);
+Route::resource('excel', ExcelController::class);
 
 
 
