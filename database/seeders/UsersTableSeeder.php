@@ -52,5 +52,13 @@ class UsersTableSeeder extends Seeder
             'role' => 'superadmin',
             'entity_id' => 1,
         ]);
+
+        User::factory()->create([
+            'name' => 'Eugenia Almendárez',
+            'email' => 'eugenia.almendarez@uaslp.mx',
+            'password' => '12345678',
+            'role' => 'superadmin',
+            'entity_id' => 1,
+        ]);
     }
 }

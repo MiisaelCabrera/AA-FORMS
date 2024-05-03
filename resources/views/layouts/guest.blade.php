@@ -21,8 +21,8 @@
 <body class="font-sans text-gray-900 antialiased">
 
     @include('layouts.header', [
-        'heading' => 'Programa UASLP Sostenible*',
-        'subheading' => 'Derivado del proceso UI Green Metric',
+        'heading' => 'Programa UASLP Sostenible 2024',
+        'subheading' => '#UASLPSostenible',
     ])
     <div class="mt-6 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
 

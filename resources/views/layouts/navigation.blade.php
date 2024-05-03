@@ -15,10 +15,10 @@
                 @endif
             @endforeach
 
-            <form action="{{route('formCompleted.store')}}" id="send" class="flex p-0 nav-link h-16 mx-auto " method="POST"  >
+            <!--<form action="{{route('formCompleted.store')}}" id="send" class="flex p-0 nav-link h-16 mx-auto " method="POST"  >
                 @csrf
                 <button>Envíar todo</button>
-            </form>
+            </form>-->
 
 
 

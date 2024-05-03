@@ -29,7 +29,7 @@ class InfraestructureFormSeeder extends Seeder
             'type' => 'select',
             'required' => true,
             'hasLink' => true,
-            'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
+            'link' => 'https://youtu.be/lAq7-Qp3ht0',
         ]); {
 
             Multiinput::create([
@@ -67,7 +67,7 @@ class InfraestructureFormSeeder extends Seeder
             'type' => 'number',
             'required' => true,
             'hasLink' => true,
-            'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
+            'link' => 'https://www.youtube.com/watch?v=TD6wJjmivTs',
         ]);
         Question::factory()->create([
             'question' => '¿Cuál es el área total de su entidad destinada a actividades académicas y administrativas? (Se reporta en metros cuadrados. Incluya edificios administrativos, edificios para actividades estudiantiles y de personal, clases, invernaderos y comedores. Los jardines, campos y otras áreas solo deben contarse si son utilizadas con fines académicos y/o recreativos, como conferencias, prácticas, capacitaciones, eventos, ferias, etc.)',
@@ -77,7 +77,7 @@ class InfraestructureFormSeeder extends Seeder
             'type' => 'number',
             'required' => true,
             'hasLink' => true,
-            'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
+            'link' => '#',
         ]);
         Question::factory()->create([
             'question' => '¿Cuál es la superficie total de la planta baja de los edificios de su entidad? (Se reporta en metros cuadrados. Considere para el cálculo el área total de las partes de la planta baja de los edificios universitarios en su entidad).',
@@ -87,7 +87,7 @@ class InfraestructureFormSeeder extends Seeder
             'type' => 'number',
             'required' => true,
             'hasLink' => true,
-            'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
+            'link' => 'https://www.youtube.com/watch?v=TD6wJjmivTs',
         ]);
         Question::factory()->create([
             'question' => '¿Cuál es el área total de edificios de su entidad? (Se reporta en metros cuadrados). Proporcionar información del área ocupada por edificios, es decir, proporcionar el área total de todos los pisos, incluidas las plantas bajas y otros pisos de los edificios universitarios en su entidad.',
@@ -133,7 +133,7 @@ class InfraestructureFormSeeder extends Seeder
             'required' => true,
             'needsEvidence' => true,
             'hasLink' => true,
-            'link' => 'https://www.youtube.com/watch?v=bVy8gq8ccLk',
+            'link' => 'https://www.youtube.com/watch?v=lAl0MiB5NmI',
         ]);
         Question::factory()->create([
             'question' => '¿Cuál es el porcentaje de vegetación plantada de su entidad? El cálculo es autómatico con base a los indicadores 1.2 y 1.9.',
