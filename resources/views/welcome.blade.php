@@ -13,7 +13,7 @@
 
     <!-- Styles -->
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="{{ asset('css/globals.css') }}">
 </head>
@@ -33,11 +33,12 @@
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <div class="bg-white shadow">
                     @if (auth()->user() != null)
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                            <p style="white-space: pre-line; color:black;">Esta plataforma está diseñada para la
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8  ">
+                            <p style="color:black;">Esta plataforma está diseñada para la
                                 recopilación y reporte de información. El cuestionario consta de 8 criterios con 113
                                 preguntas, de las cuales solo 55 serán consideradas para calcular la puntuación total de
-                                tu entidad en el <b>#Ranking UASLPSostenible</b>.<br><br>Los indicadores proporcionan
+                                tu entidad en el <b>#Ranking UASLPSostenible</b>.</p><br>
+                            <p>Los indicadores proporcionan
                                 detalles sobre los criterios y permiten a cada entidad mostrar sus esfuerzos en
                                 sostenibilidad de manera verídica y con mayor precisión. Algunos indicadores requieren
                                 evidencias documentales o fotográficas que deberán ser etiquetadas correctamente, por
@@ -47,8 +48,8 @@
                                 “GUARDAR” constantemente para asegurar que toda tu información se mantenga. Solo después
                                 de asegurarte de que toda la información esté completa, deberás hacer clic en “ENVIAR”
                                 para que tu reporte quede registrado. Esta acción implica que no podrás seguir editando
-                                las respuestas en ninguno de los criterios".<br>
-                                Este proceso es perfectible y está en un proceso de mejora continua. Agradecemos sus
+                                las respuestas en ninguno de los criterios".</p><br>
+                            <p>Este proceso es perfectible y está en un proceso de mejora continua. Agradecemos sus
                                 comentarios.</p>
                         </div>
                     @endif

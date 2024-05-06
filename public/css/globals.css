@@ -1,5 +1,5 @@
 body{
-    padding: 0;
+    padding: 0px 0px 100px;
     margin: 0%;
     font-family: sans-serif;
 }
@@ -46,9 +46,7 @@ h2{
     line-height: 20px;
     color: rgb(75 85 99);
     font-weight: 500;
-    transition-timing-function: ease-in-out;
-    transition: all;
-    transition-duration: 150;
+    transition: all 0.15s ease-in-out;
     max-width: 150px;
 
 }
@@ -253,4 +251,9 @@ table{
 }
 p{
     color: black;
+}
+
+.question{
+    font-weight: 600;
+    font-size: 16px;
 }
