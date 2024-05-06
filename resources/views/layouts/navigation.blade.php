@@ -15,7 +15,7 @@
                 @endif
             @endforeach
 
-            <!--<form action="{{route('formCompleted.store')}}" id="send" class="flex p-0 nav-link h-16 mx-auto " method="POST"  >
+            <!--<form action="{{ route('formCompleted.store') }}" id="send" class="flex p-0 nav-link h-16 mx-auto " method="POST"  >
                 @csrf
                 <button>Envíar todo</button>
             </form>-->
@@ -37,49 +37,49 @@
 
 <script>
     $(document).ready(function() {
-    $('#send').submit(function(e) {
-        e.preventDefault();
+        $('#send').submit(function(e) {
+            e.preventDefault();
 
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¡No podrás revertir esto!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: '¡Sí, envíalo!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: $(this).attr("action"),
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            title: '¡Enviado!',
-                            text: response.message,
-                            icon: 'success'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.reload();
-                            }
-                        });
-                    },
-                    error: function(response) {
-                        var errorMessage = response.responseJSON.message;
-                        Swal.fire({
-                            title: '¡Error!',
-                            text: errorMessage,
-                            icon: 'error'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.reload();
-                            }
-                        });
-                    }
-                });
-            }
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, envíalo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: $(this).attr("action"),
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            Swal.fire({
+                                title: '¡Enviado!',
+                                text: response.message,
+                                icon: 'success'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        },
+                        error: function(response) {
+                            var errorMessage = response.responseJSON.message;
+                            Swal.fire({
+                                title: '¡Error!',
+                                text: errorMessage,
+                                icon: 'error'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        }
+                    });
+                }
+            });
         });
     });
-});
 </script>

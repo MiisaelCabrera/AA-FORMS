@@ -43,5 +43,19 @@ class HistoryController extends Controller
         return response()->file(storage_path($rutaArchivo));
     }
 
+    public function destroy($id)
+    {
+        $file = HistoryFile::find($id);
+        $files = HistoryFile::where('path', $file->path)->get();
+        if (is_null($files)) {
+            return response()->json(['message' => 'Archivo no encontrado'], 404);
+        }
+        foreach ($files as $file) {
+            Storage::delete($file->path);
+            $file->delete();
+        }
+        return response()->json(['message' => 'Archivo eliminado'], 200);
+    }
+
 
 }
