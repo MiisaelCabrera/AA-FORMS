@@ -46,6 +46,9 @@ class HistoryController extends Controller
     public function destroy($id)
     {
         $file = HistoryFile::find($id);
+        if (is_null($file)) {
+            return response()->json(['message' => 'Archivo no encontrado'], 404);
+        }
         $files = HistoryFile::where('path', $file->path)->get();
         if (is_null($files)) {
             return response()->json(['message' => 'Archivo no encontrado'], 404);
