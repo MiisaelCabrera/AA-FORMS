@@ -98,7 +98,7 @@ return new class extends Migration {
             $table->bigInteger('entity_id')->unsigned();
             $table->boolean('isCompleted')->default(false);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('entity_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
             $table->timestamps();
         });
 
