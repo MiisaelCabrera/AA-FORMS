@@ -57,7 +57,6 @@ class HistoryController extends Controller
             Storage::delete($file->path);
             $file->delete();
         }
-        return response()->json(['message' => 'Archivo eliminado'], 200);
     }
 
 

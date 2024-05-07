@@ -56,7 +56,7 @@
                             var message = response.message;
                             Swal.fire({
                                 title: '¡Borrado!',
-                                text: message,
+                                text: 'Archivo eliminado',
                                 icon: 'success'
                             }).then(
                                 (result) => {
