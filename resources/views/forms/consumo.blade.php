@@ -33,8 +33,8 @@
                 'isCompleted' => $isCompleted,
             ])
         @endforeach
-        
-        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
+
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted">
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -71,7 +71,7 @@
 
         $("#cuestionario").submit(function(e) {
             e.preventDefault();
-            
+
             var formularioCompleto = 1;
             $(this).find('.required').each(function() {
                 if ($(this).val() == '') {
@@ -80,7 +80,7 @@
             });
 
             $('#isCompleted').val(formularioCompleto);
-            
+
             $('input').prop('disabled', false);
 
             var formData = new FormData(this);
@@ -103,9 +103,10 @@
                     });
                 },
                 error: function(response) {
+                    var message = response.responseJSON.message;
                     swal.fire({
                         title: '¡Error!',
-                        text: 'Ha ocurrido un error',
+                        text: message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });

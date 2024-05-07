@@ -33,7 +33,7 @@
                 'isCompleted' => $isCompleted,
             ])
         @endforeach
-        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted">
 
         <button type="submit" class="submit">Guardar</button>
     </form>
@@ -152,9 +152,10 @@
                     });
                 },
                 error: function(response) {
+                    var message = response.responseJSON.message;
                     swal.fire({
                         title: '¡Error!',
-                        text: 'Ha ocurrido un error',
+                        text: message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });

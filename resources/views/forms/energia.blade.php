@@ -26,21 +26,20 @@
 
             @endphp
             @if ($question->visibility == 'public' || ($question->visibility == 'admins' && Auth::user()->role != 'user'))
-                
-            @include('forms.questionBlocks', [
-                'questionInputs' => $questionInputs,
-                'question' => $question,
-                'answer' => $answer,
-                'file' => $file,
-                'isCompleted' => $isCompleted,
+                @include('forms.questionBlocks', [
+                    'questionInputs' => $questionInputs,
+                    'question' => $question,
+                    'answer' => $answer,
+                    'file' => $file,
+                    'isCompleted' => $isCompleted,
                 ])
-        @endif
+            @endif
         @endforeach
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
         <input type="number" style="display:none;" name="carbon_footprint" id="carbon_footprint">
-        
-        <input type="number" style="display: none" name="isCompleted" id="isCompleted" >
-        
+
+        <input type="number" style="display: none" name="isCompleted" id="isCompleted">
+
         <button type="submit" class="submit">Guardar</button>
     </form>
 @endsection
@@ -77,34 +76,34 @@
         carbon_footprint();
         carbon_footprint_per_person();
 
-        function carbon_footprint(){
+        function carbon_footprint() {
             var a181 = parseFloat($('#carbon_footprint__a').val());
             var a182 = parseFloat($('#carbon_footprint__b').val());
             var a183 = parseFloat($('#carbon_footprint__c').val());
             var a184 = parseFloat($('#carbon_footprint__d').val());
 
             var calculation = a181 + a182 + a183 + a184;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint').val(0);
                 return;
             }
             $('#carbon_footprint').val(calculation);
         }
 
-        function carbon_footprint_per_person(){
-            var a21 = {{$a21}};
-            var a23 = {{$a23}};
-            var a24 = {{$a24}};
+        function carbon_footprint_per_person() {
+            var a21 = {{ $a21 }};
+            var a23 = {{ $a23 }};
+            var a24 = {{ $a24 }};
             var a328 = parseFloat($('#carbon_footprint').val());
 
-            var calculation = a328 / (a21 + a23 + a24 );
-            if(isNaN(calculation) || !isFinite(calculation)){
+            var calculation = a328 / (a21 + a23 + a24);
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint_per_person').val(0);
                 return;
             }
             $('#carbon_footprint_per_person').val(calculation);
         }
-        
+
 
 
         $('[id^="total_electronic_devices__"]').on('change', () => {
@@ -271,56 +270,58 @@
             electricity_consumption_per_person();
         });
 
-        function electricity_consumption_per_person(){
-            const a21 = {{$a21}};
-            const a23 = {{$a23}};
-            const a24 = {{$a24}};
+        function electricity_consumption_per_person() {
+            const a21 = {{ $a21 }};
+            const a23 = {{ $a23 }};
+            const a24 = {{ $a24 }};
             const a315 = parseFloat($('#total_electricity_consumption__sumatory__1').val());
-            const calculation = a315 / (a21 + a23 + a24 ) * 100;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            const calculation = a315 / (a21 + a23 + a24) * 100;
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#electricity_consumption_per_person').val(0);
                 return;
             }
             $('#electricity_consumption_per_person').val(calculation);
         }
 
-        function carbon_footprint__a(){
+        function carbon_footprint__a() {
             var a37 = parseFloat($('#total_energy_produced__sumatory__1').val());
-            var calculation = (a37/1000)*0.84;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            var calculation = (a37 / 1000) * 0.84;
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint__a').val(0);
                 return;
             }
             $('#carbon_footprint__a').val(calculation);
         }
-        function carbon_footprint__b(){
+
+        function carbon_footprint__b() {
             var a71 = {{ $a71 }};
             var a76 = {{ $a76 }};
             var a77 = {{ $a77 }};
 
-            var calculation = (a71 * a76 * a77) * .01 /100;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            var calculation = (a71 * a76 * a77) * .01 / 100;
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint__b').val(0);
                 return;
             }
             $('#carbon_footprint__b').val(calculation);
         }
-        function carbon_footprint__c(){
+
+        function carbon_footprint__c() {
             var a72 = {{ $a72 }};
             var a77 = {{ $a77 }};
-            var calculation = (a72  * 2 * a77) * .02 * 240 /100;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            var calculation = (a72 * 2 * a77) * .02 * 240 / 100;
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint__c').val(0);
                 return;
             }
             $('#carbon_footprint__c').val(calculation);
         }
 
-        function carbon_footprint__d(){
+        function carbon_footprint__d() {
             var a73 = {{ $a73 }};
             var a77 = {{ $a77 }};
-            var calculation = (a73  * 2 * a77) * .01 * 240 /100;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            var calculation = (a73 * 2 * a77) * .01 * 240 / 100;
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#carbon_footprint__d').val(0);
                 return;
             }
@@ -354,14 +355,14 @@
         $('#total_energy_produced__sumatory__1').on('change', () => {
             percentage_renewable_energy_usage();
         })
-        
-        function percentage_renewable_energy_usage(){
+
+        function percentage_renewable_energy_usage() {
             const a37 = parseFloat($('#total_energy_produced__sumatory__1').val());
             const a315 = parseFloat($('#total_electricity_consumption__sumatory__1').val());
             const calculation = a37 / (a37 + a315) * 100;
-            if(isNaN(calculation) || !isFinite(calculation)){
+            if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#percentage_renewable_energy_usage').val(0);
-                return; 
+                return;
             }
             $('#percentage_renewable_energy_usage').val(calculation);
         }
@@ -455,7 +456,7 @@
 
         $("#cuestionario").submit(function(e) {
             e.preventDefault();
-            
+
             var formularioCompleto = 1;
             $(this).find('.required').each(function() {
                 if ($(this).val() == '') {
@@ -464,7 +465,7 @@
             });
 
             $('#isCompleted').val(formularioCompleto);
-            
+
             $('input').prop('disabled', false);
 
             const sumatories = $('[id$="__sumatory__1"]');
@@ -510,9 +511,10 @@
                     });
                 },
                 error: function(response) {
+                    var message = response.responseJSON.message;
                     swal.fire({
                         title: '¡Error!',
-                        text: 'Ha ocurrido un error',
+                        text: message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });

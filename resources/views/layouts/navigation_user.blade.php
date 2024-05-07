@@ -20,10 +20,9 @@
                             @method('PUT')
                             <select name="entity" id="entity" style="width: 200px;">
                                 @foreach ($entities as $entity)
-                                        <option value="{{ $entity->id }}"
-                                            {{ $entity->id == auth()->user()->entity_id ? 'selected' : '' }}>
-                                            {{ $entity->name }}</option>
-                                   
+                                    <option value="{{ $entity->id }}"
+                                        {{ $entity->id == auth()->user()->entity_id ? 'selected' : '' }}>
+                                        {{ $entity->name }}</option>
                                 @endforeach
                             </select>
                         </form>
@@ -92,9 +91,10 @@
                     });
                 },
                 error: function(response) {
+                    var message = response.responseJSON.message;
                     swal.fire({
                         title: '¡Error!',
-                        text: 'Ha ocurrido un error',
+                        text: message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });

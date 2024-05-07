@@ -65,9 +65,10 @@
                     });
                 },
                 error: function(response) {
+                    var message = response.responseJSON.message;
                     swal.fire({
                         title: '¡Error!',
-                        text: 'Ha ocurrido un error',
+                        text: message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });
