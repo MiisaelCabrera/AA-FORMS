@@ -19,7 +19,7 @@
                 {{ $file->created_at }}
             </div>
             @if (auth()->user()->role == 'superadmin')
-                <form action="{{ route('history.destroy', $file->id) }}" method="POST" id="delete">
+                <form action="{{ route('history.destroy', $file->id) }}" id="delete">
                     @csrf
                     @method('DELETE')
                     <button class="submit">x</button>
@@ -66,7 +66,7 @@
                                 }
                             )
                         },
-                        error(response) {
+                        error: function(response) {
                             var message = response.responseJSON.message;
                             Swal.fire({
                                 title: '¡Error!',
