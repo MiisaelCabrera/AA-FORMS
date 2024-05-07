@@ -162,6 +162,8 @@ class EnviromentController extends Controller
     function update(Request $request, $id)
     {
 
+        return response()->json(['message' => ':p'], 400);
+
         $inputs = $request->except(['_token', '_method', 'isCompleted']);
 
 
