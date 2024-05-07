@@ -260,7 +260,7 @@ class Energy_climate_changeController extends Controller
                     }
                     array_push($array, $name);
 
-                    $answer = Answer::whereRaw('BINARY name = ?', [$name])->first();
+                    $answer = Answer::whereRaw('BINARY name = ?', [$name])->where('entity_id', auth()->user()->entity_id)->first();
                     if (is_null($answer)) {
                         $answer = new Answer();
                         $answer->answer = $value;
