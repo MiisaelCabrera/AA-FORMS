@@ -234,8 +234,11 @@
                 for ($j = 2; $j <= count($matrix[$i]); $j++) {
                     foreach ($answer as $key => $value) {
                         $indexes = explode('.', $value->name);
-                        if ($matrix[$i][1]->name === $indexes[2] && $j - 1 == $indexes[3]) {
-                            $answerMatrix[($i - 2) * (count($matrix[$i]) - 1) + $j - 2] = $value->answer;
+
+                        if (array_key_exists(2, $indexes)) {
+                            if ($matrix[$i][1]->name === $indexes[2] && $j - 1 == $indexes[3]) {
+                                $answerMatrix[($i - 2) * (count($matrix[$i]) - 1) + $j - 2] = $value->answer;
+                            }
                         }
                         if ($matrix[$i][1]->name === 'sumatory' && $j - 1 == $indexes[2]) {
                             $answerMatrix[($i - 2) * (count($matrix[$i]) - 1) + $j - 2] = $value->answer;
