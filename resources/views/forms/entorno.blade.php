@@ -198,7 +198,7 @@
 
         function sustainBudget() {
 
-            const promedio = (promedio2() / promedio1());;
+            const promedio = ((promedio2() / promedio1())) * 100;
             $("#percentage_budget_sustainability").val(promedio);
         }
 
@@ -229,8 +229,8 @@
             const total_administrativos = parseFloat($("#number_administrative_staff__a").val());
             const total_ground = parseFloat($("#total_ground").val());
             const total_area = parseFloat($("#total_area").val());
-            const value = ((total_area - total_ground) / (total_academicos + total_administrativos +
-                total_alumnos)) * 100;
+            const value = (total_area - total_ground) / (total_academicos + total_administrativos +
+                total_alumnos);
             $("#population_index_open_spaces").val(value);
         }
 

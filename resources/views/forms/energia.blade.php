@@ -35,6 +35,56 @@
                 ])
             @endif
         @endforeach
+        <br><br>
+        <p>* <b>Tabla propuesta por Woo y Choi (2023)</b></p>
+        <table>
+            <tr>
+                <th>Alcances</th>
+                <th>Datos de emisiones</th>
+                <th>Definición</th>
+            </tr>
+            <tr>
+                <td rowspan="4">1</td>
+                <td>Combustión estacionaria</td>
+                <td>La combustion estacionaria se refiere a la quema de combustibles para producir electricidad, vapor y calor en lugar fijo, como calderas, quemadores, calentadores, hornos y motores.</td>
+                </td>
+            </tr>
+            <tr>    
+                <td>Combustión móvil</td>
+                <td>Quema de combustible mediante medios de transporte propiedad de la institución.</td>
+            </tr>
+            <tr>
+                <td>Emisiones de proceso</td>
+                <td>Emisiones directas de gases de efecto invernadero (GEI) provenientes de procesos físicos o químicos en lugar de la quema de combustibles</td>   
+            </tr> 
+            <tr>
+                <td>Emisiones fugitivas</td>
+                <td>Liberaciones de hidrofluorocarbonos durante el uso de equipos de refrigeración y aire acondicionado y fugas de metano durante el transporte de gas natural</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Electricidad comprada</td>
+                <td>Las emisiones indirectas de GEI resultan de la generación de electricidad comprada y utilizada por la institución</td>
+            </tr>
+            <tr>
+                <td rowspan="4">3</td>
+                <td>Desperdicios</td>
+                <td>Emisiones indirectas de GEI resultantes de la incineración o vertedero de residuos sólidos de su institución</td>
+            </tr>
+            <tr>
+                <td>Residuos comprados</td>
+                <td>Emisiones indirectas de GEI resultantes de la generación de agua potable comprada y utilizada por la institución</td>
+            </tr>
+            <tr>
+                <td>Desplazamientos</td>
+                <td>Emisiones indirectas de GEI resultantes de los desplazamientos regulares desde y hacia las instituciones por parte de estudiantes y empleados (es decir, reducción de los desplazamientos regulares mediante el uso de vehículos compartidos)</td>
+            </tr>
+            <tr>
+                <td>Viaje aéreo</td>
+                <td>Emisiones indirectas de GEI resultantes de viajes aéreos pagados por instituciones (es decir, reducción del número de oportunidades de viajes aéreos para el personal)</td>
+            </tr>                             
+        </table>
+        
         <input type="number" style="display:none;" name="greenhouse_gas_emission_program" id="greenhouse_gas_emission_program">
         <input type="number" style="display:none;" name="carbon_footprint" id="carbon_footprint">
 
@@ -169,7 +219,7 @@
             var sustainable = {{ $a15 }};
 
             if (!isNaN(total) && !isNaN(sustainable)) {
-                var percentage = (sustainable / total) * 100;
+                var percentage = ( total / sustainable) * 100;
                 $('#percentage_smart_buildings').val(percentage);
             }
         }
@@ -275,7 +325,7 @@
             const a23 = {{ $a23 }};
             const a24 = {{ $a24 }};
             const a315 = parseFloat($('#total_electricity_consumption__sumatory__1').val());
-            const calculation = a315 / (a21 + a23 + a24) * 100;
+            const calculation = a315 / (a21 + a23 + a24);
             if (isNaN(calculation) || !isFinite(calculation)) {
                 $('#electricity_consumption_per_person').val(0);
                 return;
@@ -342,7 +392,7 @@
                     suma += valor;
                 }
             });
-            var promedy = suma / elementos.length;
+            var promedy = suma / 12;
 
             $('#total_electricity_consumption__sumatory__1').val(suma);
             $('#total_electricity_consumption__promedy__1').val(promedy);
@@ -381,7 +431,7 @@
                     suma += valor;
                 }
             });
-            var promedy = suma / elementos.length;
+            var promedy = suma / 12;
 
             $('#total_electricity_consumption__sumatory__2').val(suma);
             $('#total_electricity_consumption__promedy__2').val(promedy);

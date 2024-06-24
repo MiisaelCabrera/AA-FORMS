@@ -112,9 +112,9 @@
         }
 
         function calculatePercentageBuildingMaintenance() {
-            const area_total = parseFloat($("#area_total").val());
+            const area_buildings = parseFloat($("#area_buildings").val());
             const area_building_maintenance = parseFloat($("#area_building_maintenance").val());
-            const percentage_building_maintenance = (area_building_maintenance / area_total) * 100;
+            const percentage_building_maintenance = (area_building_maintenance / area_buildings) * 100;
             $("#percentage_building_maintenance").val(percentage_building_maintenance);
         }
 

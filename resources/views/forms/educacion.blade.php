@@ -77,7 +77,7 @@
             a83 = parseFloat($("#courses__sumatory__1").val());
             a84 = parseFloat($("#environmental_courses__g").val());
 
-            var promedio = a83 / a84 * 100;
+            var promedio = a84 / a83 * 100;
             if(isNaN(promedio) || !isFinite(promedio)){
                 promedio = 0;
             } 
