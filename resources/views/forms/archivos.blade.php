@@ -19,6 +19,13 @@
                     <option value="{{ $entity->id }}">{{ $entity->name }}</option>
                 @endforeach
             </select>
+
+            <label for="file">Selecciona la categoría</label>
+                <select name="categories" id="categories">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
         </div>
         <button class="submit">Subir</button>
     </form>
